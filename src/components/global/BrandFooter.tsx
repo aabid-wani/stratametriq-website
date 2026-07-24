@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ShieldCheck, Send, Package, Linkedin, Terminal, Heart, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Send, Package, Linkedin, ShoppingCart, Terminal, Heart, CheckCircle2 } from "lucide-react";
 import { FOOTER_NAVIGATION } from "@/config/brandNavigation";
 
 export default function BrandFooter() {
@@ -76,6 +76,9 @@ export default function BrandFooter() {
             <div className="flex items-center space-x-3 pt-3 text-gray-400">
               <a href="https://www.npmjs.com/package/@stratametriq/id-card-designer" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:text-white transition-colors" title="NPM Package">
                 <Package className="w-4 h-4" />
+              </a>
+              <a href="https://waniabid.gumroad.com/l/id-card-designer-pro" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:text-white transition-colors" title="Buy Commercial License on Gumroad">
+                <ShoppingCart className="w-4 h-4" />
               </a>
               <a href="https://www.linkedin.com/in/aabid-hussain-56b1b2191/" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:text-white transition-colors" title="LinkedIn">
                 <Linkedin className="w-4 h-4" />
