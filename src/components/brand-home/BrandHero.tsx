@@ -37,16 +37,15 @@ export default function BrandHero() {
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
-            Engineering the Next Generation of{" "}
+            Next-Generation Tooling for{" "}
             <span className="bg-gradient-to-r from-electric-400 via-neon-cyan to-neon-purple bg-clip-text text-transparent text-glow-blue">
-              Architecture Intelligence
-            </span>{" "}
-            & Turnkey UI Suites.
+              Ambitious Engineering Teams.
+            </span>
           </h1>
 
           {/* Value Prop Description */}
           <p className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-normal">
-            We build high-impact enterprise developer suites under the unified <span className="text-white font-semibold">StrataMetriq</span> parent brand. From zero-exfiltration polyglot AST audit graphs inside VS Code to turnkey multi-page A4 cut-sheet ID card engines on NPM.
+            <span className="text-white font-semibold">StrataMetriq</span> engineers world-class developer suites. Deploy zero-exfiltration AST audits in VS Code, or integrate our turnkey multi-page A4 ID card engine directly via NPM.
           </p>
 
           {/* Action Call-to-Actions */}
