@@ -234,6 +234,7 @@ await generateIdCardsPdf({
                     <li><a href="#json-schema" className="hover:text-electric-400 transition-colors block">5. JSON Template Schema (`templateSchema`)</a></li>
                     <li><a href="#multi-framework" className="hover:text-electric-400 transition-colors block">6. Vue, Angular & Vanilla JS Mounting</a></li>
                     <li><a href="#dictionary-pattern" className="hover:text-electric-400 transition-colors block">7. Multi-Department Dictionary & App Structure</a></li>
+                    <li><a href="#id-card-faq" className="hover:text-electric-400 transition-colors block">8. Enterprise FAQ & Security</a></li>
                   </>
                 )}
 
@@ -780,6 +781,39 @@ await generateIdCardsPdf({
                     <pre className="p-4 text-gray-200 overflow-x-auto leading-relaxed">
                       <code>{idCardVueAngularMountSnippet}</code>
                     </pre>
+                  </div>
+                </div>
+
+                {/* Section 8: FAQ & Security */}
+                <div id="id-card-faq" className="space-y-6 scroll-mt-28 pt-6 border-t border-glass">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center">
+                    <ShieldAlert className="w-6 h-6 mr-2 text-neon-emerald" /> 8. Enterprise FAQ & Security
+                  </h2>
+                  <div className="space-y-6">
+                    <div className="space-y-2">
+                      <h4 className="font-bold text-white">Q: Why should my company use this instead of a design tool like Canva?</h4>
+                      <p className="text-gray-400"><strong>A:</strong> Canva is a manual design tool; our software is an <strong>automation pipeline</strong>. If a school has 1,000 students, using a consumer design app requires HR to manually type 1,000 names, crop 1,000 photos, generate 1,000 QR codes, and manually align them on A4 paper (80+ hours of work). By embedding <code>@stratametriq/id-card-designer</code> directly into your ERP, your users click one "Batch Print" button. Our engine pulls the data from your database, maps the variables, generates 1,000 QR codes, calculates the A4 cut-sheet math, and spits out a 112-page PDF in exactly 3 seconds.</p>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="font-bold text-white">Q: Our non-technical HR team doesn't know how to code. How do they use this?</h4>
+                      <p className="text-gray-400"><strong>A:</strong> They will never see a single line of code! Your engineering team installs our NPM package into your codebase just once. From that point on, your non-technical users get a beautiful, intuitive visual dashboard inside your app to drag-and-drop elements and manage batches.</p>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="font-bold text-white">Q: Is our sensitive employee data sent to your servers?</h4>
+                      <p className="text-gray-400"><strong>A:</strong> No. Our library runs 100% <strong>Client-Side</strong> in the browser. When your users generate ID cards, the data never leaves their local machine, ensuring full GDPR and data privacy compliance.</p>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="font-bold text-white">Q: Is it white-labeled?</h4>
+                      <p className="text-gray-400"><strong>A:</strong> Yes, the Commercial Enterprise license allows you to completely remove all Stratametriq branding. Your customers will assume you built this incredible feature from scratch!</p>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="font-bold text-white">Q: How do I know this NPM package isn't malware that will hack our ERP?</h4>
+                      <p className="text-gray-400"><strong>A:</strong> Our codebase is 100% unminified and transparent. Your security engineers can read every line of code. Furthermore, our engine makes <strong>zero network requests</strong> (no "phone home" APIs) and runs entirely client-side. It has no access to your backend servers, database, or environment variables, making data exfiltration impossible.</p>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="font-bold text-white">Q: What does my engineering team need in order to install this?</h4>
+                      <p className="text-gray-400"><strong>A:</strong> The prerequisites are simple: A Node.js environment, a modern package manager (npm, yarn, or pnpm), and a frontend application running React 17/18 or Next.js (Vue/Angular require a React adapter).</p>
+                    </div>
                   </div>
                 </div>
               </>

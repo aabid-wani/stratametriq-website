@@ -20,7 +20,7 @@ export default function ProductPricingPage({ params }: PricingPageProps) {
     return notFound();
   }
 
-  const faqs = [
+  let faqs = [
     {
       q: "Can I use the Community Open License in a commercial company?",
       a: "Yes! The Community VSIX and MIT licenses allow developers to use the software in their daily development workflows. However, for proprietary corporate ERP distribution, white-labeling, or automated CI/CD gating pipelines, the Pro Commercial License is required."
@@ -34,6 +34,35 @@ export default function ProductPricingPage({ params }: PricingPageProps) {
       a: "Absolutely. Under the Enterprise tier, our Solutions Architects provide custom AST rule parser generation, 24/7 priority support (< 2 hour response), and custom procurement/indemnification terms."
     }
   ];
+
+  if (product.id === "id-card-designer") {
+    faqs = [
+      {
+        q: "Why should my company use this instead of a design tool like Canva?",
+        a: "Canva is a manual design tool; our software is an automation pipeline. If a school has 1,000 students, using a consumer design app requires HR to manually type 1,000 names, crop 1,000 photos, generate 1,000 QR codes, and manually align them on A4 paper (80+ hours of work). By embedding @stratametriq/id-card-designer directly into your ERP, your users click one 'Batch Print' button. Our engine pulls the data from your database, maps the variables, generates 1,000 QR codes, calculates the A4 cut-sheet math, and spits out a 112-page PDF in exactly 3 seconds."
+      },
+      {
+        q: "Our non-technical HR team doesn't know how to code. How do they use this?",
+        a: "They will never see a single line of code! Your engineering team installs our NPM package into your codebase just once. From that point on, your non-technical users get a beautiful, intuitive visual dashboard inside your app to drag-and-drop elements and manage batches."
+      },
+      {
+        q: "Is our sensitive employee data sent to your servers?",
+        a: "No. Our library runs 100% Client-Side in the browser. When your users generate ID cards, the data never leaves their local machine, ensuring full GDPR and data privacy compliance."
+      },
+      {
+        q: "Is it white-labeled?",
+        a: "Yes, the Commercial Enterprise license allows you to completely remove all Stratametriq branding. Your customers will assume you built this incredible feature from scratch!"
+      },
+      {
+        q: "How do I know this NPM package isn't malware that will hack our ERP?",
+        a: "Our codebase is 100% unminified and transparent. Your security engineers can read every line of code. Furthermore, our engine makes zero network requests (no 'phone home' APIs) and runs entirely client-side. It has no access to your backend servers, database, or environment variables, making data exfiltration impossible."
+      },
+      {
+        q: "What does my engineering team need in order to install this?",
+        a: "The prerequisites are simple: A Node.js environment, a modern package manager (npm, yarn, pnpm), and a frontend application running React 17/18 or Next.js (Vue/Angular require a React adapter)."
+      }
+    ];
+  }
 
   return (
     <div className="min-h-screen bg-obsidian pb-20">
