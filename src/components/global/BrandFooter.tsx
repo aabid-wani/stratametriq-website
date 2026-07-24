@@ -165,9 +165,17 @@ export default function BrandFooter() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-glass flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
           <p>© {new Date().getFullYear()} StrataMetriq Inc. All rights reserved.</p>
-          <div className="flex items-center space-x-2 mt-4 sm:mt-0 font-mono text-[11px]">
-            <Terminal className="w-3.5 h-3.5 text-electric-400" />
-            <span>Developed by Aabid Hussain Wani</span>
+          <div className="flex items-center space-x-2 mt-4 sm:mt-0">
+            <span className="text-gray-500">Developed by</span>
+            <a 
+              href="https://www.linkedin.com/in/aabid-hussain-56b1b2191/" 
+              target="_blank" 
+              rel="noreferrer"
+              className="group flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-electric-500/10 border border-electric-500/30 text-electric-400 hover:bg-electric-500/20 hover:border-electric-400 transition-all shadow-[0_0_10px_rgba(14,165,233,0.2)] hover:shadow-[0_0_15px_rgba(14,165,233,0.4)]"
+            >
+              <Terminal className="w-3.5 h-3.5 group-hover:text-white transition-colors" />
+              <span className="font-semibold tracking-wide group-hover:text-white transition-colors">Aabid Hussain Wani</span>
+            </a>
           </div>
         </div>
       </div>
