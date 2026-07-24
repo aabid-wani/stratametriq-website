@@ -167,7 +167,7 @@ export default function BrandFooter() {
           <p>© {new Date().getFullYear()} StrataMetriq Inc. All rights reserved.</p>
           <div className="flex items-center space-x-2 mt-4 sm:mt-0 font-mono text-[11px]">
             <Terminal className="w-3.5 h-3.5 text-electric-400" />
-            <span>Architecture Blueprint v1.4.4 • Built with Next.js & Obsidian Glass</span>
+            <span>Developed by Aabid Hussain Wani</span>
           </div>
         </div>
       </div>
