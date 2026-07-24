@@ -42,7 +42,9 @@ export default function ProductPricingCards({ product }: ProductPricingCardsProp
     {
       name: "Pro Commercial License",
       price: product.pricingSummary.pro,
-      description: "Recommended for commercial SaaS teams, proprietary ERP products, and automated CI/CD gating pipelines.",
+      description: isVsix 
+        ? "Recommended for commercial SaaS teams, proprietary ERP products, and automated CI/CD gating pipelines." 
+        : "Recommended for School ERPs, SaaS teams, and internal HR portals needing batch generation.",
       badge: "Most Popular",
       highlighted: true,
       features: isVsix
@@ -66,19 +68,30 @@ export default function ProductPricingCards({ product }: ProductPricingCardsProp
       href: product.id === "id-card-designer" ? "https://waniabid.gumroad.com/l/id-card-designer-pro" : "/enterprise?plan=pro",
     },
     {
-      name: "Enterprise Architecture & SLA",
+      name: isVsix ? "Enterprise Architecture & SLA" : "Enterprise Suite",
       price: product.pricingSummary.enterprise,
-      description: "Dedicated architecture audits, custom AST rule extensions, and enterprise-wide deployment agreements.",
-      badge: "Custom Governance",
+      description: isVsix 
+        ? "Dedicated architecture audits, custom AST rule extensions, and enterprise-wide deployment agreements."
+        : "For large corporate conglomerates requiring custom feature consulting and priority integration.",
+      badge: isVsix ? "Custom Governance" : "Enterprise Grade",
       highlighted: false,
-      features: [
-        "Unlimited developer seats across your entire organization",
-        "Custom AST polyglot parser development (Java, C++, Rust)",
-        "Turnkey UI custom engine modifications & white-labeling",
-        "Dedicated Solutions Architect & quarterly reviews",
-        "24/7 Priority SLA response time (< 2 hours)",
-        "Custom procurement & legal indemnification agreement"
-      ],
+      features: isVsix
+        ? [
+            "Unlimited developer seats across your entire organization",
+            "Custom AST polyglot parser development (Java, C++, Rust)",
+            "Turnkey UI custom engine modifications & white-labeling",
+            "Dedicated Solutions Architect & quarterly reviews",
+            "24/7 Priority SLA response time (< 2 hours)",
+            "Custom procurement & legal indemnification agreement"
+          ]
+        : [
+            "Unlimited developer seats across your entire organization",
+            "Custom PDF layout generation & barcode consulting",
+            "Turnkey UI custom engine modifications & white-labeling",
+            "Dedicated Solutions Architect & quarterly reviews",
+            "24/7 Priority SLA response time (< 2 hours)",
+            "Custom procurement & legal indemnification agreement"
+          ],
       cta: product.id === "id-card-designer" ? "Buy Enterprise Suite" : "Contact Enterprise Sales",
       href: product.id === "id-card-designer" ? "https://waniabid.gumroad.com/l/id-card-designer-pro" : "/enterprise?plan=enterprise",
     }
