@@ -62,8 +62,8 @@ export default function ProductPricingCards({ product }: ProductPricingCardsProp
             "White-label branding (Remove StrataMetriq watermarks)",
             "Priority engineering email support & bug fixes"
           ],
-      cta: "Get Pro Commercial License",
-      href: "/enterprise?plan=pro",
+      cta: product.id === "id-card-designer" ? "Buy Commercial License" : "Get Pro Commercial License",
+      href: product.id === "id-card-designer" ? "https://waniabid.gumroad.com/l/id-card-designer-pro" : "/enterprise?plan=pro",
     },
     {
       name: "Enterprise Architecture & SLA",
@@ -79,8 +79,8 @@ export default function ProductPricingCards({ product }: ProductPricingCardsProp
         "24/7 Priority SLA response time (< 2 hours)",
         "Custom procurement & legal indemnification agreement"
       ],
-      cta: "Contact Enterprise Sales",
-      href: "/enterprise?plan=enterprise",
+      cta: product.id === "id-card-designer" ? "Buy Enterprise Suite" : "Contact Enterprise Sales",
+      href: product.id === "id-card-designer" ? "https://waniabid.gumroad.com/l/id-card-designer-pro" : "/enterprise?plan=enterprise",
     }
   ];
 

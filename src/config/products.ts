@@ -47,7 +47,7 @@ export const STRATAMETRIQ_PRODUCTS: StratametriqProduct[] = [
     description: "Equipped with multi-department tabs, live sheet matrix math (3×3 = 9 cards/page), handlebars variable binding (`{{name}}`), and CSV import across React, Vue, Angular & Vanilla JS.",
     category: "Turnkey UI & PDF",
     status: "Live",
-    badge: "v1.3.0",
+    badge: "v1.4.1",
     downloadsCount: "2,000+",
     href: "/products/id-card-designer",
     iconName: "Layout",
@@ -56,8 +56,8 @@ export const STRATAMETRIQ_PRODUCTS: StratametriqProduct[] = [
     installCommand: "npm install @stratametriq/id-card-designer",
     pricingSummary: { 
       community: "Free MIT", 
-      pro: "$399 - $1,499 / Year", 
-      enterprise: "$3,499 / Year" 
+      pro: "$49 - $149 / Perpetual", 
+      enterprise: "$499 / Perpetual" 
     }
   },
   {
