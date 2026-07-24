@@ -21,19 +21,19 @@ export const FOOTER_NAVIGATION = {
   })),
   ecosystem: [
     { name: "All Products Hub", href: "/products" },
+    { name: "ID Card Designer (NPM)", href: "https://www.npmjs.com/package/@stratametriq/id-card-designer" },
+    { name: "Buy Commercial License", href: "https://waniabid.gumroad.com/l/id-card-designer-pro" },
     { name: "Interactive Simulators", href: "/#demos" },
-    { name: "VS Code Marketplace VSIX", href: "/products/architecture-intelligence" },
-    { name: "NPM Registry Package", href: "/products/id-card-designer" },
   ],
   company: [
     { name: "About StrataMetriq", href: "/" },
     { name: "Roadmap & Releases", href: "/roadmap" },
     { name: "Enterprise Consulting & SLA", href: "/enterprise" },
-    { name: "GitHub Organization", href: "https://github.com/stratametriq" },
+    { name: "GitHub Organization", href: "https://github.com/aabid-wani" },
   ],
   legal: [
-    { name: "Privacy Policy", href: "/#privacy" },
-    { name: "Terms of Service", href: "/#terms" },
-    { name: "Software License Agreements", href: "/#license" },
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms" },
+    { name: "Software License Agreements", href: "/license" },
   ],
 };
