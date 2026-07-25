@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo.png",
   },
+  verification: {
+    google: "zkZJ4D7L6h15ZPC69ZVhzEe1A7GzNFdWlVs_h5fBn7c",
+  },
 };
 
 
