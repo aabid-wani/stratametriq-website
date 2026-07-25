@@ -43,11 +43,11 @@ export default function BrandNavbar() {
           
           {/* Brand Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-electric-600 via-electric-500 to-neon-cyan p-0.5 shadow-glow-blue flex items-center justify-center transition-transform group-hover:scale-105">
-              <div className="w-full h-full bg-obsidian-900 rounded-[10px] flex items-center justify-center">
-                <ShieldCheck className="w-5 h-5 text-electric-400" />
-              </div>
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="StrataMetriq Logo" 
+              className="w-10 h-10 rounded-xl shadow-glow-blue transition-transform group-hover:scale-105 object-contain" 
+            />
             <div>
               <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-gray-100 to-electric-400 bg-clip-text text-transparent">
                 StrataMetriq

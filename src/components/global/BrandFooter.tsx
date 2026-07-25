@@ -28,11 +28,11 @@ export default function BrandFooter() {
           {/* Col 1: Brand & Value Prop */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-electric-600 to-neon-cyan p-0.5 shadow-glow-blue flex items-center justify-center">
-                <div className="w-full h-full bg-obsidian rounded-[10px] flex items-center justify-center">
-                  <ShieldCheck className="w-5 h-5 text-electric-400" />
-                </div>
-              </div>
+              <img 
+                src="/logo.png" 
+                alt="StrataMetriq Logo" 
+                className="w-9 h-9 rounded-xl shadow-glow-blue object-contain" 
+              />
               <span className="text-xl font-bold tracking-tight text-white">
                 StrataMetriq
               </span>

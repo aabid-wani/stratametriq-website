@@ -17,7 +17,11 @@ export const metadata: Metadata = {
     "Developer Tools",
     "AST Graph"
   ],
+  icons: {
+    icon: "/logo.png",
+  },
 };
+
 
 export default function RootLayout({
   children,
