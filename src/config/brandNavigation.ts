@@ -26,14 +26,14 @@ export const FOOTER_NAVIGATION = {
     { name: "Interactive Simulators", href: "/#demos" },
   ],
   company: [
-    { name: "About StrataMetriq", href: "/" },
+    { name: "About StrataMetriq", href: "/about" },
     { name: "Roadmap & Releases", href: "/roadmap" },
     { name: "Enterprise Consulting & SLA", href: "/enterprise" },
     { name: "WhatsApp Connect", href: "https://wa.me/917889877624" },
   ],
   legal: [
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" },
-    { name: "Software License Agreements", href: "#" },
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms" },
+    { name: "Software License Agreements", href: "/license" },
   ],
 };
