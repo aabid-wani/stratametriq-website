@@ -179,7 +179,9 @@ export default function BrandNavbar() {
               All Suites Hub
             </Link>
             <Link
-              href="/products/architecture-intelligence"
+              href="https://www.npmjs.com/settings/stratametriq/packages"
+              target="_blank"
+              rel="noreferrer"
               className="px-4 py-2 text-xs font-bold text-white bg-gradient-to-r from-electric-600 to-electric-500 hover:from-electric-500 hover:to-neon-cyan rounded-xl shadow-glow-blue transition-all flex items-center space-x-1.5"
             >
               <span>Install VSIX / NPM</span>
@@ -239,7 +241,9 @@ export default function BrandNavbar() {
               All Suites Hub
             </Link>
             <Link
-              href="/products/architecture-intelligence"
+              href="https://www.npmjs.com/settings/stratametriq/packages"
+              target="_blank"
+              rel="noreferrer"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full text-center py-2.5 text-sm font-bold rounded-xl bg-electric-600 text-white shadow-glow-blue"
             >

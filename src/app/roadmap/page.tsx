@@ -109,30 +109,22 @@ export default function BrandRoadmapPage() {
           Join our priority engineering waitlist to receive private beta NPM tokens and VS Code VSIX prerelease installers right in your inbox.
         </p>
 
-        {submitted ? (
-          <div className="max-w-md mx-auto p-4 rounded-2xl bg-neon-emerald/10 border border-neon-emerald/30 text-neon-emerald font-bold text-sm flex items-center justify-center space-x-2">
-            <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
-            <span>You have been added to the priority beta waitlist!</span>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row max-w-md mx-auto gap-3">
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="developer@company.com"
-              className="flex-1 px-4 py-3.5 rounded-xl bg-obsidian-950 border border-glass text-white text-sm placeholder-gray-500 focus:outline-none focus:border-electric-400"
-            />
-            <button
-              type="submit"
-              className="px-6 py-3.5 bg-gradient-to-r from-electric-600 to-electric-500 hover:from-electric-500 hover:to-neon-cyan text-white font-bold text-sm rounded-xl shadow-glow-blue flex items-center justify-center space-x-2 transition-all"
-            >
-              <span>Join Waitlist</span>
-              <Send className="w-4 h-4" />
-            </button>
-          </form>
-        )}
+        <form action="https://formspree.io/f/mqerwrka" method="POST" className="flex flex-col sm:flex-row max-w-md mx-auto gap-3">
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="developer@company.com"
+            className="flex-1 px-4 py-3.5 rounded-xl bg-obsidian-950 border border-glass text-white text-sm placeholder-gray-500 focus:outline-none focus:border-electric-400"
+          />
+          <button
+            type="submit"
+            className="px-6 py-3.5 bg-gradient-to-r from-electric-600 to-electric-500 hover:from-electric-500 hover:to-neon-cyan text-white font-bold text-sm rounded-xl shadow-glow-blue flex items-center justify-center space-x-2 transition-all"
+          >
+            <span>Join Waitlist</span>
+            <Send className="w-4 h-4" />
+          </button>
+        </form>
       </div>
     </div>
   );

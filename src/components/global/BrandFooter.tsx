@@ -46,32 +46,23 @@ export default function BrandFooter() {
               <h4 className="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
                 Join 2,500+ Engineers on the Roadmap List
               </h4>
-              {subscribed ? (
-                <div className="flex items-center space-x-2 text-xs text-neon-emerald bg-neon-emerald/10 border border-neon-emerald/30 p-2.5 rounded-xl">
-                  <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
-                  <span>You have been subscribed to early access roadmap updates!</span>
-                </div>
-              ) : (
-                <form onSubmit={handleSubscribe} className="flex max-w-sm space-x-2">
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="developer@company.com"
-                    className="flex-1 px-3.5 py-2 text-xs bg-obsidian-800 border border-glass rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-electric-400 transition-colors"
-                  />
-                  <button
-                    type="submit"
-                    className="px-4 py-2 bg-gradient-to-r from-electric-600 to-electric-500 hover:from-electric-500 hover:to-neon-cyan text-white text-xs font-semibold rounded-xl shadow-glow-blue transition-all flex items-center space-x-1"
-                  >
-                    <span>Join</span>
-                    <Send className="w-3.5 h-3.5 ml-1" />
-                  </button>
-                </form>
-              )}
+              <form action="https://formspree.io/f/mqerwrka" method="POST" className="flex max-w-sm space-x-2">
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="developer@company.com"
+                  className="flex-1 px-3.5 py-2 text-xs bg-obsidian-800 border border-glass rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-electric-400 transition-colors"
+                />
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-gradient-to-r from-electric-600 to-electric-500 hover:from-electric-500 hover:to-neon-cyan text-white text-xs font-semibold rounded-xl shadow-glow-blue transition-all flex items-center space-x-1"
+                >
+                  <span>Join</span>
+                  <Send className="w-3.5 h-3.5 ml-1" />
+                </button>
+              </form>
             </div>
-
             {/* Social Links */}
             <div className="flex items-center space-x-3 pt-3 text-gray-400">
               <a href="https://www.npmjs.com/package/@stratametriq/id-card-designer" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:text-white transition-colors" title="NPM Package">
@@ -133,16 +124,30 @@ export default function BrandFooter() {
               Company
             </h3>
             <ul className="space-y-3">
-              {FOOTER_NAVIGATION.company.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-xs text-gray-400 hover:text-white transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
+              {FOOTER_NAVIGATION.company.map((item) => {
+                const isExternal = !item.href.startsWith("/");
+                return (
+                  <li key={item.name}>
+                    {isExternal ? (
+                      <a
+                        href={item.href}
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                        className="text-xs text-gray-400 hover:text-white transition-colors"
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="text-xs text-gray-400 hover:text-white transition-colors"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
             <h3 className="text-xs font-bold uppercase tracking-wider text-white mt-6 mb-3">
               Legal & SLA
