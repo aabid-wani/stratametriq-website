@@ -23,6 +23,27 @@ export const metadata: Metadata = {
   verification: {
     google: "zkZJ4D7L6h15ZPC69ZVhzEe1A7GzNFdWlVs_h5fBn7c",
   },
+  openGraph: {
+    title: "StrataMetriq | Architecture Intelligence Ecosystem",
+    description: "Architecture Intelligence & DevSecOps inside VS Code/CLI. Test our developer tools via live browser simulators today.",
+    url: "https://stratametriq.com",
+    siteName: "StrataMetriq",
+    images: [
+      {
+        url: "https://stratametriq.com/logo.png",
+        width: 800,
+        height: 800,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "StrataMetriq Ecosystem",
+    description: "Architecture Intelligence & DevSecOps inside VS Code/CLI. Test our developer tools via live browser simulators today.",
+    images: ["https://stratametriq.com/logo.png"],
+  },
 };
 
 
