@@ -4,12 +4,34 @@ import React, { useState } from "react";
 import { ShieldCheck, CheckCircle2, Send, Building2, Lock, Users, Zap, Award } from "lucide-react";
 
 export default function EnterpriseConsultingPage() {
-  const [formData, setFormData] = useState({ name: "", company: "", email: "", message: "", plan: "pro" });
+  const [successData, setSuccessData] = useState({ name: "", company: "" });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    
+    const nameStr = data.get("fullName")?.toString() || "";
+    const companyStr = data.get("company")?.toString() || "your organization";
+
+    try {
+      const response = await fetch("https://formspree.io/f/mqerwrka", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json"
+        },
+        body: data
+      });
+      if (response.ok) {
+        setSuccessData({ name: nameStr, company: companyStr });
+        setSubmitted(true);
+      } else {
+        alert("There was an error submitting the form. Please try again.");
+      }
+    } catch (error) {
+      alert("Network error. Please try again later.");
+    }
   };
 
   return (
@@ -92,83 +114,83 @@ export default function EnterpriseConsultingPage() {
               <CheckCircle2 className="w-16 h-16 text-neon-emerald mx-auto animate-bounce" />
               <h3 className="text-2xl font-bold text-white">Inquiry Received</h3>
               <p className="text-sm text-gray-300 max-w-md mx-auto">
-                Thank you, {formData.name}. Our executive consulting team will review your requirements for {formData.company} and respond within 2 hours.
+                Thank you, {successData.name}. Our executive consulting team will review your requirements for {successData.company} and respond within 2 hours.
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6 text-xs">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="block font-bold text-gray-300 mb-2 uppercase tracking-wider">Your Full Name</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="Marcus Thorne"
-                    className="w-full px-4 py-3 rounded-xl bg-obsidian-950 border border-glass text-white placeholder-gray-500 focus:outline-none focus:border-electric-400"
-                  />
-                </div>
-                <div>
-                  <label className="block font-bold text-gray-300 mb-2 uppercase tracking-wider">Company / Organization</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    placeholder="StrataCorp Engineering"
-                    className="w-full px-4 py-3 rounded-xl bg-obsidian-950 border border-glass text-white placeholder-gray-500 focus:outline-none focus:border-electric-400"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="block font-bold text-gray-300 mb-2 uppercase tracking-wider">Work Email</label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="m.thorne@stratacorp.com"
-                    className="w-full px-4 py-3 rounded-xl bg-obsidian-950 border border-glass text-white placeholder-gray-500 focus:outline-none focus:border-electric-400"
-                  />
-                </div>
-                <div>
-                  <label className="block font-bold text-gray-300 mb-2 uppercase tracking-wider">Inquiry Topic</label>
-                  <select
-                    value={formData.plan}
-                    onChange={(e) => setFormData({ ...formData, plan: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-obsidian-950 border border-glass text-white focus:outline-none focus:border-electric-400"
-                  >
-                    <option value="pro">Pro Commercial License Inquiry</option>
-                    <option value="enterprise">Enterprise Seat Bundle & Custom SLA</option>
-                    <option value="custom_ast">Custom Polyglot AST Rule Extension</option>
-                    <option value="whitelabel">Turnkey UI & PDF Engine White-Labeling</option>
-                  </select>
-                </div>
-              </div>
-
+          <form onSubmit={handleSubmit} className="space-y-6 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <label className="block font-bold text-gray-300 mb-2 uppercase tracking-wider">Message / Project Requirements</label>
-                <textarea
-                  rows={4}
+                <label className="block font-bold text-gray-300 mb-2 uppercase tracking-wider">Your Full Name</label>
+                <input
+                  type="text"
+                  name="fullName"
                   required
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Describe your architecture stack, team size, or turnkey UI deployment goals..."
-                  className="w-full px-4 py-3 rounded-xl bg-obsidian-950 border border-glass text-white placeholder-gray-500 focus:outline-none focus:border-electric-400"
+                  placeholder="Marcus Thorne"
+                  className="w-full px-4 py-3 rounded-xl border border-glass focus:outline-none focus:ring-2 focus:ring-electric-400"
+                  style={{ color: "#000000", backgroundColor: "#ffffff" }}
                 />
               </div>
+              <div>
+                <label className="block font-bold text-gray-300 mb-2 uppercase tracking-wider">Company / Organization</label>
+                <input
+                  type="text"
+                  name="company"
+                  required
+                  placeholder="StrataCorp Engineering"
+                  className="w-full px-4 py-3 rounded-xl border border-glass focus:outline-none focus:ring-2 focus:ring-electric-400"
+                  style={{ color: "#000000", backgroundColor: "#ffffff" }}
+                />
+              </div>
+            </div>
 
-              <button
-                type="submit"
-                className="w-full py-4 bg-gradient-to-r from-electric-600 via-electric-500 to-neon-cyan hover:from-electric-500 hover:to-neon-cyan text-white text-sm font-bold rounded-xl shadow-glow-blue flex items-center justify-center space-x-2 transition-all"
-              >
-                <span>Submit Enterprise Request</span>
-                <Send className="w-4 h-4" />
-              </button>
-            </form>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label className="block font-bold text-gray-300 mb-2 uppercase tracking-wider">Work Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="m.thorne@stratacorp.com"
+                  className="w-full px-4 py-3 rounded-xl border border-glass focus:outline-none focus:ring-2 focus:ring-electric-400"
+                  style={{ color: "#000000", backgroundColor: "#ffffff" }}
+                />
+              </div>
+              <div>
+                <label className="block font-bold text-gray-300 mb-2 uppercase tracking-wider">Inquiry Topic</label>
+                <select
+                  name="topic"
+                  className="w-full px-4 py-3 rounded-xl border border-glass focus:outline-none focus:ring-2 focus:ring-electric-400"
+                  style={{ color: "#000000", backgroundColor: "#ffffff" }}
+                >
+                  <option value="pro" style={{ color: "#000000" }}>Pro Commercial License Inquiry</option>
+                  <option value="enterprise" style={{ color: "#000000" }}>Enterprise Seat Bundle & Custom SLA</option>
+                  <option value="custom_ast" style={{ color: "#000000" }}>Custom Polyglot AST Rule Extension</option>
+                  <option value="whitelabel" style={{ color: "#000000" }}>Turnkey UI & PDF Engine White-Labeling</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label className="block font-bold text-gray-300 mb-2 uppercase tracking-wider">Message / Project Requirements</label>
+              <textarea
+                name="message"
+                rows={4}
+                required
+                placeholder="Describe your architecture stack, team size, or turnkey UI deployment goals..."
+                className="w-full px-4 py-3 rounded-xl border border-glass focus:outline-none focus:ring-2 focus:ring-electric-400"
+                style={{ color: "#000000", backgroundColor: "#ffffff" }}
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-4 bg-gradient-to-r from-electric-600 via-electric-500 to-neon-cyan hover:from-electric-500 hover:to-neon-cyan text-white text-sm font-bold rounded-xl shadow-glow-blue flex items-center justify-center space-x-2 transition-all"
+            >
+              <span>Submit Enterprise Request</span>
+              <Send className="w-4 h-4" />
+            </button>
+          </form>
           )}
         </div>
       </div>
