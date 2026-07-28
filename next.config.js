@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   
+  // Fix 404 errors on static hosts (like GitHub Pages) by exporting /page/index.html instead of /page.html
+  trailingSlash: true,
+  
   // REQUIRED FOR GITHUB PAGES: Tell Next.js to generate static HTML into an "out" folder
   output: "export",
   
