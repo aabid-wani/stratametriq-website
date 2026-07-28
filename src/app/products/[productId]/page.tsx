@@ -2,6 +2,7 @@
 
 import React from "react";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { STRATAMETRIQ_PRODUCTS } from "@/config/products";
 import ProductHero from "@/components/product-page/ProductHero";
 import InstallTabBox from "@/components/product-page/InstallTabBox";
@@ -35,6 +36,16 @@ export default function ProductLandingPage({ params }: ProductPageProps) {
         {/* Quick Install Command Box */}
         <div id="install">
           <InstallTabBox installCommand={product.installCommand} productName={product.name} />
+          <div className="mt-6 flex justify-center">
+            <Link 
+              href={`/products/${product.id}/docs`} 
+              className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-obsidian-900 border border-glass hover:bg-obsidian-800 hover:border-electric-500/50 text-sm font-bold text-white transition-all group"
+            >
+              <BookOpen className="w-4 h-4 text-electric-400 group-hover:scale-110 transition-transform" />
+              <span>Read Official Documentation</span>
+              <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-white group-hover:translate-x-1 transition-all" />
+            </Link>
+          </div>
         </div>
 
         {/* Live Interactive Simulator Section tailored for this product */}
