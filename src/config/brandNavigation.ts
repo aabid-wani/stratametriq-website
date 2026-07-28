@@ -10,6 +10,7 @@ export interface NavItem {
 export const MAIN_NAV_ITEMS: NavItem[] = [
   { label: "Products", href: "/products", isMegaMenu: true },
   { label: "Roadmap", href: "/roadmap", badge: "New Launches" },
+  { label: "Changelog", href: "/changelog" },
   { label: "Enterprise", href: "/enterprise" },
 ];
 
@@ -28,6 +29,7 @@ export const FOOTER_NAVIGATION = {
   company: [
     { name: "About StrataMetriq", href: "/about" },
     { name: "Roadmap & Releases", href: "/roadmap" },
+    { name: "Changelog", href: "/changelog" },
     { name: "Enterprise Consulting & SLA", href: "/enterprise" },
     { name: "WhatsApp Connect", href: "https://wa.me/917889877624" },
   ],
