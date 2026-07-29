@@ -53,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark scroll-smooth scroll-pt-24">
       <body className="bg-obsidian text-foreground min-h-screen flex flex-col antialiased selection:bg-electric-600 selection:text-white">
         <BrandNavbar />
         <main className="flex-1 w-full">{children}</main>

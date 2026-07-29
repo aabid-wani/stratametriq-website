@@ -13,8 +13,15 @@ export type DocMetaData = {
   description: string
 }
 
+export type HeadingData = {
+  text: string
+  level: number
+  id: string
+}
+
 export type DocData = DocMetaData & {
   contentHtml: string
+  headings: HeadingData[]
 }
 
 export async function getDocData(id: string): Promise<DocData | null> {
@@ -34,12 +41,26 @@ export async function getDocData(id: string): Promise<DocData | null> {
     .use(html)
     .process(matterResult.content)
   
-  const contentHtml = processedContent.toString()
+  let contentHtml = processedContent.toString()
+
+  const headings: HeadingData[] = []
+  
+  // Replace HTML headings to inject IDs and collect them for the sidebar
+  contentHtml = contentHtml.replace(/<h([1-6])>(.*?)<\/h\1>/g, (match, levelStr, text) => {
+    const level = parseInt(levelStr, 10);
+    // Basic slugification: remove tags, lowercase, hyphenate
+    const rawText = text.replace(/<[^>]+>/g, '').trim();
+    const slugId = rawText.toLowerCase().replace(/[^\w]+/g, '-').replace(/(^-|-$)/g, '');
+    
+    headings.push({ text: rawText, level, id: slugId });
+    return `<h${level} id="${slugId}">${text}</h${level}>`;
+  });
 
   // Combine the data with the id and contentHtml
   return {
     id,
     contentHtml,
+    headings,
     ...(matterResult.data as { title: string; date: string; description: string }),
   }
 }
