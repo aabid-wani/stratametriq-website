@@ -1,12 +1,24 @@
 "use client";
 
 import React, { useState } from "react";
-import { History, Box, Send, FileCode2 } from "lucide-react";
+import { History, Box, Send, FileCode2, ShieldCheck, Terminal } from "lucide-react";
 
 export default function ChangelogPage() {
   const [filter, setFilter] = useState("All");
 
   const changelogData = [
+    {
+      version: "v1.4.1",
+      date: "July 29, 2026",
+      product: "Architecture Intelligence",
+      icon: <ShieldCheck className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Added", text: "Full-Stack Enterprise Polyglot Support: Native AST parsing for Python, Java, Kotlin, Go, C#, and more." },
+        { type: "Added", text: "Cross-Stack Vertical Flow Tracing: Traces frontend API calls directly into backend framework endpoints." },
+        { type: "Changed", text: "Improved DFS cycle detection algorithm for circular dependency detection." },
+        { type: "Fixed", text: "Resolved a false positive in the secret detection engine for variables ending in _URL." }
+      ]
+    },
     {
       version: "v1.5.0",
       date: "July 28, 2026",
@@ -27,6 +39,16 @@ export default function ChangelogPage() {
       features: [
         { type: "Added", text: "Initial documented release of the Turnkey Dashboard (<IdCardManager />)." },
         { type: "Added", text: "Core HTML2Canvas and jsPDF high-resolution rendering engine." }
+      ]
+    },
+    {
+      version: "v1.3.0",
+      date: "June 15, 2026",
+      product: "Architecture Intelligence",
+      icon: <Terminal className="w-6 h-6 text-neon-cyan" />,
+      features: [
+        { type: "Added", text: "Interactive VS Code Extension: First release of the interactive developer UI with real-time editor sync." },
+        { type: "Added", text: "13-Point Safety Audit: Shipped the automated DevSecOps pre-deployment audit engine." }
       ]
     }
   ];
@@ -68,6 +90,12 @@ export default function ChangelogPage() {
                 className={`text-left px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${filter === "ID Card Designer" ? "bg-electric-600/20 text-electric-400 border border-electric-500/30" : "text-gray-400 hover:text-white hover:bg-white/5"}`}
               >
                 ID Card Designer
+              </button>
+              <button 
+                onClick={() => setFilter("Architecture Intelligence")}
+                className={`text-left px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${filter === "Architecture Intelligence" ? "bg-electric-600/20 text-electric-400 border border-electric-500/30" : "text-gray-400 hover:text-white hover:bg-white/5"}`}
+              >
+                Architecture Intelligence
               </button>
             </div>
           </div>
