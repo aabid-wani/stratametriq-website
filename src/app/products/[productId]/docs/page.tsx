@@ -53,7 +53,7 @@ export default async function ProductDocsPage({ params }: Props) {
           <span>Back to Product Overview</span>
         </Link>
         
-        <div className="mt-8 max-h-[75vh] overflow-y-auto custom-scrollbar pr-6 pb-10">
+        <div className="mt-8 lg:max-h-[75vh] lg:overflow-y-auto custom-scrollbar lg:pr-6 pb-10 w-full overflow-x-hidden lg:overflow-x-visible">
           <div 
             className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-electric-400 hover:prose-a:text-electric-300 prose-code:text-neon-cyan prose-code:bg-obsidian-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-pre:bg-obsidian-900 prose-pre:border prose-pre:border-glass prose-img:rounded-xl prose-img:border prose-img:border-glass"
             dangerouslySetInnerHTML={{ __html: docData.contentHtml }} 
