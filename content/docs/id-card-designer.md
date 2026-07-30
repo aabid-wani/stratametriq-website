@@ -141,10 +141,41 @@ For detailed documentation, framework-specific guides (Vue, Angular), and advanc
 <details>
 <summary><b>Click here to view the full technical documentation</b></summary>
 
-### What's New in v1.5.0
-- **Dedicated Bulk CSV Import Workspace**: Uploading a `.csv` file now creates a pristine "Imported Data" workspace.
-- **Expanded Printing Dimensions**: Native support for A3, A4, A5, US Letter, and US Legal paper sheets.
-- **Flawless Landscape PDF Scaling**: Rewrote core engine logic for perfect hardware crop marks.
+### 📜 Full Release Changelog
+
+**v1.5.0 (July 28, 2026)**
+- **Added:** Bulk CSV Import Dashboard: Click the 'Import CSV' button to automatically create a dedicated 'Imported Data' workspace tab.
+- **Added:** Dynamic Field Definitions: Extracts column headers and generates dynamic text fields for the Property Inspector.
+- **Added:** Advanced Paper Dimensions: Full mathematical rendering support for A3, A4, A5, US Letter, and US Legal paper sheets.
+- **Fixed:** Landscape PDF Scaling Fix: Resolved jspdf engine bug where hardware crop marks lost landscape rotation constraints.
+
+**v1.4.3 (July 25, 2026)**
+- **Added:** Initial documented release of the Turnkey Dashboard (`<IdCardManager />`).
+- **Added:** Core HTML2Canvas and jsPDF high-resolution rendering engine.
+
+**v1.4.2 (July 20, 2026)**
+- **Added:** Drag-and-Drop Bounding Boxes: Introduced visual snapping handles for resizing elements on the canvas.
+- **Fixed:** Resolved a custom Google Font loading timeout that caused text rendering glitches on slow networks.
+
+**v1.4.1 (July 12, 2026)**
+- **Added:** Undo / Redo History Stack: Full tracking of canvas actions using Ctrl+Z and Ctrl+Y shortcuts.
+- **Added:** Keyboard Nudging: Use arrow keys for 1px precise element alignment (Hold Shift for 5px jumps).
+
+**v1.4.0 (July 5, 2026)**
+- **Added:** Dedicated Image Property Inspector: New controls for Object Fit (cover, contain, scale-down).
+- **Added:** Avatar Styling: Instant Corner Radius toggles for Circular vs Square profile photos with custom CSS borders.
+
+**v1.2.0 (June 25, 2026)**
+- **Added:** Grid Snapping & Alignment Guides: Toggleable millimeter measurement rulers (0mm - 86mm).
+- **Added:** Radial Grid Overlay: Snap-to-grid accuracy for 1mm or 5mm intervals.
+
+**v1.1.0 (June 10, 2026)**
+- **Added:** QR Code & Barcode Generation: Built-in deterministic vector 1D Barcode and 2D QR Code generation.
+- **Added:** Live Data Binding: Bind QR codes directly to database keys like `{{admissionNo}}`.
+
+**v1.0.0 (May 20, 2026)**
+- **Added:** Initial Public Release: The core `<IdCardPreview />` component and atomic rendering engine.
+- **Added:** Variable Placeholders: Introduced handlebar syntax (`{{name}}`) for text interpolation.
 
 ### Vue, Angular, and Vanilla HTML Support
 You can easily mount the dashboard using `createRoot` inside any DOM element:

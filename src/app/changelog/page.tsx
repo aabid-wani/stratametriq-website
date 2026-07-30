@@ -42,6 +42,66 @@ export default function ChangelogPage() {
       ]
     },
     {
+      version: "v1.4.2",
+      date: "July 20, 2026",
+      product: "ID Card Designer",
+      icon: <Box className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Added", text: "Drag-and-Drop Bounding Boxes: Introduced visual snapping handles for resizing elements on the canvas." },
+        { type: "Fixed", text: "Resolved a custom Google Font loading timeout that caused text rendering glitches on slow networks." }
+      ]
+    },
+    {
+      version: "v1.4.1",
+      date: "July 12, 2026",
+      product: "ID Card Designer",
+      icon: <Box className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Added", text: "Undo / Redo History Stack: Full tracking of canvas actions using Ctrl+Z and Ctrl+Y shortcuts." },
+        { type: "Added", text: "Keyboard Nudging: Use arrow keys for 1px precise element alignment (Hold Shift for 5px jumps)." }
+      ]
+    },
+    {
+      version: "v1.4.0",
+      date: "July 5, 2026",
+      product: "ID Card Designer",
+      icon: <Box className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Added", text: "Dedicated Image Property Inspector: New controls for Object Fit (cover, contain, scale-down)." },
+        { type: "Added", text: "Avatar Styling: Instant Corner Radius toggles for Circular vs Square profile photos with custom CSS borders." }
+      ]
+    },
+    {
+      version: "v1.2.0",
+      date: "June 25, 2026",
+      product: "ID Card Designer",
+      icon: <Box className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Added", text: "Grid Snapping & Alignment Guides: Toggleable millimeter measurement rulers (0mm - 86mm)." },
+        { type: "Added", text: "Radial Grid Overlay: Snap-to-grid accuracy for 1mm or 5mm intervals." }
+      ]
+    },
+    {
+      version: "v1.1.0",
+      date: "June 10, 2026",
+      product: "ID Card Designer",
+      icon: <Box className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Added", text: "QR Code & Barcode Generation: Built-in deterministic vector 1D Barcode and 2D QR Code generation." },
+        { type: "Added", text: "Live Data Binding: Bind QR codes directly to database keys like {{admissionNo}}." }
+      ]
+    },
+    {
+      version: "v1.0.0",
+      date: "May 20, 2026",
+      product: "ID Card Designer",
+      icon: <FileCode2 className="w-6 h-6 text-neon-cyan" />,
+      features: [
+        { type: "Added", text: "Initial Public Release: The core <IdCardPreview /> component and atomic rendering engine." },
+        { type: "Added", text: "Variable Placeholders: Introduced handlebar syntax ({{name}}) for text interpolation." }
+      ]
+    },
+    {
       version: "v1.3.0",
       date: "June 15, 2026",
       product: "Architecture Intelligence",
