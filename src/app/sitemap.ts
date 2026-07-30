@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getSortedPostsData } from '@/lib/markdown'
+import { STRATAMETRIQ_PRODUCTS } from '@/config/products'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://stratametriq.com'
@@ -49,6 +50,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/changelog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    ...STRATAMETRIQ_PRODUCTS.map((product) => ({
+      url: `${baseUrl}/products/${product.id}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    })),
+    ...STRATAMETRIQ_PRODUCTS.map((product) => ({
+      url: `${baseUrl}/products/${product.id}/docs`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    })),
     ...blogUrls,
   ]
 }
