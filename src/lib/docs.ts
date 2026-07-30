@@ -9,8 +9,9 @@ const docsDirectory = path.join(process.cwd(), 'content/docs')
 export type DocMetaData = {
   id: string
   title: string
-  date: string
-  description: string
+  date?: string
+  description?: string
+  sidebar_position?: number
 }
 
 export type HeadingData = {
@@ -24,16 +25,8 @@ export type DocData = DocMetaData & {
   headings: HeadingData[]
 }
 
-export async function getDocData(id: string): Promise<DocData | null> {
-  const fullPath = path.join(docsDirectory, `${id}.md`)
-  
-  if (!fs.existsSync(fullPath)) {
-    return null;
-  }
-
+async function parseMarkdownFile(fullPath: string, id: string): Promise<DocData> {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-  // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents)
 
   // Use remark to convert markdown into HTML string
@@ -48,7 +41,6 @@ export async function getDocData(id: string): Promise<DocData | null> {
   // Replace HTML headings to inject IDs and collect them for the sidebar
   contentHtml = contentHtml.replace(/<h([1-6])>(.*?)<\/h\1>/g, (match, levelStr, text) => {
     const level = parseInt(levelStr, 10);
-    // Basic slugification: remove tags, lowercase, hyphenate
     const rawText = text.replace(/<[^>]+>/g, '').trim();
     const slugId = rawText.toLowerCase().replace(/[^\w]+/g, '-').replace(/(^-|-$)/g, '');
     
@@ -56,11 +48,44 @@ export async function getDocData(id: string): Promise<DocData | null> {
     return `<h${level} id="${slugId}">${text}</h${level}>`;
   });
 
-  // Combine the data with the id and contentHtml
   return {
     id,
     contentHtml,
     headings,
-    ...(matterResult.data as { title: string; date: string; description: string }),
+    ...(matterResult.data as { title: string; date?: string; description?: string; sidebar_position?: number }),
   }
+}
+
+export async function getDocData(id: string): Promise<DocData | null> {
+  const fullPath = path.join(docsDirectory, `${id}.md`)
+  if (!fs.existsSync(fullPath)) return null;
+  return parseMarkdownFile(fullPath, id);
+}
+
+export async function getMultiDocData(id: string): Promise<DocData[] | null> {
+  const dirPath = path.join(docsDirectory, id)
+  
+  // If it's a directory, parse all markdown files inside it
+  if (fs.existsSync(dirPath) && fs.statSync(dirPath).isDirectory()) {
+    const fileNames = fs.readdirSync(dirPath).filter(f => f.endsWith('.md') || f.endsWith('.mdx'))
+    
+    const docs = await Promise.all(
+      fileNames.map(fileName => {
+        const fullPath = path.join(dirPath, fileName)
+        const docId = fileName.replace(/\.mdx?$/, '')
+        return parseMarkdownFile(fullPath, docId)
+      })
+    )
+    
+    // Sort by sidebar_position if available
+    return docs.sort((a, b) => {
+      const posA = a.sidebar_position ?? 999;
+      const posB = b.sidebar_position ?? 999;
+      return posA - posB;
+    })
+  }
+
+  // Fallback to single file mode
+  const singleDoc = await getDocData(id)
+  return singleDoc ? [singleDoc] : null
 }

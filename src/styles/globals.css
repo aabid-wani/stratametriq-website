@@ -48,6 +48,20 @@
   .text-glow-cyan {
     text-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
   }
+
+  .prose table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+  
+  .prose pre {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Custom Scrollbar */

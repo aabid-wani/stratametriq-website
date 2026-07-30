@@ -1,0 +1,125 @@
+---
+sidebar_position: 1
+title: 🌟 Executive Summary
+---
+
+# StrataMetriq: Architecture Intelligence & Pre-Deployment Safety
+
+> **StrataMetriq helps engineering teams understand software architecture, predict the impact of code changes, and prevent risky deployments before they happen.**
+
+Welcome to the authoritative engineering guide and user manual for **StrataMetriq**, an enterprise-grade Visual Studio Code extension and DevSecOps CLI designed to deliver **Architecture Intelligence & Pre-Deployment Safety** for full-stack polyglot codebases (JavaScript, TypeScript, Python, Java, Kotlin, Go, C#).
+
+> **INFO:** 🌐 VS Code Marketplace & Registry
+**VS Code Marketplace Identifier:** `stratametriq.stratametriq-extension`
+
+
+---
+
+## 💡 Why StrataMetriq?
+
+In modern software organizations, engineers frequently grapple with hidden architectural debt, tangled module dependencies, and accidental production leaks (such as exposed API keys, debug logs, or unfinished TODOs). To gain comprehensive visibility, developers typically must stitch together **3 to 4 separate, expensive tools**—such as static code analyzers, secret scanners, dependency visualizers, and duplicate code detectors.
+
+**StrataMetriq** unifies these capabilities into a single, native VS Code experience:
+
+> **TIP:** 360° Architectural Visibility
+Natively maps your entire workspace dependency graph, API routing topology, and database interactions in real time.
+
+
+> **NOTE:** Zero Cloud Exfiltration
+Unlike SaaS code scanners that upload proprietary source code to remote servers, StrataMetriq performs **100% of its Abstract Syntax Tree (AST) parsing and graph calculations locally** on your machine. Your code never leaves your IDE.
+
+
+> **INFO:** Non-Blocking Performance
+Engineered with highly optimized tokenizers and TypeScript AST evaluators that parse thousands of lines of code in seconds without freezing or slowing down your editor.
+
+
+---
+
+## 🏛️ Enterprise Custom Architecture Governance
+
+StrataMetriq allows Principal Architects and DevOps leaders to enforce organizational architecture standards across layered codebases and monorepos using a root **`stratametriq.config.yml`** configuration file.
+
+```yaml
+version: 1
+rules:
+  - name: "UI layer cannot import Database layer directly"
+    source: "src/ui/**"
+    forbiddenTarget: "src/db/**"
+    severity: "HIGH"
+    message: "UI components must go through src/services/ or API endpoints."
+```
+
+* **Instant IDE Prevention**: Forbidden imports are flagged in real time with inline diagnostic squiggles and status bar warnings inside VS Code.
+* **Automated CI/CD Gates**: Running `npx @stratametriq/cli scan . --fail-on-high` blocks pull requests if architectural boundaries are violated.
+* **Actionable Remediation**: Outputs immediate 1-line `💡 Fix` instructions beneath every finding.
+
+👉 Learn more in the dedicated [**Custom Architecture Governance Guide**](./governance.md).
+
+---
+
+## 🔬 Most Complex Modules & Risk Impact Analysis
+
+### 1. 🧩 Most Complex Modules Analysis
+StrataMetriq automatically computes cyclomatic complexity and AST token density across every source file in your repository:
+* **Complexity Scoring**: Ranks modules based on branching density, nested conditional logic, and total AST nodes.
+* **Dashboard Complex Modules Card**: Displays the top most complex files in your codebase with clear metric bars so engineering managers and tech leads can prioritize refactoring technical debt.
+* **1-Click Graph Isolation**: Clicking any complex module instantly focuses the visual dependency graph on that file and highlights its upstream/downstream connections.
+
+### 2. ⚡ Intelligent Risk Impact Analysis & Ripple Mechanics
+When inspecting any module in the StrataMetriq dashboard, the **Risk Impact Analysis** panel answers *"If I change this file, what else is affected and why?"*:
+* **💡 "Why & How Are These Affected?" Explanation Card**:
+  * **Dependency Ripple Chain**: Shows exact counts for **Direct Importers** (`[Direct Importer]` badge) versus **Transitive Dependents** (`[Transitive]` badge).
+  * **API Contract Risk**: Explains which server API routes rely on the file and warn against breaking response payload contracts.
+  * **UI Component Tree**: Lists affected React/UI components that will undergo re-renders or layout changes.
+* **➕ Adding vs. Modifying Code Mechanics**:
+  * **Adding New Code / Endpoints**: Non-breaking (`0 ripple risk`). New functions or routes do not affect existing consumers until explicitly imported.
+  * **Modifying Existing Exports**: High ripple risk across all listed dependents.
+* **🎨 Native VS Code Editor Left-Gutter Decorations**:
+  * Duplicate logic blocks and high-risk modules are automatically decorated with a **solid purple/cyan left gutter strip** and inline hover diagnostics directly inside your active VS Code editor window.
+
+---
+
+## 🚀 Key Highlights
+
+| Feature | Description | Benefit |
+| :--- | :--- | :--- |
+| **🌐 Full-Stack Enterprise Polyglot Support** | Parses AST and framework semantics across Python, Java, Kotlin, Go, C#, and JS/TS simultaneously. | Maps cross-stack API calls and database dependencies on a unified interactive graph. |
+| **🛡️ 13-Point DevSecOps Safety Audit** | Evaluates code against a comprehensive 13-point safety checklist before git commits. | Prevents leaked secrets, SQL injection, insecure crypto, debug statements, and broken catch blocks. |
+| **📊 SARIF 2.1.0 Security Export** | Generates OASIS SARIF v2.1.0 compliance reports via `--sarif <file>`. | Directly integrates findings into GitHub Advanced Security and GitLab Security tabs. |
+| **⚡ Headless DevSecOps CLI** | Standalone command-line executable (`@stratametriq/cli`) for terminal & CI/CD pipelines. | Blocks pull requests if HIGH severity risks exist (`--fail-on-high`) and posts PR comments. |
+| **⚡ Risk Impact Analysis** | Calculates downstream ripple effects across APIs, DB tables, and UI views. | Answers *"What breaks if I change this file?"* instantly. |
+| **🌳 Interactive Dependency Explorer** | Generates visual dependency trees with live editor tab synchronization. | Eliminates manual grep hunting across complex monorepos. |
+| **🔀 API Flow Visualizer** | Traces vertical request lifecycles from frontend UI down to DB tables. | Provides end-to-end domain keyword matching without false positives. |
+| **🔍 Global Search & Quick-Filter Toolbar** | Interactive search across module names, API routes, DB tables, and 1-click filter pills. | Instantly isolate High Risks, Open Editor Tabs, or Circular Loops on the dashboard. |
+| **🛡️ Persistent Status Bar & Inline Diagnostics** | Real-time VS Code status bar health badge and live inline diagnostic editor squiggles. | Highlights active debug statements and hardcoded secrets inline while you type or save files. |
+| **💡 Actionable Remediation Guides** | Prints 1-line `💡 Fix` guidance below high-severity findings in CLI & PR comments. | Tells developers exactly how to fix security and architecture risks immediately. |
+| **🏛️ Enterprise Custom Architecture Governance** | Enforce custom boundary rules via `stratametriq.config.yml` (e.g. forbidding UI layer from importing DB). | Automatically blocks illegal imports in both VS Code editor diagnostics and CI/CD pipelines. |
+| **📥 Executive Audit JSON Export** | Download a complete JSON snapshot of project health, loops, duplicates, and risks. | Enables compliance auditing and historical trend tracking. |
+
+---
+
+## 📦 Quick Start (2 Powerful Modes)
+
+### Mode 1: Interactive VS Code Extension (VSIX)
+1. **Install from VSIX:** Open VS Code, press `Ctrl+Shift+P` (or `Cmd+Shift+P`), type and select **`Extensions: Install from VSIX...`**, and choose the bundled extension package (**`stratametriq-extension-1.4.4.vsix`**).
+2. **Reload VS Code:** Run **`Developer: Reload Window`** to activate the latest scanner engine.
+3. **Launch Dashboard:** Open the Command Palette (`Ctrl+Shift+P`) and run: **`StrataMetriq: Open Dashboard`**.
+
+### Mode 2: Headless DevSecOps CLI (Terminal / CI/CD)
+Run directly in any directory without global installation:
+```bash
+# Local terminal scan
+npx @stratametriq/cli scan .
+
+# Run downstream BFS impact analysis on a specific file ("what breaks if I edit this?")
+npx @stratametriq/cli impact src/services/UserService.ts
+
+# CI/CD Pipeline Gate: Block build if HIGH severity vulnerabilities exist
+npx @stratametriq/cli scan ./src --fail-on-high
+
+# Export JSON & Markdown PR report
+npx @stratametriq/cli scan . --fail-on-high --json report.json --md pr-comment.md
+```
+👉 Check out our dedicated [**Headless CLI & CI/CD Guide**](./cli-guide.md) for GitHub Actions and GitLab CI workflows!
+
+

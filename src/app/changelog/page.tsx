@@ -8,7 +8,7 @@ export default function ChangelogPage() {
 
   const changelogData = [
     {
-      version: "v1.4.1",
+      version: "v1.4.4",
       date: "July 29, 2026",
       product: "Architecture Intelligence",
       icon: <ShieldCheck className="w-6 h-6 text-neon-emerald" />,

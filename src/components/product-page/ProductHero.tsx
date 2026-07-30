@@ -57,7 +57,7 @@ export default function ProductHero({ product }: ProductHeroProps) {
         </Link>
 
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6">
-          <div className="flex items-start space-x-5">
+          <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
             <div className="p-4 rounded-3xl bg-obsidian-950 border border-glass shadow-glass flex-shrink-0">
               {getIcon(product.iconName)}
             </div>
@@ -94,7 +94,7 @@ export default function ProductHero({ product }: ProductHeroProps) {
         </div>
 
         {/* Sub-Navigation Tabs */}
-        <div className="flex items-center space-x-2 pt-4 border-t border-glass">
+        <div className="flex items-center gap-2 pt-4 border-t border-glass overflow-x-auto pb-2 custom-scrollbar hide-scrollbar-on-mobile w-full">
           <Link
             href={basePath}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center space-x-2 transition-all ${
