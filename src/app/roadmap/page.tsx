@@ -44,53 +44,53 @@ export default function BrandRoadmapPage() {
   };
 
   return (
-    <div className="min-h-screen bg-obsidian py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
+    <div className="min-h-screen bg-slate-50 dark:bg-obsidian py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-neon-purple/20 border border-neon-purple/30 text-xs font-bold text-neon-purple">
           <Rocket className="w-3.5 h-3.5" />
           <span>StrataMetriq Product Launch Roadmap</span>
         </div>
-        <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight">
+        <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           Engineering the Future
         </h1>
-        <p className="text-base sm:text-lg text-gray-300">
+        <p className="text-base sm:text-lg text-slate-600 dark:text-gray-300">
           We are building a unified ecosystem of developer tools. Here is what is on our engineering radar for 2026 and beyond.
         </p>
       </div>
 
       {/* Timeline Section */}
-      <div className="relative border-l-2 border-glass ml-4 md:ml-32 pl-8 space-y-14">
+      <div className="relative border-l-2 border-slate-300 dark:border-glass ml-4 md:ml-32 pl-8 space-y-14">
         {timelineMilestones.map((item, idx) => (
           <div key={idx} className="relative group">
             {/* Timeline node badge */}
-            <div className="absolute -left-[45px] top-1 w-7 h-7 rounded-full bg-obsidian-950 border-2 border-electric-500 flex items-center justify-center text-xs font-bold text-white shadow-glow-blue group-hover:scale-125 transition-transform" />
+            <div className="absolute -left-[45px] top-1 w-7 h-7 rounded-full bg-white dark:bg-obsidian-950 border-2 border-electric-500 flex items-center justify-center text-xs font-bold text-white shadow-sm dark:shadow-glow-blue group-hover:scale-125 transition-transform" />
             
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-3">
               <div className="flex items-center space-x-3">
-                <div className="p-3 rounded-2xl bg-obsidian-900 border border-glass shadow-md">
+                <div className="p-3 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-glass shadow-sm dark:shadow-md">
                   {item.icon}
                 </div>
                 <div>
-                  <span className="text-xs font-mono font-bold text-electric-400 block">{item.quarter} Milestone</span>
-                  <h3 className="text-2xl font-extrabold text-white group-hover:text-electric-400 transition-colors">{item.title}</h3>
+                  <span className="text-xs font-mono font-bold text-electric-600 dark:text-electric-400 block">{item.quarter} Milestone</span>
+                  <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white group-hover:text-electric-600 dark:group-hover:text-electric-400 transition-colors">{item.title}</h3>
                 </div>
               </div>
 
-              <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/5 text-gray-300 border border-glass flex items-center">
-                <Clock className="w-3.5 h-3.5 mr-1.5 text-neon-cyan" />
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-gray-300 border border-slate-200 dark:border-glass flex items-center">
+                <Clock className="w-3.5 h-3.5 mr-1.5 text-cyan-600 dark:text-neon-cyan" />
                 {item.badge}
               </span>
             </div>
 
-            <p className="text-sm text-gray-300 leading-relaxed max-w-3xl">
+            <p className="text-sm text-slate-600 dark:text-gray-300 leading-relaxed max-w-3xl">
               {item.description}
             </p>
 
             <div className="mt-4 flex flex-wrap items-center gap-2">
               {item.highlights.map((h, hIdx) => (
-                <span key={hIdx} className="px-3 py-1 rounded-xl bg-obsidian-900 border border-glass text-xs text-gray-400 flex items-center">
-                  <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-neon-emerald" />
+                <span key={hIdx} className="px-3 py-1 rounded-xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-glass text-xs text-slate-600 dark:text-gray-400 flex items-center">
+                  <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-emerald-600 dark:text-neon-emerald" />
                   {h}
                 </span>
               ))}
@@ -100,12 +100,12 @@ export default function BrandRoadmapPage() {
       </div>
 
       {/* Early Access Waitlist Box */}
-      <div className="rounded-3xl bg-gradient-to-r from-obsidian-800 via-obsidian-800/80 to-obsidian-800 border border-glass p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6 shadow-glass">
-        <Sparkles className="w-10 h-10 text-electric-400 mx-auto animate-pulse" />
-        <h2 className="text-3xl font-bold text-white">
+      <div className="rounded-3xl bg-white dark:bg-gradient-to-r dark:from-obsidian-800 dark:via-obsidian-800/80 dark:to-obsidian-800 border border-slate-200 dark:border-glass p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6 shadow-sm dark:shadow-glass">
+        <Sparkles className="w-10 h-10 text-electric-600 dark:text-electric-400 mx-auto animate-pulse" />
+        <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
           Want Early Beta Access Before Public Drop?
         </h2>
-        <p className="text-sm sm:text-base text-gray-300 max-w-xl mx-auto">
+        <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300 max-w-xl mx-auto">
           Join our priority engineering waitlist to receive private beta NPM tokens and VS Code VSIX prerelease installers right in your inbox.
         </p>
 
@@ -115,7 +115,7 @@ export default function BrandRoadmapPage() {
             name="email"
             required
             placeholder="developer@company.com"
-            className="flex-1 px-4 py-3.5 rounded-xl bg-obsidian-950 border border-glass text-white text-sm placeholder-gray-500 focus:outline-none focus:border-electric-400"
+            className="flex-1 px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-glass text-slate-900 dark:text-white text-sm placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-electric-500 dark:focus:border-electric-400"
           />
           <button
             type="submit"

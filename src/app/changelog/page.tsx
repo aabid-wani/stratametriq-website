@@ -116,17 +116,17 @@ export default function ChangelogPage() {
   const filteredData = filter === "All" ? changelogData : changelogData.filter(item => item.product === filter);
 
   return (
-    <div className="min-h-screen bg-obsidian py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
+    <div className="min-h-screen bg-slate-50 dark:bg-obsidian py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-neon-emerald/20 border border-neon-emerald/30 text-xs font-bold text-neon-emerald">
           <History className="w-3.5 h-3.5" />
           <span>Product Changelog</span>
         </div>
-        <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight">
+        <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           What's New
         </h1>
-        <p className="text-base sm:text-lg text-gray-300">
+        <p className="text-base sm:text-lg text-slate-600 dark:text-gray-300">
           Track our latest product updates, improvements, and bug fixes. We release updates continuously.
         </p>
       </div>
@@ -136,24 +136,24 @@ export default function ChangelogPage() {
         
         {/* Sidebar */}
         <div className="w-full md:w-64 flex-shrink-0">
-          <div className="sticky top-24 space-y-4 p-5 rounded-2xl bg-obsidian-900 border border-glass">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider">Filter by Product</h3>
+          <div className="sticky top-24 space-y-4 p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-glass shadow-sm dark:shadow-none">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">Filter by Product</h3>
             <div className="flex flex-col gap-2">
               <button 
                 onClick={() => setFilter("All")}
-                className={`text-left px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${filter === "All" ? "bg-electric-600/20 text-electric-400 border border-electric-500/30" : "text-gray-400 hover:text-white hover:bg-white/5"}`}
+                className={`text-left px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${filter === "All" ? "bg-electric-50 text-electric-600 border border-electric-200 dark:bg-electric-600/20 dark:text-electric-400 dark:border-electric-500/30" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/5"}`}
               >
                 All Updates
               </button>
               <button 
                 onClick={() => setFilter("ID Card Designer")}
-                className={`text-left px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${filter === "ID Card Designer" ? "bg-electric-600/20 text-electric-400 border border-electric-500/30" : "text-gray-400 hover:text-white hover:bg-white/5"}`}
+                className={`text-left px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${filter === "ID Card Designer" ? "bg-electric-50 text-electric-600 border border-electric-200 dark:bg-electric-600/20 dark:text-electric-400 dark:border-electric-500/30" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/5"}`}
               >
                 ID Card Designer
               </button>
               <button 
                 onClick={() => setFilter("Architecture Intelligence")}
-                className={`text-left px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${filter === "Architecture Intelligence" ? "bg-electric-600/20 text-electric-400 border border-electric-500/30" : "text-gray-400 hover:text-white hover:bg-white/5"}`}
+                className={`text-left px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${filter === "Architecture Intelligence" ? "bg-electric-50 text-electric-600 border border-electric-200 dark:bg-electric-600/20 dark:text-electric-400 dark:border-electric-500/30" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/5"}`}
               >
                 Architecture Intelligence
               </button>
@@ -162,24 +162,24 @@ export default function ChangelogPage() {
         </div>
 
         {/* Timeline */}
-        <div className="flex-1 relative border-l-2 border-glass pl-8 space-y-16">
+        <div className="flex-1 relative border-l-2 border-slate-200 dark:border-glass pl-8 space-y-16">
           {filteredData.map((item, idx) => (
             <div key={idx} className="relative group">
               {/* Timeline node */}
-              <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-obsidian-950 border-2 border-electric-500 flex items-center justify-center text-xs font-bold text-white shadow-glow-blue group-hover:scale-125 transition-transform" />
+              <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white dark:bg-obsidian-950 border-2 border-electric-500 flex items-center justify-center text-xs font-bold text-white shadow-sm dark:shadow-glow-blue group-hover:scale-125 transition-transform" />
               
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
                 <div className="flex items-center space-x-3">
-                  <div className="p-3 rounded-2xl bg-obsidian-900 border border-glass shadow-md">
+                  <div className="p-3 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-glass shadow-sm dark:shadow-md">
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-extrabold text-white">{item.version}</h3>
-                    <span className="text-xs font-medium text-gray-400">{item.date}</span>
+                    <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white">{item.version}</h3>
+                    <span className="text-xs font-medium text-slate-500 dark:text-gray-400">{item.date}</span>
                   </div>
                 </div>
 
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-electric-900/40 text-electric-300 border border-electric-500/30">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-electric-50 text-electric-600 border border-electric-200 dark:bg-electric-900/40 dark:text-electric-300 dark:border-electric-500/30">
                   {item.product}
                 </span>
               </div>
@@ -187,10 +187,10 @@ export default function ChangelogPage() {
               <div className="space-y-3 mt-4">
                 {item.features.map((feature, fIdx) => (
                   <div key={fIdx} className="flex items-start gap-3">
-                    <span className={`mt-0.5 px-2 py-0.5 text-[10px] font-black uppercase rounded ${feature.type === 'Added' ? 'bg-neon-emerald/20 text-neon-emerald border border-neon-emerald/20' : 'bg-neon-purple/20 text-neon-purple border border-neon-purple/20'}`}>
+                    <span className={`mt-0.5 px-2 py-0.5 text-[10px] font-black uppercase rounded ${feature.type === 'Added' ? 'bg-emerald-50 text-emerald-600 border border-emerald-200 dark:bg-neon-emerald/20 dark:text-neon-emerald dark:border-neon-emerald/20' : 'bg-purple-50 text-purple-600 border border-purple-200 dark:bg-neon-purple/20 dark:text-neon-purple dark:border-neon-purple/20'}`}>
                       {feature.type}
                     </span>
-                    <p className="text-sm text-gray-300 leading-relaxed flex-1">
+                    <p className="text-sm text-slate-600 dark:text-gray-300 leading-relaxed flex-1">
                       {feature.text}
                     </p>
                   </div>
@@ -206,11 +206,11 @@ export default function ChangelogPage() {
       </div>
 
       {/* Subscription Box */}
-      <div className="mt-24 rounded-3xl bg-gradient-to-r from-obsidian-800 via-obsidian-800/80 to-obsidian-800 border border-glass p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6 shadow-glass">
-        <h2 className="text-2xl font-bold text-white">
+      <div className="mt-24 rounded-3xl bg-white dark:bg-gradient-to-r dark:from-obsidian-800 dark:via-obsidian-800/80 dark:to-obsidian-800 border border-slate-200 dark:border-glass p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6 shadow-sm dark:shadow-glass">
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
           Get Notified About New Releases
         </h2>
-        <p className="text-sm text-gray-300 max-w-xl mx-auto">
+        <p className="text-sm text-slate-600 dark:text-gray-300 max-w-xl mx-auto">
           Subscribe to our developer newsletter to get instantly notified when we drop massive new features or security updates.
         </p>
 
@@ -220,7 +220,7 @@ export default function ChangelogPage() {
             name="email"
             required
             placeholder="developer@company.com"
-            className="flex-1 px-4 py-3.5 rounded-xl bg-obsidian-950 border border-glass text-white text-sm placeholder-gray-500 focus:outline-none focus:border-electric-400"
+            className="flex-1 px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-glass text-slate-900 dark:text-white text-sm placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-electric-500 dark:focus:border-electric-400"
           />
           <button
             type="submit"

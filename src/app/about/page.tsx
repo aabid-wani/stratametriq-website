@@ -7,13 +7,13 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-obsidian py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50 dark:bg-obsidian py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-8 tracking-tight">
           About StrataMetriq
         </h1>
         
-        <div className="prose prose-invert prose-lg max-w-none prose-a:text-electric-400 hover:prose-a:text-electric-300">
+        <div className="prose prose-slate dark:prose-invert prose-lg max-w-none dark:prose-headings:text-white prose-a:text-electric-600 dark:prose-a:text-electric-400 hover:prose-a:text-electric-500 dark:hover:prose-a:text-electric-300">
           <p>
             StrataMetriq is the next-generation parent architecture brand and developer software suite. 
             Our mission is to empower software engineers, DevOps teams, and enterprise architects with 
@@ -38,12 +38,12 @@ export default function AboutPage() {
             and white-labeling, our Enterprise Consulting team provides white-glove architecture reviews.
           </p>
           
-          <div className="mt-12 p-6 rounded-2xl bg-obsidian-800 border border-glass">
-            <h3 className="text-xl font-bold text-white mt-0">Contact Our Team</h3>
-            <p className="mb-0 text-gray-300">
+          <div className="mt-12 p-6 rounded-2xl bg-white dark:bg-obsidian-800 border border-slate-200 dark:border-glass shadow-sm dark:shadow-none">
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-0">Contact Our Team</h3>
+            <p className="mb-0 text-slate-600 dark:text-gray-300">
               For general inquiries or enterprise consultation, reach out to us directly at:
               <br />
-              <a href="mailto:info.stratamatriq@gmail.com" className="font-mono text-neon-cyan mt-2 block">
+              <a href="mailto:info.stratamatriq@gmail.com" className="font-mono text-electric-600 dark:text-neon-cyan mt-2 block">
                 info.stratamatriq@gmail.com
               </a>
             </p>

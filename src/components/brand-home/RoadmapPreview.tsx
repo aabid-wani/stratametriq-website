@@ -41,7 +41,7 @@ export default function RoadmapPreview() {
   };
 
   return (
-    <section className="py-20 bg-obsidian-900/60 border-t border-b border-glass relative overflow-hidden">
+    <section className="py-20 bg-slate-50 dark:bg-obsidian-900/60 border-t border-b border-slate-200 dark:border-glass relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
@@ -49,17 +49,17 @@ export default function RoadmapPreview() {
               <Rocket className="w-3.5 h-3.5" />
               <span>StrataMetriq Roadmap</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               What We Are Launching Next
             </h2>
-            <p className="text-sm sm:text-base text-gray-400 max-w-2xl mt-2">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-gray-400 max-w-2xl mt-2">
               Our engineering team continuously expands the StrataMetriq multi-product ecosystem. Get early beta access to our upcoming suites before public release.
             </p>
           </div>
 
           <Link
             href="/roadmap"
-            className="px-6 py-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-glass text-white text-sm font-bold flex items-center space-x-2 transition-all self-start md:self-auto"
+            className="px-6 py-3 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 hover:text-slate-900 dark:bg-white/5 dark:hover:bg-white/10 dark:border-glass dark:text-white text-sm font-bold flex items-center space-x-2 transition-all self-start md:self-auto shadow-sm dark:shadow-none"
           >
             <span>View Full 2026–2027 Roadmap</span>
             <ArrowRight className="w-4 h-4" />
@@ -70,31 +70,31 @@ export default function RoadmapPreview() {
           {upcomingProducts.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-3xl bg-obsidian-800/50 border border-glass hover:border-glass-hover transition-all flex flex-col justify-between"
+              className="p-6 rounded-3xl bg-white dark:bg-obsidian-800/50 border border-slate-200 dark:border-glass hover:border-slate-300 dark:hover:border-glass-hover shadow-sm dark:shadow-none transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-2xl bg-obsidian-950 border border-glass">
+                  <div className="p-3 rounded-2xl bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-glass">
                     {item.icon}
                   </div>
-                  <span className="px-2.5 py-1 rounded-full text-[11px] font-bold font-mono bg-white/5 text-gray-300 border border-glass flex items-center">
+                  <span className="px-2.5 py-1 rounded-full text-[11px] font-bold font-mono bg-slate-100 text-slate-600 border border-slate-200 dark:bg-white/5 dark:text-gray-300 dark:border-glass flex items-center">
                     <Clock className="w-3 h-3 mr-1 text-neon-purple" />
                     {item.status}
                   </span>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 block mb-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-gray-400 block mb-1">
                   {item.category}
                 </span>
-                <h3 className="text-lg font-bold text-white leading-snug">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-snug">
                   {item.name}
                 </h3>
-                <p className="text-xs text-gray-400 mt-2 leading-relaxed">
+                <p className="text-xs text-slate-500 dark:text-gray-400 mt-2 leading-relaxed">
                   {item.tagline}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-glass/60 flex items-center justify-between text-xs">
-                <span className="text-gray-500">Access Tier: Early Beta</span>
+              <div className="mt-6 pt-4 border-t border-slate-200 dark:border-glass/60 flex items-center justify-between text-xs">
+                <span className="text-slate-500 dark:text-gray-500">Access Tier: Early Beta</span>
                 <Link
                   href="/roadmap"
                   className="text-electric-400 hover:text-electric-300 font-semibold flex items-center"
@@ -108,12 +108,12 @@ export default function RoadmapPreview() {
         </div>
 
         {/* Waitlist Banner */}
-        <div className="mt-12 rounded-3xl bg-gradient-to-r from-obsidian-800 via-obsidian-800/80 to-obsidian-800 border border-glass p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-glass">
+        <div className="mt-12 rounded-3xl bg-gradient-to-r from-slate-100 via-white to-slate-100 dark:from-obsidian-800 dark:via-obsidian-800/80 dark:to-obsidian-800 border border-slate-200 dark:border-glass p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-sm dark:shadow-glass">
           <div className="space-y-2 text-center lg:text-left">
-            <h3 className="text-2xl font-bold text-white flex items-center justify-center lg:justify-start">
-              <Sparkles className="w-6 h-6 mr-2 text-electric-400" /> Join 1,200+ Developers on the Priority Waitlist
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center justify-center lg:justify-start">
+              <Sparkles className="w-6 h-6 mr-2 text-electric-600 dark:text-electric-400" /> Join 1,200+ Developers on the Priority Waitlist
             </h3>
-            <p className="text-sm text-gray-300 max-w-xl">
+            <p className="text-sm text-slate-600 dark:text-gray-300 max-w-xl">
               Be the first to test new VS Code extensions, turnkey UI studios, and OpenTelemetry runtime packages as they drop.
             </p>
           </div>
@@ -124,7 +124,7 @@ export default function RoadmapPreview() {
               name="email"
               required
               placeholder="developer@company.com"
-              className="px-4 py-3.5 rounded-xl bg-obsidian-950 border border-glass text-white text-sm placeholder-gray-500 focus:outline-none focus:border-electric-400 min-w-[280px]"
+              className="px-4 py-3.5 rounded-xl bg-white dark:bg-obsidian-950 border border-slate-300 dark:border-glass text-slate-900 dark:text-white text-sm placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-electric-500 dark:focus:border-electric-400 min-w-[280px]"
             />
             <button
               type="submit"

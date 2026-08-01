@@ -65,23 +65,23 @@ export default function ProductPricingPage({ params }: PricingPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-obsidian pb-20">
+    <div className="min-h-screen bg-slate-50 dark:bg-obsidian pb-20 transition-colors duration-300">
       <ProductHero product={product} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <ProductPricingCards product={product} />
 
         {/* Commercial FAQ Section */}
-        <div className="mt-16 pt-12 border-t border-glass max-w-4xl mx-auto space-y-8">
-          <h3 className="text-2xl font-extrabold text-white text-center flex items-center justify-center">
-            <HelpCircle className="w-6 h-6 mr-2 text-electric-400" /> Frequently Asked Licensing Questions
+        <div className="mt-16 pt-12 border-t border-slate-200 dark:border-glass max-w-4xl mx-auto space-y-8">
+          <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white text-center flex items-center justify-center">
+            <HelpCircle className="w-6 h-6 mr-2 text-electric-600 dark:text-electric-400" /> Frequently Asked Licensing Questions
           </h3>
 
           <div className="space-y-6">
             {faqs.map((faq, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-obsidian-800/50 border border-glass space-y-2">
-                <h4 className="text-base font-bold text-white">{faq.q}</h4>
-                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">{faq.a}</p>
+              <div key={idx} className="p-6 rounded-2xl bg-white dark:bg-obsidian-800/50 border border-slate-200 dark:border-glass shadow-sm dark:shadow-none space-y-2">
+                <h4 className="text-base font-bold text-slate-900 dark:text-white">{faq.q}</h4>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-gray-300 leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

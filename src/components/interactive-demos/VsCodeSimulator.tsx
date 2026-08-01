@@ -97,17 +97,17 @@ func ExecuteFinancialOrder(ctx context.Context, orderID string) error {
   };
 
   return (
-    <div className="w-full rounded-2xl border border-glass bg-obsidian-900 shadow-2xl overflow-hidden font-sans">
+    <div className="w-full rounded-2xl border border-slate-200 dark:border-glass bg-white dark:bg-obsidian-900 shadow-xl dark:shadow-2xl overflow-hidden font-sans">
       {/* VS Code Window Header Bar */}
-      <div className="flex items-center justify-between px-4 py-3 bg-obsidian-800/90 border-b border-glass">
+      <div className="flex items-center justify-between px-4 py-3 bg-slate-100 dark:bg-obsidian-800/90 border-b border-slate-200 dark:border-glass">
         <div className="flex items-center space-x-2">
           <div className="flex space-x-1.5">
             <div className="w-3 h-3 rounded-full bg-rose-500/80" />
             <div className="w-3 h-3 rounded-full bg-amber-500/80" />
             <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
           </div>
-          <span className="ml-3 text-xs font-mono text-gray-400 flex items-center">
-            <Code2 className="w-3.5 h-3.5 mr-1.5 text-electric-400" />
+          <span className="ml-3 text-xs font-mono text-slate-500 dark:text-gray-400 flex items-center">
+            <Code2 className="w-3.5 h-3.5 mr-1.5 text-electric-600 dark:text-electric-400" />
             stratametriq-ast-workspace / {selectedLanguage}.{selectedLanguage === "typescript" ? "ts" : selectedLanguage === "python" ? "py" : "go"} — [StrataMetriq VSIX v1.4.4]
           </span>
         </div>
@@ -125,17 +125,17 @@ func ExecuteFinancialOrder(ctx context.Context, orderID string) error {
       </div>
 
       {/* Language Selector & Sub-Tabs */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-obsidian-900/50 px-4 py-2 border-b border-glass text-xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-slate-50 dark:bg-obsidian-900/50 px-4 py-2 border-b border-slate-200 dark:border-glass text-xs">
         <div className="flex items-center space-x-1 mb-2 sm:mb-0">
-          <span className="text-gray-400 mr-2 font-semibold">Language AST:</span>
+          <span className="text-slate-600 dark:text-gray-400 mr-2 font-semibold">Language AST:</span>
           {(["typescript", "python", "go"] as const).map((lang) => (
             <button
               key={lang}
               onClick={() => setSelectedLanguage(lang)}
               className={`px-3 py-1 rounded-md capitalize font-mono transition-colors ${
                 selectedLanguage === lang
-                  ? "bg-electric-600/20 text-electric-400 border border-electric-500/30 font-bold"
-                  : "text-gray-400 hover:text-white hover:bg-white/5"
+                  ? "bg-electric-50 text-electric-600 border border-electric-200 dark:bg-electric-600/20 dark:text-electric-400 dark:border-electric-500/30 font-bold"
+                  : "text-slate-500 hover:text-slate-900 hover:bg-slate-200 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/5"
               }`}
             >
               {lang}
@@ -150,8 +150,8 @@ func ExecuteFinancialOrder(ctx context.Context, orderID string) error {
               onClick={() => setActiveTab(tab)}
               className={`px-3 py-1 rounded-md font-medium uppercase text-[11px] tracking-wider transition-colors flex items-center space-x-1 ${
                 activeTab === tab
-                  ? "bg-white/10 text-white border border-glass"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-slate-200 text-slate-900 border border-slate-300 dark:bg-white/10 dark:text-white dark:border-glass"
+                  : "text-slate-500 hover:text-slate-900 dark:text-gray-400 dark:hover:text-white"
               }`}
             >
               {tab === "ast" && <Layers className="w-3 h-3 text-neon-cyan" />}
@@ -164,21 +164,21 @@ func ExecuteFinancialOrder(ctx context.Context, orderID string) error {
       </div>
 
       {/* Main Body */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[380px] bg-obsidian-900/60">
+      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[380px] bg-white dark:bg-obsidian-900/60">
         
         {/* Left/Main Code & Graph Viewer */}
-        <div className={`${activeTab === "ast" ? "lg:col-span-7" : "lg:col-span-12"} p-4 overflow-x-auto border-r border-glass font-mono text-xs leading-relaxed`}>
+        <div className={`${activeTab === "ast" ? "lg:col-span-7" : "lg:col-span-12"} p-4 overflow-x-auto border-r border-slate-200 dark:border-glass font-mono text-xs leading-relaxed`}>
           {activeTab === "ast" && (
             <div className="space-y-3">
-              <div className="flex items-center justify-between text-[11px] text-gray-400 pb-2 border-b border-glass">
-                <span className="flex items-center text-neon-cyan font-semibold">
+              <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-gray-400 pb-2 border-b border-slate-200 dark:border-glass">
+                <span className="flex items-center text-electric-600 dark:text-neon-cyan font-semibold">
                   <FileCode className="w-3.5 h-3.5 mr-1" /> Polyglot Vertical Trace Active
                 </span>
-                <span className="text-neon-emerald bg-neon-emerald/10 px-2 py-0.5 rounded border border-neon-emerald/30">
+                <span className="text-emerald-600 bg-emerald-50 border-emerald-200 dark:text-neon-emerald dark:bg-neon-emerald/10 px-2 py-0.5 rounded border dark:border-neon-emerald/30">
                   Zero Cloud Exfiltration Verified
                 </span>
               </div>
-              <pre className="text-gray-300 overflow-x-auto p-2 rounded bg-obsidian-950/80 border border-glass/50">
+              <pre className="text-slate-700 dark:text-gray-300 overflow-x-auto p-2 rounded bg-slate-50 dark:bg-obsidian-950/80 border border-slate-200 dark:border-glass/50">
                 <code>{codeSnippets[selectedLanguage]}</code>
               </pre>
             </div>
@@ -186,15 +186,15 @@ func ExecuteFinancialOrder(ctx context.Context, orderID string) error {
 
           {activeTab === "audit" && (
             <div className="space-y-3">
-              <div className="flex items-center justify-between pb-2 border-b border-glass">
-                <h4 className="text-sm font-bold text-white flex items-center">
-                  <ShieldCheck className="w-4 h-4 mr-2 text-electric-400" /> Pre-deployment Security & AST Audit Report
+              <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-glass">
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white flex items-center">
+                  <ShieldCheck className="w-4 h-4 mr-2 text-electric-600 dark:text-electric-400" /> Pre-deployment Security & AST Audit Report
                 </h4>
-                <span className="text-xs text-gray-400">13 checks executed locally in 48ms</span>
+                <span className="text-xs text-slate-500 dark:text-gray-400">13 checks executed locally in 48ms</span>
               </div>
               <div className="space-y-2.5">
                 {auditChecklist.map((item) => (
-                  <div key={item.id} className="p-3 rounded-xl bg-obsidian-800/80 border border-glass flex items-start justify-between">
+                  <div key={item.id} className="p-3 rounded-xl bg-slate-50 dark:bg-obsidian-800/80 border border-slate-200 dark:border-glass flex items-start justify-between">
                     <div className="flex items-start space-x-3">
                       <div className="mt-0.5">
                         {item.status === "Passed" ? (
@@ -205,15 +205,15 @@ func ExecuteFinancialOrder(ctx context.Context, orderID string) error {
                       </div>
                       <div>
                         <div className="flex items-center space-x-2">
-                          <span className="font-bold text-white">{item.check}</span>
-                          <span className="px-1.5 py-0.5 text-[9px] uppercase rounded bg-white/5 text-gray-400 font-mono">
+                          <span className="font-bold text-slate-900 dark:text-white">{item.check}</span>
+                          <span className="px-1.5 py-0.5 text-[9px] uppercase rounded bg-slate-200 dark:bg-white/5 text-slate-600 dark:text-gray-400 font-mono">
                             {item.category}
                           </span>
                         </div>
-                        <p className="text-gray-400 text-xs mt-1">{item.details}</p>
+                        <p className="text-slate-600 dark:text-gray-400 text-xs mt-1">{item.details}</p>
                       </div>
                     </div>
-                    <span className="text-gray-500 font-mono text-[10px] flex-shrink-0">{item.line}</span>
+                    <span className="text-slate-400 dark:text-gray-500 font-mono text-[10px] flex-shrink-0">{item.line}</span>
                   </div>
                 ))}
               </div>
@@ -222,24 +222,24 @@ func ExecuteFinancialOrder(ctx context.Context, orderID string) error {
 
           {activeTab === "ci" && (
             <div className="space-y-4 p-2 font-mono text-xs">
-              <div className="p-4 rounded-xl bg-obsidian-950 border border-glass">
-                <div className="flex items-center justify-between text-gray-400 pb-3 border-b border-glass mb-3">
-                  <span className="flex items-center text-white font-bold">
-                    <Terminal className="w-4 h-4 mr-2 text-electric-400" /> Local CI/CD Pre-Commit Audit Pipeline
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-glass">
+                <div className="flex items-center justify-between text-slate-500 dark:text-gray-400 pb-3 border-b border-slate-200 dark:border-glass mb-3">
+                  <span className="flex items-center text-slate-900 dark:text-white font-bold">
+                    <Terminal className="w-4 h-4 mr-2 text-electric-600 dark:text-electric-400" /> Local CI/CD Pre-Commit Audit Pipeline
                   </span>
                   <span className={`px-2 py-0.5 rounded font-bold uppercase ${
-                    ciGatingStatus === "passed" ? "bg-neon-emerald/20 text-neon-emerald border border-neon-emerald/30" : "bg-amber-500/20 text-amber-400"
+                    ciGatingStatus === "passed" ? "bg-emerald-50 text-emerald-600 border-emerald-200 dark:bg-neon-emerald/20 dark:text-neon-emerald dark:border-neon-emerald/30 border" : "bg-amber-50 text-amber-600 border-amber-200 dark:bg-amber-500/20 dark:text-amber-400 border"
                   }`}>
                     Gate Status: {ciGatingStatus.toUpperCase()}
                   </span>
                 </div>
-                <div className="space-y-1.5 text-gray-300">
-                  <p className="text-gray-500">$ stratametriq audit --polyglot-graph --check-exfiltration=strict</p>
-                  <p className="text-electric-400">[info] Initializing polyglot AST parser across 11 supported runtimes...</p>
-                  <p className="text-gray-300">[ast] Built vertical trace tree: 142 functions, 388 variable definitions.</p>
-                  <p className="text-gray-300">[security] Running zero cloud exfiltration scanner... <span className="text-neon-emerald">PASSED (0 external sockets)</span></p>
-                  <p className="text-gray-300">[audit] Executing 13-point architectural debt & security ruleset...</p>
-                  <p className="text-neon-emerald font-bold">[success] Pre-deployment gating passed! Safe to merge branch into main.</p>
+                <div className="space-y-1.5 text-slate-700 dark:text-gray-300">
+                  <p className="text-slate-500 dark:text-gray-500">$ stratametriq audit --polyglot-graph --check-exfiltration=strict</p>
+                  <p className="text-electric-600 dark:text-electric-400">[info] Initializing polyglot AST parser across 11 supported runtimes...</p>
+                  <p className="text-slate-700 dark:text-gray-300">[ast] Built vertical trace tree: 142 functions, 388 variable definitions.</p>
+                  <p className="text-slate-700 dark:text-gray-300">[security] Running zero cloud exfiltration scanner... <span className="text-emerald-600 dark:text-neon-emerald">PASSED (0 external sockets)</span></p>
+                  <p className="text-slate-700 dark:text-gray-300">[audit] Executing 13-point architectural debt & security ruleset...</p>
+                  <p className="text-emerald-600 dark:text-neon-emerald font-bold">[success] Pre-deployment gating passed! Safe to merge branch into main.</p>
                 </div>
               </div>
             </div>
@@ -248,61 +248,61 @@ func ExecuteFinancialOrder(ctx context.Context, orderID string) error {
 
         {/* Right Side Graph Visualizer (Only visible in AST Tab) */}
         {activeTab === "ast" && (
-          <div className="lg:col-span-5 p-4 bg-obsidian-950/90 flex flex-col justify-between">
+          <div className="lg:col-span-5 p-4 bg-slate-50 dark:bg-obsidian-950/90 flex flex-col justify-between">
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3 flex items-center">
-                <Layers className="w-3.5 h-3.5 mr-1.5 text-neon-purple" /> Live Vertical Graph Map
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-gray-400 mb-3 flex items-center">
+                <Layers className="w-3.5 h-3.5 mr-1.5 text-purple-600 dark:text-neon-purple" /> Live Vertical Graph Map
               </h4>
 
-              <div className="space-y-2 relative before:absolute before:left-3 before:top-4 before:bottom-4 before:w-0.5 before:bg-gradient-to-b before:from-electric-500 before:to-neon-purple">
+              <div className="space-y-2 relative before:absolute before:left-3 before:top-4 before:bottom-4 before:w-0.5 before:bg-gradient-to-b before:from-electric-500 before:to-purple-500 dark:before:to-neon-purple">
                 <div className="flex items-center space-x-3 relative z-10">
                   <div className="w-6 h-6 rounded-full bg-electric-600 flex items-center justify-center text-white font-bold text-[10px] shadow-glow-blue">
                     1
                   </div>
-                  <div className="p-2 rounded-lg bg-obsidian-800 border border-glass flex-1">
-                    <span className="text-white font-bold text-xs block">HTTP Route Entrypoint</span>
-                    <span className="text-gray-400 text-[10px]">AST Node #104 (Authenticated)</span>
+                  <div className="p-2 rounded-lg bg-white dark:bg-obsidian-800 border border-slate-200 dark:border-glass flex-1">
+                    <span className="text-slate-900 dark:text-white font-bold text-xs block">HTTP Route Entrypoint</span>
+                    <span className="text-slate-500 dark:text-gray-400 text-[10px]">AST Node #104 (Authenticated)</span>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-3 relative z-10">
-                  <div className="w-6 h-6 rounded-full bg-neon-cyan flex items-center justify-center text-obsidian font-bold text-[10px]">
+                  <div className="w-6 h-6 rounded-full bg-cyan-400 dark:bg-neon-cyan flex items-center justify-center text-slate-900 dark:text-obsidian font-bold text-[10px]">
                     2
                   </div>
-                  <div className="p-2 rounded-lg bg-obsidian-800 border border-glass flex-1">
-                    <span className="text-white font-bold text-xs block">Zero-Exfiltration Auth Vault</span>
-                    <span className="text-neon-emerald text-[10px] flex items-center">
+                  <div className="p-2 rounded-lg bg-white dark:bg-obsidian-800 border border-slate-200 dark:border-glass flex-1">
+                    <span className="text-slate-900 dark:text-white font-bold text-xs block">Zero-Exfiltration Auth Vault</span>
+                    <span className="text-emerald-600 dark:text-neon-emerald text-[10px] flex items-center">
                       <Lock className="w-2.5 h-2.5 mr-1" /> Local Memory Check Verified
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-3 relative z-10">
-                  <div className="w-6 h-6 rounded-full bg-neon-purple flex items-center justify-center text-white font-bold text-[10px]">
+                  <div className="w-6 h-6 rounded-full bg-purple-500 dark:bg-neon-purple flex items-center justify-center text-white font-bold text-[10px]">
                     3
                   </div>
-                  <div className="p-2 rounded-lg bg-obsidian-800 border border-glass flex-1">
-                    <span className="text-white font-bold text-xs block">Downstream Database ORM</span>
-                    <span className="text-gray-400 text-[10px]">Postgres / Redis Parameterized AST</span>
+                  <div className="p-2 rounded-lg bg-white dark:bg-obsidian-800 border border-slate-200 dark:border-glass flex-1">
+                    <span className="text-slate-900 dark:text-white font-bold text-xs block">Downstream Database ORM</span>
+                    <span className="text-slate-500 dark:text-gray-400 text-[10px]">Postgres / Redis Parameterized AST</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-glass/60 text-[11px] text-gray-400 flex items-center justify-between">
+            <div className="mt-6 pt-4 border-t border-slate-200 dark:border-glass/60 text-[11px] text-slate-500 dark:text-gray-400 flex items-center justify-between">
               <span className="flex items-center">
-                <Zap className="w-3.5 h-3.5 text-amber-400 mr-1" /> AST engine latency: 12ms
+                <Zap className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400 mr-1" /> AST engine latency: 12ms
               </span>
-              <span className="text-electric-400 font-semibold">100% On-Premise</span>
+              <span className="text-electric-600 dark:text-electric-400 font-semibold">100% On-Premise</span>
             </div>
           </div>
         )}
       </div>
 
       {/* VS Code Footer Status Bar */}
-      <div className="flex items-center justify-between px-4 py-1.5 bg-obsidian-950 border-t border-glass text-[11px] font-mono text-gray-400">
+      <div className="flex items-center justify-between px-4 py-1.5 bg-slate-100 dark:bg-obsidian-950 border-t border-slate-200 dark:border-glass text-[11px] font-mono text-slate-500 dark:text-gray-400">
         <div className="flex items-center space-x-4">
-          <span className="flex items-center text-electric-400 font-bold">
+          <span className="flex items-center text-electric-600 dark:text-electric-400 font-bold">
             <ShieldCheck className="w-3 h-3 mr-1" /> Pre-Commit Gate: Active
           </span>
           <span>AST Node Count: 388</span>

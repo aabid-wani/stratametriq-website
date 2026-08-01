@@ -13,6 +13,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Product Not Found | StrataMetriq' };
   }
 
+  let longTailKeywords: string[] = [];
+  if (product.id === "architecture-intelligence") {
+    longTailKeywords = [
+      "vs code ast visualizer",
+      "zero cloud exfiltration static analysis",
+      "polyglot architectural debt analyzer",
+      "sarif 2.1.0 export tool",
+      "visualize vertical api traces",
+      "local typescript and python ast trace",
+      "devsecops ide extension"
+    ];
+  } else if (product.id === "id-card-designer") {
+    longTailKeywords = [
+      "turnkey id card designer for react",
+      "multi page a4 cut sheet pdf generator",
+      "handlebars variable binding id cards",
+      "bulk employee id card software",
+      "drag and drop school id portal",
+      "turnkey ui pdf generation",
+      "customizable id card canvas"
+    ];
+  }
+
   return {
     title: `${product.name} | StrataMetriq`,
     description: product.description,
@@ -23,7 +46,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       product.category,
       "DevSecOps",
       "Architecture Intelligence",
-      "ID Card Designer"
+      "ID Card Designer",
+      ...longTailKeywords
     ]
   };
 }

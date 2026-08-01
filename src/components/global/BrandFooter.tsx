@@ -18,7 +18,7 @@ export default function BrandFooter() {
   };
 
   return (
-    <footer className="w-full bg-obsidian border-t border-glass relative overflow-hidden">
+    <footer className="w-full bg-white dark:bg-obsidian border-t border-slate-200 dark:border-glass relative overflow-hidden">
       {/* Subtle top glow line */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-electric-500/50 to-transparent" />
 
@@ -33,17 +33,17 @@ export default function BrandFooter() {
                 alt="StrataMetriq Logo" 
                 className="w-9 h-9 rounded-xl shadow-glow-blue object-contain" 
               />
-              <span className="text-xl font-bold tracking-tight text-white">
+              <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
                 StrataMetriq
               </span>
             </Link>
-            <p className="text-sm text-gray-400 max-w-sm leading-relaxed">
+            <p className="text-sm text-slate-500 dark:text-gray-400 max-w-sm leading-relaxed">
               The next-generation parent architecture brand & developer software suite. Empowering engineers across polyglot DevSecOps AST analysis, VS Code IDE tooling, and turnkey A4/Letter PDF rendering engines.
             </p>
 
             {/* Newsletter Subscription Box */}
             <div className="pt-2">
-              <h4 className="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+              <h4 className="text-xs font-semibold text-slate-600 dark:text-gray-300 uppercase tracking-wider mb-2">
                 Join 2,500+ Engineers on the Roadmap List
               </h4>
               <form action="https://formspree.io/f/mqerwrka" method="POST" className="flex max-w-sm space-x-2">
@@ -52,7 +52,7 @@ export default function BrandFooter() {
                   name="email"
                   required
                   placeholder="developer@company.com"
-                  className="flex-1 px-3.5 py-2 text-xs bg-obsidian-800 border border-glass rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-electric-400 transition-colors"
+                  className="flex-1 px-3.5 py-2 text-xs bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:border-electric-500 dark:bg-obsidian-800 dark:border-glass rounded-xl dark:text-white dark:placeholder-gray-500 dark:focus:border-electric-400 focus:outline-none transition-colors"
                 />
                 <button
                   type="submit"
@@ -64,14 +64,14 @@ export default function BrandFooter() {
               </form>
             </div>
             {/* Social Links */}
-            <div className="flex items-center space-x-3 pt-3 text-gray-400">
-              <a href="https://www.npmjs.com/package/@stratametriq/id-card-designer" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:text-white transition-colors" title="NPM Package">
+            <div className="flex items-center space-x-3 pt-3 text-slate-500 dark:text-gray-400">
+              <a href="https://www.npmjs.com/package/@stratametriq/id-card-designer" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 hover:text-slate-900 dark:bg-white/5 dark:hover:bg-white/10 dark:hover:text-white transition-colors" title="NPM Package">
                 <Package className="w-4 h-4" />
               </a>
-              <a href="https://waniabid.gumroad.com/l/id-card-designer-pro" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:text-white transition-colors" title="Buy Commercial License on Gumroad">
+              <a href="https://waniabid.gumroad.com/l/id-card-designer-pro" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 hover:text-slate-900 dark:bg-white/5 dark:hover:bg-white/10 dark:hover:text-white transition-colors" title="Buy Commercial License on Gumroad">
                 <ShoppingCart className="w-4 h-4" />
               </a>
-              <a href="https://www.linkedin.com/in/aabid-hussain-56b1b2191/" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 hover:text-white transition-colors" title="LinkedIn">
+              <a href="https://www.linkedin.com/in/aabid-hussain-56b1b2191/" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 hover:text-slate-900 dark:bg-white/5 dark:hover:bg-white/10 dark:hover:text-white transition-colors" title="LinkedIn">
                 <Linkedin className="w-4 h-4" />
               </a>
             </div>
@@ -79,7 +79,7 @@ export default function BrandFooter() {
 
           {/* Col 2: Active Software Suites */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-4">
               Software Suites
             </h3>
             <ul className="space-y-3">
@@ -87,10 +87,10 @@ export default function BrandFooter() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-xs text-gray-400 hover:text-electric-400 transition-colors flex items-center space-x-2"
+                    className="text-xs text-slate-500 hover:text-electric-600 dark:text-gray-400 dark:hover:text-electric-400 transition-colors flex items-center space-x-2"
                   >
                     <span className="truncate">{item.name.replace("StrataMetriq ", "")}</span>
-                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-white/5 text-gray-300 font-mono">
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 dark:bg-white/5 dark:text-gray-300 font-mono">
                       {item.badge}
                     </span>
                   </Link>
@@ -101,7 +101,7 @@ export default function BrandFooter() {
 
           {/* Col 3: Ecosystem & Hub */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-4">
               Ecosystem
             </h3>
             <ul className="space-y-3">
@@ -109,7 +109,7 @@ export default function BrandFooter() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-xs text-gray-400 hover:text-white transition-colors"
+                    className="text-xs text-slate-500 hover:text-slate-900 dark:text-gray-400 dark:hover:text-white transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -120,7 +120,7 @@ export default function BrandFooter() {
 
           {/* Col 4: Company & Legal */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-4">
               Company
             </h3>
             <ul className="space-y-3">
@@ -133,14 +133,14 @@ export default function BrandFooter() {
                         href={item.href}
                         target={item.href.startsWith("http") ? "_blank" : undefined}
                         rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                        className="text-xs text-gray-400 hover:text-white transition-colors"
+                        className="text-xs text-slate-500 hover:text-slate-900 dark:text-gray-400 dark:hover:text-white transition-colors"
                       >
                         {item.name}
                       </a>
                     ) : (
                       <Link
                         href={item.href}
-                        className="text-xs text-gray-400 hover:text-white transition-colors"
+                        className="text-xs text-slate-500 hover:text-slate-900 dark:text-gray-400 dark:hover:text-white transition-colors"
                       >
                         {item.name}
                       </Link>
@@ -149,7 +149,7 @@ export default function BrandFooter() {
                 );
               })}
             </ul>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white mt-6 mb-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mt-6 mb-3">
               Legal & SLA
             </h3>
             <ul className="space-y-2">
@@ -157,7 +157,7 @@ export default function BrandFooter() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-[11px] text-gray-500 hover:text-gray-300 transition-colors"
+                    className="text-[11px] text-slate-400 hover:text-slate-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -168,18 +168,18 @@ export default function BrandFooter() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-glass flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+        <div className="mt-12 pt-8 border-t border-slate-200 dark:border-glass flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-gray-500">
           <p>© {new Date().getFullYear()} StrataMetriq Inc. All rights reserved.</p>
           <div className="flex items-center space-x-2 mt-4 sm:mt-0">
-            <span className="text-gray-500">Developed by</span>
+            <span className="text-slate-500 dark:text-gray-500">Developed by</span>
             <a 
               href="https://www.linkedin.com/in/aabid-hussain-56b1b2191/" 
               target="_blank" 
               rel="noreferrer"
               className="group flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-electric-500/10 border border-electric-500/30 text-electric-400 hover:bg-electric-500/20 hover:border-electric-400 transition-all shadow-[0_0_10px_rgba(14,165,233,0.2)] hover:shadow-[0_0_15px_rgba(14,165,233,0.4)]"
             >
-              <Terminal className="w-3.5 h-3.5 group-hover:text-white transition-colors" />
-              <span className="font-semibold tracking-wide group-hover:text-white transition-colors">Aabid Hussain Wani</span>
+              <Terminal className="w-3.5 h-3.5 group-hover:text-electric-600 dark:group-hover:text-white transition-colors" />
+              <span className="font-semibold tracking-wide group-hover:text-electric-600 dark:group-hover:text-white transition-colors">Aabid Hussain Wani</span>
             </a>
           </div>
         </div>

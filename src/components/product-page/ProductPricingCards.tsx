@@ -100,10 +100,10 @@ export default function ProductPricingCards({ product }: ProductPricingCardsProp
   return (
     <div className="py-10 space-y-12">
       <div className="text-center max-w-3xl mx-auto space-y-3">
-        <h2 className="text-3xl font-extrabold text-white tracking-tight">
+        <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           Transparent Commercial Licensing for {product.name}
         </h2>
-        <p className="text-sm sm:text-base text-gray-300">
+        <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300">
           Whether you are an individual developer, a fast-growing startup, or an enterprise engineering team, pick the license option that fits your deployment.
         </p>
       </div>
@@ -114,8 +114,8 @@ export default function ProductPricingCards({ product }: ProductPricingCardsProp
             key={idx}
             className={`rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative ${
               tier.highlighted
-                ? "bg-gradient-to-b from-obsidian-800 to-obsidian-900 border-2 border-electric-500 shadow-glow-blue scale-105 z-10"
-                : "bg-obsidian-800/60 border border-glass hover:border-glass-hover shadow-glass"
+                ? "bg-white border-2 border-electric-500 shadow-md dark:bg-gradient-to-b dark:from-obsidian-800 dark:to-obsidian-900 dark:shadow-glow-blue scale-105 z-10"
+                : "bg-slate-50 border border-slate-200 hover:border-slate-300 shadow-sm dark:bg-obsidian-800/60 dark:border-glass dark:hover:border-glass-hover dark:shadow-glass"
             }`}
           >
             {tier.highlighted && (
@@ -126,33 +126,33 @@ export default function ProductPricingCards({ product }: ProductPricingCardsProp
 
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-gray-400">
                   {tier.name}
                 </span>
                 {!tier.highlighted && (
-                  <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-white/5 text-gray-300 border border-glass">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-200 text-slate-700 border border-slate-300 dark:bg-white/5 dark:text-gray-300 dark:border-glass">
                     {tier.badge}
                   </span>
                 )}
               </div>
 
               <div className="my-4">
-                <span className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                <span className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                   {tier.price}
                 </span>
               </div>
 
-              <p className="text-xs text-gray-300 leading-relaxed min-h-[40px]">
+              <p className="text-xs text-slate-600 dark:text-gray-300 leading-relaxed min-h-[40px]">
                 {tier.description}
               </p>
 
-              <div className="my-6 border-t border-glass pt-6 space-y-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-white block mb-2">
+              <div className="my-6 border-t border-slate-200 dark:border-glass pt-6 space-y-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white block mb-2">
                   What is included:
                 </span>
                 {tier.features.map((feat, fIdx) => (
-                  <div key={fIdx} className="flex items-start space-x-2.5 text-xs text-gray-300">
-                    <CheckCircle2 className="w-4 h-4 text-neon-emerald flex-shrink-0 mt-0.5" />
+                  <div key={fIdx} className="flex items-start space-x-2.5 text-xs text-slate-700 dark:text-gray-300">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-neon-emerald flex-shrink-0 mt-0.5" />
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -164,7 +164,7 @@ export default function ProductPricingCards({ product }: ProductPricingCardsProp
               className={`mt-8 w-full py-3.5 rounded-2xl text-xs sm:text-sm font-bold text-center flex items-center justify-center space-x-2 transition-all ${
                 tier.highlighted
                   ? "bg-gradient-to-r from-electric-600 via-electric-500 to-neon-cyan text-white shadow-glow-blue hover:scale-102"
-                  : "bg-white/10 hover:bg-white/15 text-white border border-glass"
+                  : "bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 dark:bg-white/10 dark:hover:bg-white/15 dark:text-white dark:border-glass"
               }`}
             >
               <span>{tier.cta}</span>

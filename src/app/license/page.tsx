@@ -7,14 +7,14 @@ export const metadata: Metadata = {
 
 export default function LicensePage() {
   return (
-    <div className="min-h-screen bg-obsidian py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50 dark:bg-obsidian py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-extrabold text-white mb-4 tracking-tight">
+        <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
           Software License Agreements
         </h1>
-        <p className="text-sm text-gray-400 mb-12 font-mono">Last Updated: July 2026</p>
+        <p className="text-sm text-slate-500 dark:text-gray-400 mb-12 font-mono">Last Updated: July 2026</p>
         
-        <div className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-electric-400">
+        <div className="prose prose-slate dark:prose-invert prose-lg max-w-none dark:prose-headings:text-white prose-a:text-electric-600 dark:prose-a:text-electric-400">
           <p>
             StrataMetriq operates a dual-licensing model to support both the open-source community 
             and enterprise organizations requiring commercial guarantees.

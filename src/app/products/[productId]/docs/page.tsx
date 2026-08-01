@@ -38,13 +38,13 @@ export default async function ProductDocsPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-obsidian pb-20">
+    <div className="min-h-screen bg-slate-50 dark:bg-obsidian pb-20 transition-colors duration-300">
       <ProductHero product={product} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
         <Link 
           href={`/products/${params.productId}`} 
-          className="inline-flex items-center space-x-2 text-sm font-bold text-gray-400 hover:text-electric-400 transition-colors mb-10"
+          className="inline-flex items-center space-x-2 text-sm font-bold text-slate-500 hover:text-electric-600 dark:text-gray-400 dark:hover:text-electric-400 transition-colors mb-10"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Product Overview</span>

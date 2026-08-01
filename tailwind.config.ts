@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,6 +12,7 @@ const config: Config = {
       colors: {
         obsidian: {
           DEFAULT: "#0b0f19",
+          950: "#04060a",
           900: "#06090f",
           800: "#0b0f19",
           700: "#111827",
