@@ -6,15 +6,14 @@ import { Terminal, Copy, Check, ExternalLink, ShieldCheck } from "lucide-react";
 interface InstallTabBoxProps {
   installCommand?: string;
   productName: string;
+  isVsix?: boolean;
 }
 
-export default function InstallTabBox({ installCommand, productName }: InstallTabBoxProps) {
+export default function InstallTabBox({ installCommand, productName, isVsix = false }: InstallTabBoxProps) {
   const [copied, setCopied] = useState(false);
   const [packageManager, setPackageManager] = useState<"npm" | "yarn" | "pnpm" | "vsix">("npm");
 
   if (!installCommand) return null;
-
-  const isVsix = installCommand.includes("ext install");
 
   const getCommand = () => {
     if (isVsix) return installCommand;
@@ -55,7 +54,7 @@ export default function InstallTabBox({ installCommand, productName }: InstallTa
         )}
       </div>
 
-      <div className="p-4 bg-slate-100 dark:bg-obsidian-950 flex items-center justify-between font-mono text-sm text-slate-700 dark:text-gray-200">
+      <div className="p-4 bg-slate-100 dark:bg-obsidian-950 flex items-center justify-between font-mono text-sm text-slate-700 dark:text-gray-200 border-b border-slate-200 dark:border-glass">
         <div className="flex items-center space-x-3 overflow-hidden mr-4">
           <span className="text-electric-600 dark:text-neon-cyan font-bold select-none">$</span>
           <span className="truncate">{getCommand()}</span>
@@ -77,6 +76,23 @@ export default function InstallTabBox({ installCommand, productName }: InstallTa
           )}
         </button>
       </div>
+
+      {isVsix && (
+        <div className="bg-slate-50 dark:bg-obsidian-900 px-4 py-3 text-xs text-slate-600 dark:text-gray-400 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="flex items-center space-x-2">
+            <ShieldCheck className="w-4 h-4 text-electric-600 dark:text-electric-400 flex-shrink-0" />
+            <span>Not on the Marketplace yet? Download the packaged extension directly.</span>
+          </div>
+          <a 
+            href="/stratametriq-architecture-intelligence.vsix" 
+            download 
+            className="px-3 py-1.5 rounded-lg bg-electric-600 hover:bg-electric-500 text-white font-bold flex items-center space-x-1.5 transition-colors whitespace-nowrap w-full sm:w-auto justify-center sm:justify-start"
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+            <span>Download .VSIX</span>
+          </a>
+        </div>
+      )}
     </div>
   );
 }

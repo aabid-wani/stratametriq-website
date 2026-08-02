@@ -35,7 +35,7 @@ export default function ProductLandingPage({ params }: ProductPageProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-16">
         {/* Quick Install Command Box */}
         <div id="install">
-          <InstallTabBox installCommand={product.installCommand} productName={product.name} />
+          <InstallTabBox installCommand={product.installCommand} productName={product.name} isVsix={isVsix} />
           <div className="mt-6 flex justify-center">
             <Link 
               href={`/products/${product.id}/docs`} 
