@@ -6,17 +6,34 @@ description: "Documentation for the Stratametriq ID Card Designer package, inclu
 
 # 📦 @stratametriq/id-card-designer
 
+![NPM Version](https://img.shields.io/npm/v/@stratametriq/id-card-designer?style=for-the-badge&color=blue)
+![NPM Downloads](https://img.shields.io/npm/dm/@stratametriq/id-card-designer?style=for-the-badge&color=success)
+![License](https://img.shields.io/npm/l/@stratametriq/id-card-designer?style=for-the-badge&color=orange)
+
 A universal, dynamic, and highly customizable **ID Card Designer & Batch Print Dashboard** for React, Vue, Angular, and Vanilla JS.
 
 Whether you are building a **Student Information System**, **HR Employee Directory**, or **Event Badge Generator**, this package gives your users a professional visual canvas to design, customize, preview, and batch export PVC ID cards directly inside your app.
 
 ---
 
-## ⚡ Quick Start (The 1-Minute Integration)
+## 📑 Table of Contents
 
-You can launch a complete ID card design studio and batch print dashboard with just **two lines of code**. It comes with pre-built dummy data so you can test it immediately!
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Features](#features)
+- [Props](#props)
+- [Templates](#templates)
+- [Customization](#customization)
+- [Events](#events)
+- [Examples](#examples)
+- [FAQ](#faq)
+- [License](#license)
 
-### 1. Install
+---
+
+## 💻 Installation
+
+Install the package using NPM or Yarn:
 
 ```bash
 npm install @stratametriq/id-card-designer
@@ -24,7 +41,13 @@ npm install @stratametriq/id-card-designer
 yarn add @stratametriq/id-card-designer
 ```
 
-### 2. Add to your App
+---
+
+## ⚡ Quick Start
+
+### 🚀 [Try the Live Interactive Demo on StackBlitz](https://stackblitz.com/edit/vitejs-vite-nurmeilk?file=package.json,src%2FApp.tsx,src%2FApp.css,src%2Findex.css&terminal=dev)
+
+You can launch a complete ID card design studio and batch print dashboard with just **two lines of code**. It comes with pre-built dummy data so you can test it immediately!
 
 ```jsx
 import { IdCardManager } from '@stratametriq/id-card-designer';
@@ -36,181 +59,49 @@ export default function App() {
 }
 ```
 
-That's it! 🎉 You now have a fully functioning ID Card Dashboard.
-
 ---
 
-## 🚀 Connect Your Own Data
-
-Once you are ready to connect your real database, simply pass your records into the `sampleRecords` prop:
-
-```jsx
-import { IdCardManager } from '@stratametriq/id-card-designer';
-import '@stratametriq/id-card-designer/dist/index.css';
-
-export default function MyPortal() {
-  // Your data from an API or database
-  const myRealStudents = [
-    { studentName: "Aarav Sharma", admissionNo: "101", bloodGroup: "O+" },
-    { studentName: "Diya Patel", admissionNo: "102", bloodGroup: "B+" }
-  ];
-
-  return (
-    <IdCardManager 
-      sampleRecords={{ student: myRealStudents }} 
-      onBatchExportComplete={(category, records) => {
-        console.log(`Generated PDFs for ${records.length} cards!`);
-      }}
-    />
-  );
-}
-```
-
----
-
-## 🌟 Why Use This? (Key Features)
+## 🌟 Features
 
 - **🎨 Turnkey Dashboard:** A complete workspace with department tabs, vector stage, and batch printing ready out-of-the-box.
 - **📥 Batch CSV Import:** Let users upload spreadsheets to instantly generate hundreds of cards.
 - **🔳 QR & Barcodes:** Built-in dynamic 1D Barcode and 2D QR Code generation.
 - **🏷️ Variable Placeholders:** Easily map database fields to card text (e.g., `ID: {{admissionNo}}`).
-- **🖼️ High-Res PDF/PNG Export:** Batch export to A4/Letter size PDF sheets with hardware cut marks.
+- **🖼️ High-Res PDF/PNG Export:** Batch export to A3/A4/A5/Letter size PDF sheets with hardware cut marks.
 - **🌐 Framework Agnostic:** Works natively with React and Next.js, and easily mounts into Vue, Angular, and Vanilla HTML.
 
 ---
 
-## 🛠️ Advanced Usage & Custom Components
+## ⚙️ Props
 
-Don't want the full dashboard? You can use our modular components to build your own custom screens.
+The main `<IdCardManager />` component accepts the following props:
 
-### 1. Show a Live Preview (`<IdCardPreview />`)
-Embed a live ID card directly on a user profile page.
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `sampleRecords` | `object` | `default data` | Pass your own database records to populate the dashboard. |
+| `categories` | `object` | `default config` | Custom category definitions for different ID types. |
+| `onBatchExportComplete` | `function` | `undefined` | Callback fired when PDF generation completes. |
+
+### Standalone `<IdCardDesigner />` Props
+
+If you are using the standalone designer component directly, you can pass these props to configure the editor:
+
 ```jsx
-import { IdCardPreview } from '@stratametriq/id-card-designer';
-
-<IdCardPreview
-  templateSchema={savedTemplateJson}
-  data={{ studentName: 'Aarav Patel', admissionNo: 'ADM-101' }}
-  orientation="vertical"
-/>
-```
-
-### 2. Custom Batch Print Button (`generateIdCardsPdf`)
-Trigger a high-resolution A4 multi-page PDF export from your own custom tables without rendering the designer.
-```jsx
-import { generateIdCardsPdf } from '@stratametriq/id-card-designer';
-
-<button onClick={() => generateIdCardsPdf({
-  records: selectedStudents,
-  templateSchema: activeTemplate,
-  fileName: "Student_Cards.pdf"
-})}>
-  Download Print Sheet
-</button>
-```
-
-### 3. Standalone Designer Popup (`<IdCardDesignerModal />`)
-Open the drag-and-drop design studio inside your own modal.
-```jsx
-import { IdCardDesignerModal } from '@stratametriq/id-card-designer';
-
-<IdCardDesignerModal
-  show={isOpen}
-  onHide={() => setIsOpen(false)}
-  initialTemplate={currentTemplate}
+<IdCardDesigner
+    width={350}
+    height={200}
+    template={template}
+    onSave={handleSave}
+    onExport={handleExport}
 />
 ```
 
 ---
 
-## 💼 Commercial & Enterprise Licensing
+## 🧩 Templates
 
-`@stratametriq/id-card-designer` is dual-licensed:
+Designs are saved and loaded as clean JSON schemas. 
 
-1. **Community / Open Source Tier (MIT License):**  
-   Free for non-commercial evaluation and personal open-source projects.
-2. **Commercial / Enterprise Tier:**  
-   Required for commercial SaaS applications, School ERPs, HR suites, and production use.
-
----
-
-## 📖 Full API Reference & Advanced Guides
-
-For detailed documentation, framework-specific guides (Vue, Angular), and advanced API configurations, click to expand:
-
-<details>
-<summary><b>Click here to view the full technical documentation</b></summary>
-
-### 📜 Full Release Changelog
-
-**v1.5.0 (July 28, 2026)**
-- **Added:** Bulk CSV Import Dashboard: Click the 'Import CSV' button to automatically create a dedicated 'Imported Data' workspace tab.
-- **Added:** Dynamic Field Definitions: Extracts column headers and generates dynamic text fields for the Property Inspector.
-- **Added:** Advanced Paper Dimensions: Full mathematical rendering support for A3, A4, A5, US Letter, and US Legal paper sheets.
-- **Fixed:** Landscape PDF Scaling Fix: Resolved jspdf engine bug where hardware crop marks lost landscape rotation constraints.
-
-**v1.4.3 (July 25, 2026)**
-- **Added:** Initial documented release of the Turnkey Dashboard (`<IdCardManager />`).
-- **Added:** Core HTML2Canvas and jsPDF high-resolution rendering engine.
-
-**v1.4.2 (July 20, 2026)**
-- **Added:** Drag-and-Drop Bounding Boxes: Introduced visual snapping handles for resizing elements on the canvas.
-- **Fixed:** Resolved a custom Google Font loading timeout that caused text rendering glitches on slow networks.
-
-**v1.4.1 (July 12, 2026)**
-- **Added:** Undo / Redo History Stack: Full tracking of canvas actions using Ctrl+Z and Ctrl+Y shortcuts.
-- **Added:** Keyboard Nudging: Use arrow keys for 1px precise element alignment (Hold Shift for 5px jumps).
-
-**v1.4.0 (July 5, 2026)**
-- **Added:** Dedicated Image Property Inspector: New controls for Object Fit (cover, contain, scale-down).
-- **Added:** Avatar Styling: Instant Corner Radius toggles for Circular vs Square profile photos with custom CSS borders.
-
-**v1.2.0 (June 25, 2026)**
-- **Added:** Grid Snapping & Alignment Guides: Toggleable millimeter measurement rulers (0mm - 86mm).
-- **Added:** Radial Grid Overlay: Snap-to-grid accuracy for 1mm or 5mm intervals.
-
-**v1.1.0 (June 10, 2026)**
-- **Added:** QR Code & Barcode Generation: Built-in deterministic vector 1D Barcode and 2D QR Code generation.
-- **Added:** Live Data Binding: Bind QR codes directly to database keys like `{{admissionNo}}`.
-
-**v1.0.0 (May 20, 2026)**
-- **Added:** Initial Public Release: The core `<IdCardPreview />` component and atomic rendering engine.
-- **Added:** Variable Placeholders: Introduced handlebar syntax (`{{name}}`) for text interpolation.
-
-### Vue, Angular, and Vanilla HTML Support
-You can easily mount the dashboard using `createRoot` inside any DOM element:
-```html
-<div id="id-card-manager-root"></div>
-<script type="module">
-  import React from 'react';
-  import { createRoot } from 'react-dom/client';
-  import { IdCardManager } from '@stratametriq/id-card-designer';
-  import '@stratametriq/id-card-designer/dist/index.css';
-
-  const root = createRoot(document.getElementById('id-card-manager-root'));
-  root.render(React.createElement(IdCardManager));
-</script>
-```
-
-### Customizing Categories
-You can pass custom categories to define exactly what fields your ID cards should support:
-```jsx
-const myCategories = {
-  university: {
-    id: "university",
-    label: "University Students",
-    fieldDefinitions: [
-      { key: "studentName", label: "Student Full Name" },
-      { key: "enrollmentNo", label: "Enrollment Number" }
-    ]
-  }
-};
-
-<IdCardManager categories={myCategories} />
-```
-
-### JSON Template Schema Structure
-Designs are saved as clean JSON schemas:
 ```json
 {
   "id": "tpl_school_vertical_01",
@@ -229,17 +120,114 @@ Designs are saved as clean JSON schemas:
 }
 ```
 
-</details>
+---
+
+## 🎨 Customization
+
+You can define custom categories to control exactly what fields your ID cards should support.
+
+```jsx
+const myCategories = {
+  university: {
+    id: "university",
+    label: "University Students",
+    fieldDefinitions: [
+      { key: "studentName", label: "Student Full Name" },
+      { key: "enrollmentNo", label: "Enrollment Number" }
+    ]
+  }
+};
+
+<IdCardManager categories={myCategories} />
+```
+
+### Modular Components
+
+If you don't want the full dashboard, you can use our modular components:
+
+*   **`<IdCardPreview />`**: Embed a live ID card directly on a user profile page.
+*   **`<IdCardDesignerModal />`**: Open the drag-and-drop design studio inside your own popup.
+*   **`generateIdCardsPdf()`**: Trigger a high-resolution PDF export programmatically.
 
 ---
 
-## ❓ FAQ
+## 📡 Events
 
-**Q: Why use this instead of Canva?**  
-**A:** This is an automation pipeline. Generate thousands of ID cards from your database with one click instead of manually designing each one.
+You can hook into various lifecycle and user action events across the components:
 
-**Q: Does our data leave our servers?**  
-**A:** No. Everything runs 100% Client-Side in the browser. Zero network requests are made.
+### `<IdCardManager />` Events
+- **`onBatchExportComplete(category, records)`**: Fired when a user successfully exports a batch of IDs to PDF.
 
-**Q: Is it white-labeled?**  
-**A:** Yes, the Commercial license allows you to remove all branding.
+### `<IdCardDesigner />` Events
+- **`onSave(templateData)`**: Fired when the user clicks the save button. Returns the full JSON schema of the current design.
+- **`onExport(format, data)`**: Fired when an export action is triggered (e.g., exporting a single card to PNG or PDF).
+- **`onChange(elementData)`**: Fired continuously as the user drags, resizes, or modifies elements on the canvas.
+- **`onDelete(elementId)`**: Fired when a specific element is deleted from the canvas.
+- **`onTemplateChange(templateId)`**: Fired when the user switches to a different template.
+
+---
+
+## 💡 Examples
+
+### Connect Your Own Data (React)
+
+```jsx
+import { IdCardManager } from '@stratametriq/id-card-designer';
+import '@stratametriq/id-card-designer/dist/index.css';
+
+export default function MyPortal() {
+  const myRealStudents = [
+    { studentName: "Aarav Sharma", admissionNo: "101", bloodGroup: "O+" },
+    { studentName: "Diya Patel", admissionNo: "102", bloodGroup: "B+" }
+  ];
+
+  return (
+    <IdCardManager sampleRecords={{ student: myRealStudents }} />
+  );
+}
+```
+
+### Mounting in Vue, Angular, or Vanilla HTML
+
+```html
+<div id="id-card-manager-root"></div>
+<script type="module">
+  import React from 'react';
+  import { createRoot } from 'react-dom/client';
+  import { IdCardManager } from '@stratametriq/id-card-designer';
+  import '@stratametriq/id-card-designer/dist/index.css';
+
+  const root = createRoot(document.getElementById('id-card-manager-root'));
+  root.render(React.createElement(IdCardManager));
+</script>
+```
+
+---
+
+## ❓ FAQ & Comparisons
+
+**Q: How is this different from Canva?**  
+**A:** Canva is fantastic for creating manual, one-off designs. However, if you need to generate 500 student ID cards with unique photos, barcodes, and names, Canva becomes tedious. This package is an **automation pipeline**—you design the template once, feed it an array of JSON data, and instantly generate thousands of unique cards.
+
+**Q: Why not just use standard HTML-to-Image libraries directly?**  
+**A:** Building a production-ready ID card designer from scratch using standard HTML-to-canvas libraries is incredibly frustrating. You have to handle exact hardware printing dimensions (like CR80 PVC card aspect ratios), perfect image scaling, drag-and-drop boundary logic, and multi-page A4 PDF rendering with precise cut-marks. We've solved all of that complex math for you out-of-the-box.
+
+**Q: How does this compare to enterprise desktop ID software?**  
+**A:** Traditional ID software usually requires heavy Windows installations and expensive per-seat licenses. This package allows you to bring that exact same enterprise-level design capability directly into your web app as a lightweight React component that works on Mac, Windows, and Linux.
+
+**Q: Does our sensitive data leave our servers?**  
+**A:** **Absolutely not.** Employee and student data (PII) is a massive security concern. That is why this engine runs **100% Client-Side** in the browser. Zero network requests are made to external servers. The PDFs and images are generated purely on the user's local machine.
+
+**Q: Can I remove your branding? (White-labeling)**  
+**A:** Yes! The enterprise license is 100% white-label, allowing you to seamlessly integrate the designer into your own SaaS product without your users ever knowing you are using our software.
+
+---
+
+## 📜 License
+
+`@stratametriq/id-card-designer` is dual-licensed:
+
+1. **Community / Open Source Tier (MIT License):** Free for non-commercial evaluation and personal open-source projects. See [MIT License](./LICENSE).
+2. **Commercial / Enterprise Tier:** Required for commercial SaaS applications, School ERPs, HR suites, and production use.
+
+👉 **[Purchase a Commercial Enterprise License to Unlock Production Usage & Priority Support](https://waniabid.gumroad.com/l/id-card-designer-pro)**
