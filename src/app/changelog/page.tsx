@@ -20,6 +20,18 @@ export default function ChangelogPage() {
       ]
     },
     {
+      version: "v1.5.1",
+      date: "August 3, 2026",
+      product: "ID Card Designer",
+      icon: <Box className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Added", text: "Live Demo: Added an interactive StackBlitz live demo link to the Quick Start section." },
+        { type: "Added", text: "API Documentation: Documented the standalone <IdCardDesigner /> props and all available lifecycle events." },
+        { type: "Added", text: "Market Comparisons: Expanded the FAQ section to include direct capability comparisons against Canva and enterprise desktop software." },
+        { type: "Changed", text: "Added repository and bugs tracking links to package.json for better NPM discoverability." }
+      ]
+    },
+    {
       version: "v1.5.0",
       date: "July 28, 2026",
       product: "ID Card Designer",
