@@ -81,15 +81,16 @@ export default function InstallTabBox({ installCommand, productName, isVsix = fa
         <div className="bg-slate-50 dark:bg-obsidian-900 px-4 py-3 text-xs text-slate-600 dark:text-gray-400 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-center space-x-2">
             <ShieldCheck className="w-4 h-4 text-electric-600 dark:text-electric-400 flex-shrink-0" />
-            <span>Not on the Marketplace yet? Download the packaged extension directly.</span>
+            <span>Available on the VS Code Marketplace. Install it directly into your editor.</span>
           </div>
           <a 
-            href="/stratametriq-architecture-intelligence.vsix" 
-            download 
+            href="https://marketplace.visualstudio.com/items?itemName=StrataMetriq.stratametriq-extension" 
+            target="_blank"
+            rel="noreferrer"
             className="px-3 py-1.5 rounded-lg bg-electric-600 hover:bg-electric-500 text-white font-bold flex items-center space-x-1.5 transition-colors whitespace-nowrap w-full sm:w-auto justify-center sm:justify-start"
           >
             <ExternalLink className="w-3.5 h-3.5" />
-            <span>Download .VSIX</span>
+            <span>View on Marketplace</span>
           </a>
         </div>
       )}

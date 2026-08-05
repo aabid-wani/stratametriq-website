@@ -13,6 +13,7 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
   { label: "Blog", href: "/blog" },
   { label: "Changelog", href: "/changelog" },
   { label: "Enterprise", href: "/enterprise" },
+  { label: "Support", href: "/support" },
 ];
 
 export const FOOTER_NAVIGATION = {
@@ -33,6 +34,7 @@ export const FOOTER_NAVIGATION = {
     { name: "Roadmap & Releases", href: "/roadmap" },
     { name: "Changelog", href: "/changelog" },
     { name: "Enterprise Consulting & SLA", href: "/enterprise" },
+    { name: "Support", href: "/support" },
     { name: "WhatsApp Connect", href: "https://wa.me/917889877624" },
   ],
   legal: [
