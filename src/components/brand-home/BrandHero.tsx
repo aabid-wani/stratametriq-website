@@ -30,7 +30,7 @@ export default function BrandHero() {
           {/* Top Pill Badge */}
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/80 dark:bg-obsidian-800/80 border border-slate-200 dark:border-glass shadow-sm dark:shadow-glass text-xs font-semibold text-slate-700 dark:text-gray-300 backdrop-blur-md animate-float">
             <span className="flex h-2 w-2 rounded-full bg-electric-600 dark:bg-neon-cyan animate-ping" />
-            <span className="text-slate-900 dark:text-white font-bold">StrataMetriq Ecosystem v1.4.4</span>
+            <span className="text-slate-900 dark:text-white font-bold">StrataMetriq Ecosystem v1.4.8</span>
             <span className="text-slate-300 dark:text-gray-500">|</span>
             <span className="text-electric-600 dark:text-electric-400 font-mono">Polyglot DevSecOps & A4 UI Engines</span>
           </div>
@@ -90,11 +90,11 @@ export default function BrandHero() {
 
             <div className="p-4 rounded-2xl bg-white/50 dark:bg-obsidian-800/50 border border-slate-200 dark:border-glass backdrop-blur-md flex items-start space-x-3">
               <div className="p-2 rounded-xl bg-purple-50 text-purple-600 border border-purple-200 dark:bg-neon-purple/20 dark:text-neon-purple dark:border-neon-purple/30">
-                <Code2 className="w-5 h-5" />
+                <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-sm font-bold text-slate-900 dark:text-white block">Turnkey UI & PDF</span>
-                <span className="text-xs text-slate-500 dark:text-gray-400">A4 multi-sheet matrix</span>
+                <span className="text-sm font-bold text-slate-900 dark:text-white block">CI/CD Quality Gates</span>
+                <span className="text-xs text-slate-500 dark:text-gray-400">SARIF 2.1.0 output</span>
               </div>
             </div>
 

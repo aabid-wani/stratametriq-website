@@ -8,6 +8,19 @@ export default function ChangelogPage() {
 
   const changelogData = [
     {
+      version: "v1.4.9",
+      date: "August 6, 2026",
+      product: "Architecture Intelligence",
+      icon: <ShieldCheck className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Added", text: "Custom Architecture Governance Rules Engine via stratametriq.rules.yaml." },
+        { type: "Added", text: "SARIF integration in @stratametriq/cli for GitHub Advanced Security and GitLab CI gates." },
+        { type: "Added", text: "Live VS Code squiggles (Diagnostics) for instant architectural rule violation feedback." },
+        { type: "Added", text: "Native VS Code integrations including Explorer Context Menus and Configuration Settings." },
+        { type: "Changed", text: "Aggressive architectural caching for massively improved scan performance." }
+      ]
+    },
+    {
       version: "v1.4.4",
       date: "July 29, 2026",
       product: "Architecture Intelligence",

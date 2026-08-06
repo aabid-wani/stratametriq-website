@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import BrandHero from "@/components/brand-home/BrandHero";
 import CategoryFilterPills, { ProductFilterCategory } from "@/components/brand-home/CategoryFilterPills";
 import ProductShowcaseGrid from "@/components/brand-home/ProductShowcaseGrid";
+import EnterpriseFeaturesHighlight from "@/components/brand-home/EnterpriseFeaturesHighlight";
 import RoadmapPreview from "@/components/brand-home/RoadmapPreview";
 import VsCodeSimulator from "@/components/interactive-demos/VsCodeSimulator";
 import LiveIdCardStudio from "@/components/interactive-demos/LiveIdCardStudio";
@@ -29,6 +30,9 @@ export default function BrandHome() {
 
       {/* Dynamic Product Showcase Grid */}
       <ProductShowcaseGrid activeCategory={activeCategory} />
+
+      {/* Enterprise Capabilities Focus Section */}
+      <EnterpriseFeaturesHighlight />
 
       {/* Interactive Web Simulators Section */}
       <section id="demos" className="py-20 bg-slate-100/50 dark:bg-obsidian-900/40 border-t border-slate-200 dark:border-glass relative transition-colors duration-300">

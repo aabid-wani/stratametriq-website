@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ShieldCheck, CheckCircle2, Send, Building2, Lock, Users, Zap, Award } from "lucide-react";
+import { ShieldCheck, CheckCircle2, Send, Building2, Lock, Users, Zap, Award, Network, Code2 } from "lucide-react";
 
 export default function EnterpriseConsultingPage() {
   const [successData, setSuccessData] = useState({ name: "", company: "" });
@@ -43,22 +43,32 @@ export default function EnterpriseConsultingPage() {
           <span>StrataMetriq Enterprise & Procurement Portal</span>
         </div>
         <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          Enterprise Governance & Custom SLAs
+          Enterprise Governance & CI/CD Security
         </h1>
         <p className="text-base sm:text-lg text-slate-600 dark:text-gray-300">
-          Empower your entire organization with dedicated AST ruleset parsers, white-label turnkey UI engines, custom SLA agreements, and 24/7 priority architecture support.
+          Empower your organization with custom architecture rules, native SARIF CI/CD quality gates, turnkey UI engines, and 24/7 priority architecture support.
         </p>
       </div>
 
       {/* Enterprise Pillars Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="p-8 rounded-3xl bg-white dark:bg-obsidian-800/60 border border-slate-200 dark:border-glass space-y-4 shadow-sm dark:shadow-none">
           <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-glass w-fit text-electric-600 dark:text-electric-400 shadow-sm dark:shadow-md">
-            <Lock className="w-6 h-6" />
+            <Network className="w-6 h-6" />
           </div>
-          <h3 className="text-xl font-bold text-slate-900 dark:text-white">Custom AST & Policy Parsers</h3>
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white">Custom Architecture Governance</h3>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
-            Need pre-deployment zero-exfiltration safety audits for proprietary internal frameworks, Java Spring Boot, or legacy C++? Our engineering team builds custom AST plugins tailored to your exact stack.
+            Define company-wide architectural boundaries and domain isolation using our Custom Rules Engine (`stratametriq.rules.yaml`). Instantly prevent forbidden imports via IDE squiggles before code is ever committed.
+          </p>
+        </div>
+
+        <div className="p-8 rounded-3xl bg-white dark:bg-obsidian-800/60 border border-slate-200 dark:border-glass space-y-4 shadow-sm dark:shadow-none">
+          <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-glass w-fit text-purple-600 dark:text-neon-purple shadow-sm dark:shadow-md">
+            <ShieldCheck className="w-6 h-6" />
+          </div>
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white">CI/CD Pipeline Security (SARIF)</h3>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
+            Natively integrate with GitHub Advanced Security and GitLab CI using standard SARIF 2.1.0 output. Automatically block Pull Requests that introduce critical architectural debt or bypass service layers.
           </p>
         </div>
 
@@ -76,7 +86,7 @@ export default function EnterpriseConsultingPage() {
           <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-glass w-fit text-emerald-600 dark:text-neon-emerald shadow-sm dark:shadow-md">
             <Zap className="w-6 h-6" />
           </div>
-          <h3 className="text-xl font-bold text-slate-900 dark:text-white">24/7 SLA & Procurement Indemnification</h3>
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white">24/7 SLA & Procurement Support</h3>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
             Direct access to dedicated Solutions Architects with guaranteed response times under 2 hours, custom MSA/legal indemnification, and SOC-2 supply chain safety certificates.
           </p>
@@ -159,9 +169,9 @@ export default function EnterpriseConsultingPage() {
                   name="topic"
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-glass bg-slate-50 dark:bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-electric-500 dark:focus:ring-electric-400"
                 >
+                  <option value="enterprise_governance">Enterprise Governance Rules Integration</option>
                   <option value="pro">Pro Commercial License Inquiry</option>
-                  <option value="enterprise">Enterprise Seat Bundle & Custom SLA</option>
-                  <option value="custom_ast">Custom Polyglot AST Rule Extension</option>
+                  <option value="enterprise_seat">Enterprise Seat Bundle & Custom SLA</option>
                   <option value="whitelabel">Turnkey UI & PDF Engine White-Labeling</option>
                 </select>
               </div>

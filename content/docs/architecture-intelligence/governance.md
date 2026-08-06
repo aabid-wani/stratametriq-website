@@ -3,9 +3,9 @@ sidebar_position: 5
 title: 🏛️ Custom Architecture Governance
 ---
 
-# Enterprise Custom Architecture Governance (`stratametriq.config.yml`)
+# Enterprise Custom Architecture Governance (`stratametriq.rules.yaml`)
 
-StrataMetriq allows Principal Architects, Tech Leads, and DevOps engineers to enforce custom architectural boundaries, domain isolation, and import restrictions across any polyglot codebase via a root configuration file: **`stratametriq.config.yml`**.
+StrataMetriq allows Principal Architects, Tech Leads, and DevOps engineers to enforce custom architectural boundaries, domain isolation, and import restrictions across any polyglot codebase via a root configuration file: **`stratametriq.rules.yaml`**.
 
 ---
 
@@ -29,12 +29,12 @@ Run the interactive wizard in your project root:
 npx @stratametriq/cli init
 ```
 
-This creates both `.stratametriqrc.json` and a starter **`stratametriq.config.yml`**.
+This creates both `.stratametriqrc.json` and a starter **`stratametriq.rules.yaml`**.
 
 ---
 
 ### Step 2: Define Boundary Rules
-Edit `stratametriq.config.yml` at the root of your workspace:
+Edit `stratametriq.rules.yaml` at the root of your workspace:
 
 ```yaml
 version: 1
@@ -83,10 +83,38 @@ When StrataMetriq scans a project (`stratametriq scan .` or via the VS Code exte
 
 ## 🤖 CI/CD Pipeline Integration
 
-To block Pull Requests that violate your custom architecture rules in GitHub Actions or GitLab CI:
+To block Pull Requests that violate your custom architecture rules in GitHub Actions or GitLab CI, you can use the CLI's strict exit code or generate a SARIF report.
+
+### Standard Blocking (`--fail-on-high`)
 
 ```bash
 npx @stratametriq/cli scan . --fail-on-high
 ```
 
 If any `HIGH` severity governance rule is violated, the CLI exits with **Exit Code `1`**, failing the pipeline check before bad architecture reaches production.
+
+### SARIF Output for GitHub Advanced Security
+
+StrataMetriq natively supports exporting **SARIF 2.1.0** standard reports. This allows you to view architectural violations natively inside GitHub Pull Request views as code annotations.
+
+```yaml
+# .github/workflows/stratametriq.yml
+name: Architecture Governance
+
+on: [push, pull_request]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Scan Architecture & Export SARIF
+        run: npx @stratametriq/cli scan . --format=sarif --out=stratametriq-report.sarif
+        continue-on-error: true # Let GitHub handle the failure UI based on the SARIF data
+
+      - name: Upload SARIF to GitHub
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: stratametriq-report.sarif
+```

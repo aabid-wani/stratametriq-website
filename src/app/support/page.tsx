@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { MessageSquare, Mail, Github, BookOpen } from "lucide-react";
+import { MessageSquare, Mail, Github, BookOpen, Building2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Support | StrataMetriq",
@@ -20,23 +20,23 @@ export default function SupportPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {/* VS Code Extension Support */}
-          <div className="bg-white dark:bg-slate-800/50 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700/50 hover:shadow-md transition-all">
+          <div className="bg-white dark:bg-slate-800/50 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700/50 hover:shadow-md transition-all flex flex-col">
             <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-6">
               <MessageSquare className="w-6 h-6" />
             </div>
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
               VS Code Extension
             </h2>
-            <p className="text-slate-600 dark:text-gray-400 mb-6">
+            <p className="text-slate-600 dark:text-gray-400 mb-6 flex-grow">
               Found a bug or have a feature request for the StrataMetriq VS Code Extension? We actively monitor our issue tracker on GitHub.
             </p>
             <Link
               href="https://github.com/aabid-wani"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-electric-600 dark:text-electric-400 font-semibold hover:text-electric-700 dark:hover:text-electric-300"
+              className="inline-flex items-center text-electric-600 dark:text-electric-400 font-semibold hover:text-electric-700 dark:hover:text-electric-300 mt-auto"
             >
               <Github className="w-4 h-4 mr-2" />
               Report an Issue
@@ -44,21 +44,40 @@ export default function SupportPage() {
           </div>
 
           {/* Documentation */}
-          <div className="bg-white dark:bg-slate-800/50 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700/50 hover:shadow-md transition-all">
+          <div className="bg-white dark:bg-slate-800/50 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700/50 hover:shadow-md transition-all flex flex-col">
             <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-xl flex items-center justify-center mb-6">
               <BookOpen className="w-6 h-6" />
             </div>
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
               Documentation
             </h2>
-            <p className="text-slate-600 dark:text-gray-400 mb-6">
+            <p className="text-slate-600 dark:text-gray-400 mb-6 flex-grow">
               Explore our comprehensive guides, API references, and tutorials to get the most out of our tools.
             </p>
             <Link
               href="/products/architecture-intelligence/docs/"
-              className="inline-flex items-center text-electric-600 dark:text-electric-400 font-semibold hover:text-electric-700 dark:hover:text-electric-300"
+              className="inline-flex items-center text-purple-600 dark:text-purple-400 font-semibold hover:text-purple-700 dark:hover:text-purple-300 mt-auto"
             >
               Browse Documentation &rarr;
+            </Link>
+          </div>
+
+          {/* Enterprise & Governance */}
+          <div className="bg-white dark:bg-slate-800/50 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700/50 hover:shadow-md transition-all flex flex-col">
+            <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-xl flex items-center justify-center mb-6">
+              <Building2 className="w-6 h-6" />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+              Enterprise Governance
+            </h2>
+            <p className="text-slate-600 dark:text-gray-400 mb-6 flex-grow">
+              Need help writing custom architecture rules or integrating SARIF reports into your CI/CD pipelines?
+            </p>
+            <Link
+              href="/enterprise"
+              className="inline-flex items-center text-emerald-600 dark:text-emerald-400 font-semibold hover:text-emerald-700 dark:hover:text-emerald-300 mt-auto"
+            >
+              Contact Sales & Solutions &rarr;
             </Link>
           </div>
         </div>
