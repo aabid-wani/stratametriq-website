@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ShieldCheck, Send, Package, Linkedin, ShoppingCart, Terminal, Heart, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Send, Package, Linkedin, ShoppingCart, Terminal, Heart, CheckCircle2, Puzzle } from "lucide-react";
 import { FOOTER_NAVIGATION } from "@/config/brandNavigation";
 
 export default function BrandFooter() {
@@ -73,6 +73,9 @@ export default function BrandFooter() {
               </a>
               <a href="https://www.linkedin.com/in/aabid-hussain-56b1b2191/" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 hover:text-slate-900 dark:bg-white/5 dark:hover:bg-white/10 dark:hover:text-white transition-colors" title="LinkedIn">
                 <Linkedin className="w-4 h-4" />
+              </a>
+              <a href="https://marketplace.visualstudio.com/items?itemName=StrataMetriq.stratametriq-extension&ssr=false#review-details" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 hover:text-slate-900 dark:bg-white/5 dark:hover:bg-white/10 dark:hover:text-white transition-colors" title="Review on VS Code Marketplace">
+                <Puzzle className="w-4 h-4" />
               </a>
             </div>
           </div>
