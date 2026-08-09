@@ -8,6 +8,18 @@ export default function ChangelogPage() {
 
   const changelogData = [
     {
+      version: "v1.5.3",
+      date: "August 9, 2026",
+      product: "Architecture Intelligence",
+      icon: <ShieldCheck className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Fixed", text: "API Flow Mapping: Added support for dynamic template routes (e.g., fetch(`/api/${id}`))." },
+        { type: "Fixed", text: "Pre-Deployment Safety: Refined debug code detection to eliminate false positives in strings." },
+        { type: "Fixed", text: "Circular Dependencies: Fixed edge resolution for missing extensions and absolute paths." },
+        { type: "Fixed", text: "Duplicate Logic: Increased scan limits to properly analyze large codebases." }
+      ]
+    },
+    {
       version: "v1.5.2",
       date: "August 9, 2026",
       product: "Architecture Intelligence",
