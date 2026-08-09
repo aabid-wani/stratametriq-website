@@ -8,6 +8,18 @@ export default function ChangelogPage() {
 
   const changelogData = [
     {
+      version: "v1.5.2",
+      date: "August 9, 2026",
+      product: "Architecture Intelligence",
+      icon: <ShieldCheck className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Added", text: "API Flow Mapping: Traces every step of API workflows from start to finish." },
+        { type: "Added", text: "Duplicate Logic Detection: Identify repetitive code structures like duplicate logins." },
+        { type: "Changed", text: "Migrated issue tracking to a public repository to enhance community support." },
+        { type: "Changed", text: "Optimized marketplace SEO keywords for better visibility among full-stack developers." }
+      ]
+    },
+    {
       version: "v1.4.9",
       date: "August 6, 2026",
       product: "Architecture Intelligence",
