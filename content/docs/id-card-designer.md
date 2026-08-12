@@ -45,7 +45,7 @@ yarn add @stratametriq/id-card-designer
 
 ## ⚡ Quick Start
 
-### 🚀 [Try the Live Interactive Demo on StackBlitz](https://stackblitz.com/edit/vitejs-vite-jtyvdj5g?file=package.json,src%2FApp.tsx,src%2FApp.css,src%2Findex.css&terminal=dev)
+### 🚀 [Try the Live Interactive Demo on StackBlitz](https://stackblitz.com/edit/vitejs-vite-jtyvdj5g?file=package.json)
 
 You can launch a complete ID card design studio and batch print dashboard with just **two lines of code**. It comes with pre-built dummy data so you can test it immediately!
 
