@@ -64,11 +64,38 @@ export default function App() {
 ## 🌟 Features
 
 - **🎨 Turnkey Dashboard:** A complete workspace with department tabs, vector stage, and batch printing ready out-of-the-box.
-- **📥 Batch CSV Import:** Let users upload spreadsheets to instantly generate hundreds of cards.
+- **💾 Offline Workspace & Project Backup:** Automatic IndexedDB persistence means you never lose work on a page refresh. Export and share entire offline workspaces via `.stmq` JSON project files.
+- **📥 Batch CSV/Excel & ZIP Import:** Let users upload spreadsheets (`.csv`, `.xlsx`) to instantly generate hundreds of cards. Upload `.zip` archives to automatically fuzzy-match and bind hundreds of high-res student photos instantly.
 - **🔳 QR & Barcodes:** Built-in dynamic 1D Barcode and 2D QR Code generation.
 - **🏷️ Variable Placeholders:** Easily map database fields to card text (e.g., `ID: {{admissionNo}}`).
 - **🖼️ High-Res PDF/PNG Export:** Batch export to A3/A4/A5/Letter size PDF sheets with hardware cut marks.
 - **🌐 Framework Agnostic:** Works natively with React and Next.js, and easily mounts into Vue, Angular, and Vanilla HTML.
+
+---
+
+## 📖 Step-by-Step User Guide
+
+### 1. Importing Your Data
+The dashboard allows you to import data in multiple ways:
+- **Excel/CSV Upload:** Click the "Import Data" button and select an `.xlsx` or `.csv` file. The engine will automatically parse your columns into dynamic fields.
+- **Bulk ZIP Upload with Photos:** If you have photos, create a `.zip` archive containing your Excel/CSV file alongside a folder of images. The importer will automatically fuzzy-match the image filenames (e.g., `aarav_sharma.jpg`) to the rows in your spreadsheet.
+
+### 2. Designing the Template
+Click **"Launch Studio Canvas"** to enter the Drag-and-Drop editor:
+- **Dynamic Text Binding:** Click "Add Text" and type `{{ columnName }}` to dynamically bind the text to your imported spreadsheet data.
+- **Conditional Logic:** Use Javascript expressions in your text elements like `{{ department === 'HR' ? 'Red' : 'Blue' }}` for conditional rendering.
+- **QR & Barcodes:** Drag in a barcode or QR code element and bind it to unique employee IDs or URLs.
+- **Backgrounds:** Upload high-resolution backgrounds and layer your text and images on top.
+
+### 3. Saving & Managing Workspaces
+- **Automatic Offline Saving:** As you work, the dashboard automatically saves your entire workspace (data, photos, and templates) to your browser's IndexedDB. You can safely refresh the page or close your browser without losing work.
+- **Exporting a Project:** Click **"Backup Project"** to download a `.stmq` file. You can take this file on a USB drive to an offline/air-gapped computer and upload it to instantly restore your entire workspace.
+
+### 4. Batch Exporting to PDF
+Once your template is perfect, click **"Batch Export A4 PDF"**:
+- The engine will loop through every row in your spreadsheet.
+- It calculates exact millimeter dimensions (CR80 format) and automatically aligns them into an A4 grid with hardware cutting marks.
+- You can apply X/Y offset calibrations to fix mechanical drift in physical PVC card printers (like Zebra or Fargo).
 
 ---
 
@@ -216,7 +243,7 @@ export default function MyPortal() {
 **A:** Traditional ID software usually requires heavy Windows installations and expensive per-seat licenses. This package allows you to bring that exact same enterprise-level design capability directly into your web app as a lightweight React component that works on Mac, Windows, and Linux.
 
 **Q: Does our sensitive data leave our servers?**  
-**A:** **Absolutely not.** Employee and student data (PII) is a massive security concern. That is why this engine runs **100% Client-Side** in the browser. Zero network requests are made to external servers. The PDFs and images are generated purely on the user's local machine.
+**A:** **Absolutely not.** Employee and student data (PII) is a massive security concern. That is why this engine runs **100% Client-Side** in the browser. Zero network requests are made to external servers. The PDFs and images are generated purely on the user's local machine, and all workspace data is saved offline via IndexedDB. Your users can even export `.stmq` project backups and move them via USB to air-gapped computers!
 
 **Q: Can I remove your branding? (White-labeling)**  
 **A:** Yes! The enterprise license is 100% white-label, allowing you to seamlessly integrate the designer into your own SaaS product without your users ever knowing you are using our software.
@@ -231,3 +258,12 @@ export default function MyPortal() {
 2. **Commercial / Enterprise Tier:** Required for commercial SaaS applications, School ERPs, HR suites, and production use.
 
 👉 **[Purchase a Commercial Enterprise License to Unlock Production Usage & Priority Support](https://waniabid.gumroad.com/l/id-card-designer-pro)**
+
+---
+
+## 🚀 Changelog
+
+### [1.7.0] - 2026-08-11
+- **Excel & ZIP Bulk Import:** Users can now upload `.xlsx` and `.xls` files directly. Additionally, users can upload `.zip` archives containing an Excel/CSV file and a folder of images. The importer automatically binds the high-resolution images to the data records using fuzzy matching.
+- **Full Workspace Persistence (IndexedDB):** The dashboard now automatically saves the entire workspace state—including imported data, custom templates, and active tabs—to the browser's local IndexedDB. Refreshing the page or closing the browser no longer results in data loss.
+- **Offline Project Backup (.stmq):** Added a "Backup Project" button that serializes the entire offline workspace (records, configurations, and templates) into a `.stmq` JSON file. This allows users to export their work from one machine and import it into another, maintaining full offline portability without any backend servers.

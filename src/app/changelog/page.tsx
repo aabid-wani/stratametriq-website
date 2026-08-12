@@ -8,6 +8,41 @@ export default function ChangelogPage() {
 
   const changelogData = [
     {
+      version: "v1.7.0",
+      date: "August 12, 2026",
+      product: "ID Card Designer",
+      icon: <Box className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Added", text: "Excel & ZIP Bulk Import: Upload `.xlsx`, `.xls`, or `.zip` archives. Automatically binds images to rows using fuzzy matching." },
+        { type: "Added", text: "Full Workspace Persistence (IndexedDB): The dashboard automatically saves the entire workspace state (data, templates, active tabs) offline." },
+        { type: "Added", text: "Offline Project Backup (.stmq): Serialize the entire workspace state into a `.stmq` file for offline, air-gapped portability." }
+      ]
+    },
+    {
+      version: "v1.6.1",
+      date: "August 10, 2026",
+      product: "ID Card Designer",
+      icon: <Box className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Fixed", text: "CSV Data Mapping UX: Built a 'fuzzy mapper' that automatically aliases variations in CSV column headers to preset template bindings." },
+        { type: "Fixed", text: "Image CORS Blockers: Removed strict crossOrigin requirement, fixing broken images for non-CORS compliant URLs." },
+        { type: "Changed", text: "Studio Property Editor UX: Reorganized Inspector layout to prioritize 'Text Content & Binding'." },
+        { type: "Fixed", text: "Excel Output Fix: Importer now correctly ignores empty rows padded with hidden quote marks from .xlsx conversions." }
+      ]
+    },
+    {
+      version: "v1.6.0",
+      date: "August 4, 2026",
+      product: "ID Card Designer",
+      icon: <Box className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Added", text: "Dynamic Expression Engine: Text elements now support Javascript expressions and conditional rendering logic." },
+        { type: "Added", text: "Double-Sided ID Cards: Native support for designing both Front and Back of ID cards with a side-toggle UI." },
+        { type: "Added", text: "Advanced Batch Export Options: PDF engine now supports Front Only, Interleaved Pages, and A4 Mirrored Grids." },
+        { type: "Added", text: "Hardware Printer Calibration: Manual X and Y offset controls to compensate for mechanical print drift in PVC printers." }
+      ]
+    },
+    {
       version: "v1.5.3",
       date: "August 9, 2026",
       product: "Architecture Intelligence",
