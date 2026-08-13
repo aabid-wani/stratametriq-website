@@ -250,3 +250,15 @@ No backend server from StrataMetriq is required for the documented client-side c
 
 **Can it be used for offline workflows?**
 Yes. The package includes IndexedDB workspace persistence and `.stmq` project backup capabilities intended to support local and offline-capable workflows.
+
+---
+
+## Changelog
+
+### [1.7.1] - 2026-08-13
+- **Licensing & Metadata:** Updated package metadata (homepage, engines) and finalized the internal licensing documentation for the StrataMetriq release.
+
+### [1.7.0] - 2026-08-11
+- **Excel & ZIP Bulk Import:** Users can now upload `.xlsx` and `.xls` files directly, without needing to convert them to CSV. Additionally, users can upload `.zip` archives containing an Excel/CSV file and a folder of images. The importer automatically binds the high-resolution images to the data records using fuzzy matching.
+- **Full Workspace Persistence (IndexedDB):** The dashboard now automatically saves the entire workspace state—including imported data, custom templates, and active tabs—to the browser's local IndexedDB. Refreshing the page or closing the browser no longer results in data loss.
+- **Offline Project Backup (.stmq):** Added a "Backup Project" button that serializes the entire offline workspace (records, configurations, and templates) into a `.stmq` JSON file. This allows users to export their work from one machine and import it into another, maintaining full offline portability without any backend servers.
