@@ -20,11 +20,11 @@ export default function LicensePage() {
             and enterprise organizations requiring commercial guarantees.
           </p>
 
-          <h2>1. Open Source Licenses (MIT / Apache 2.0)</h2>
+          <h2>1. Community Licenses (Free for Non-Commercial)</h2>
           <p>
-            Many of our fundamental libraries and NPM packages are released under permissive open-source 
-            licenses, typically MIT or Apache 2.0. These licenses grant you the freedom to use, modify, 
-            and distribute the software in both personal and commercial projects without purchasing a license.
+            Many of our fundamental libraries and NPM packages are released under a permissive 
+            <strong>Stratametriq Community License</strong>. These licenses grant you the freedom to use, modify, 
+            and distribute the software in personal, educational, and open-source projects without purchasing a license.
           </p>
           <p>
             Please check the <code>LICENSE</code> file in the root of the respective GitHub repository or NPM package 

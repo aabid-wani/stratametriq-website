@@ -34,7 +34,7 @@ export default function ProductPricingCards({ product }: ProductPricingCardsProp
             "Multi-page A4 cut-sheet matrix calculation",
             "Handlebars dynamic variable binding",
             "Client-side 300 DPI high-res PDF rendering",
-            "MIT License for non-commercial & standard apps"
+            "Community License for non-commercial & standard apps"
           ],
       cta: "Install Free Version",
       href: `/products/${product.id}#install`,
@@ -57,7 +57,7 @@ export default function ProductPricingCards({ product }: ProductPricingCardsProp
             "Commercial perpetual license per developer seat"
           ]
         : [
-            "Everything in Community MIT",
+            "Everything in Free Community Tier",
             "Commercial license for proprietary ERPs & internal portals",
             "Batch CSV import of 10,000+ employee/student records",
             "Custom fonts & barcode / QR code security engines",

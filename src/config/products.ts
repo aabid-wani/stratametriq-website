@@ -13,7 +13,7 @@ export interface StratametriqProduct {
   hasLiveDemo: boolean;            // If true, shows the [Try Interactive Demo] button
   installCommand?: string;         // e.g. "ext install stratametriq" or "npm i @stratametriq/id-card-designer"
   pricingSummary: {
-    community: string;             // "Free MIT" or "Free VS Code VSIX"
+    community: string;             // "Free Community License" or "Free VS Code VSIX"
     pro: string;                   // "$399 - $1,499 / Year"
     enterprise: string;            // "$3,499 / Year"
   };
@@ -55,7 +55,7 @@ export const STRATAMETRIQ_PRODUCTS: StratametriqProduct[] = [
     hasLiveDemo: true,
     installCommand: "npm install @stratametriq/id-card-designer",
     pricingSummary: { 
-      community: "Free MIT", 
+      community: "Free Community License", 
       pro: "$49 - $149 / Perpetual", 
       enterprise: "$499 / Perpetual" 
     }
@@ -74,7 +74,7 @@ export const STRATAMETRIQ_PRODUCTS: StratametriqProduct[] = [
     hasLiveDemo: false,
     installCommand: "npm install @stratametriq/runtime",
     pricingSummary: { 
-      community: "Free MIT", 
+      community: "Free Community License", 
       pro: "Coming Soon", 
       enterprise: "Contact Us" 
     }

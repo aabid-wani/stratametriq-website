@@ -29,7 +29,7 @@ export default function TermsOfServicePage() {
 
           <h2>2. Use License</h2>
           <p>
-            Unless otherwise stated (such as in an open-source MIT license attached to specific NPM packages), 
+            Unless otherwise stated (such as in a Stratametriq Community license attached to specific NPM packages), 
             the proprietary software suites, documentation, and architecture designs provided by StrataMetriq 
             are protected by copyright and intellectual property laws.
           </p>
