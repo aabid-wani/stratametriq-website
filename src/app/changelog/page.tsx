@@ -8,6 +8,28 @@ export default function ChangelogPage() {
 
   const changelogData = [
     {
+      version: "v1.8.0",
+      date: "August 15, 2026",
+      product: "ID Card Designer",
+      icon: <Box className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Added", text: "Canva-Style Smart Alignment Guides: Magnetically snap elements to the center of the card or align them perfectly with other elements using color-coded visual guides (Purple for center, Red for edges)." },
+        { type: "Added", text: "High-Res ZIP Export: Batch export individual ID cards as high-resolution (300 DPI) PNG files neatly packaged in a single ZIP archive." },
+        { type: "Added", text: "Thermal PVC Printer Support: Native support for exporting a perfectly dimensioned CR80 layout (1 card per page) specifically optimized for Zebra, Fargo, and Magicard thermal printers." },
+        { type: "Added", text: "Dynamic Image Fallbacks: Beautifully generated initial-based avatars with consistent gradient backgrounds are automatically inserted if a profile photo is missing." },
+        { type: "Added", text: "Curved Typography: Advanced SVG text rendering to wrap and curve text along circular paths." }
+      ]
+    },
+    {
+      version: "v1.7.1",
+      date: "August 13, 2026",
+      product: "ID Card Designer",
+      icon: <Box className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        { type: "Changed", text: "Licensing & Metadata: Updated package metadata (homepage, engines) and finalized the internal licensing documentation for the StrataMetriq release. No functional code changes." }
+      ]
+    },
+    {
       version: "v1.7.0",
       date: "August 12, 2026",
       product: "ID Card Designer",

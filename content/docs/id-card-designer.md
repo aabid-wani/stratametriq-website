@@ -8,7 +8,7 @@ description: "Documentation for the Stratametriq ID Card Designer package, inclu
 
 A universal, dynamic, and highly customizable **ID Card Designer & Batch Print Dashboard** for React, Vue, Angular, and Vanilla JS.
 
-> **Current release:** 1.7.0
+> **Current release:** 1.8.0
 
 ---
 
@@ -22,6 +22,7 @@ A universal, dynamic, and highly customizable **ID Card Designer & Batch Print D
 - [Design Cards](#design-cards)
 - [Batch Printing](#batch-printing)
 - [Offline Mode](#offline-mode)
+- [Architecture & Compatibility](#architecture--compatibility)
 - [Privacy](#privacy)
 - [Developer Docs](#developer-docs)
 - [NPM](#npm)
@@ -59,10 +60,13 @@ You can launch a complete ID card design studio and batch print dashboard with j
 - **🎨 Visual ID Card Designer:** A complete workspace for designing ID cards with a visual canvas, configurable elements, templates, and preview capabilities.
 - **📥 CSV & Excel Import:** Import structured card data from `.csv`, `.xlsx`, and `.xls`. Imported columns can be used as dynamic fields inside templates.
 - **🖼️ Bulk ZIP Photo Import:** Upload a ZIP archive containing your spreadsheet/CSV and images. The importer can fuzzy-match image filenames with records, making it possible to prepare large batches of cards without manually attaching every photo.
+- **🖨️ Professional Print Calibration:** Define Bleed margins, X/Y hardware cutting offsets, and double-sided interleaved layouts.
 - **🔳 QR Codes & Barcodes:** Generate dynamic QR codes and 1D barcodes and bind them to record values such as admission numbers, employee IDs, URLs, or other unique identifiers.
 - **🏷️ Dynamic Field Placeholders:** Bind template elements to imported data (e.g., `ID: {{admissionNo}}`).
 - **🧠 Conditional Rendering:** Text elements can use JavaScript expressions for conditional output (e.g., `{{ department === 'HR' ? 'Red' : 'Blue' }}`).
 - **📐 Printer Calibration:** X/Y offsets can be applied to compensate for mechanical print alignment differences when producing physical PVC cards.
+- **🔲 Smart Alignment Guides:** Snap elements to the center of the card or align them with other elements using visual color-coded guides (Purple for center, Red for edges).
+- **⌨️ Keyboard Shortcuts:** Navigate the editor faster using Undo/Redo (`Ctrl+Z`, `Ctrl+Y`), Duplicate (`Ctrl+C`, `Ctrl+V`), Delete, and Arrow Key nudging.
 
 ---
 
@@ -160,6 +164,19 @@ The dashboard stores workspace state in the browser's IndexedDB, including impor
 Export a complete project workspace as a `.stmq` JSON project file. This provides a portable way to move a workspace between machines, including offline/air-gapped workflows.
 
 ---
+
+
+## Architecture & Compatibility
+
+This package is designed as a **purely client-side UI library**. It does NOT require or include any built-in backend APIs or server dependencies for generating cards.
+
+**Where is it supportable?**
+- **React Apps (Vite, CRA, Next.js):** Fully compatible.
+- **Data Integrations:** Because this is a UI component, it expects you to pass your live server data down as a prop (e.g. `<IdCardManager sampleRecords={myLiveApiData} />`). It is completely agnostic to where your data comes from (REST API, GraphQL, Firebase, etc.).
+- **Browsers:** Compatible with all modern browsers (Chrome, Edge, Firefox, Safari). PDF generation relies on HTML5 Canvas and `html2canvas` so modern ES6 support is required.
+
+---
+
 
 ## Privacy
 
