@@ -8,6 +8,19 @@ export default function ChangelogPage() {
 
   const changelogData = [
     {
+      "version": "v1.8.1",
+      "date": "August 16, 2026",
+      "product": "ID Card Designer",
+      "icon": <Box className="w-6 h-6 text-neon-emerald" />,
+      "features": [
+        { "type": "Added", "text": "Premium Header Redesign: Completely redesigned the SaaS dashboard header to feature a modern, sleek glassmorphism aesthetic with glowing gradients." },
+        { "type": "Added", "text": "Dynamic Status Indicators: Added beautiful pulsating status pills to indicate active dynamic data bindings." },
+        { "type": "Added", "text": "Enhanced Footer: Replaced bulky text links with a minimal, professional icon-based footer." },
+        { "type": "Added", "text": "Enterprise Toggle: Added a showFooter prop to the NPM package, allowing enterprise developers to easily hide the Stratametriq branding when embedding the engine inside their private ERP systems." },
+        { "type": "Added", "text": "Documentation Overhaul: Updated official documentation to explicitly detail our 100% secure, local browser-based data processing architecture." }
+      ]
+    },
+    {
       version: "v1.8.0",
       date: "August 15, 2026",
       product: "ID Card Designer",
@@ -239,25 +252,25 @@ export default function ChangelogPage() {
 
       {/* Filter Sidebar & Timeline Layout */}
       <div className="flex flex-col md:flex-row gap-12">
-        
+
         {/* Sidebar */}
         <div className="w-full md:w-64 flex-shrink-0">
           <div className="sticky top-24 space-y-4 p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-glass shadow-sm dark:shadow-none">
             <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">Filter by Product</h3>
             <div className="flex flex-col gap-2">
-              <button 
+              <button
                 onClick={() => setFilter("All")}
                 className={`text-left px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${filter === "All" ? "bg-electric-50 text-electric-600 border border-electric-200 dark:bg-electric-600/20 dark:text-electric-400 dark:border-electric-500/30" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/5"}`}
               >
                 All Updates
               </button>
-              <button 
+              <button
                 onClick={() => setFilter("ID Card Designer")}
                 className={`text-left px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${filter === "ID Card Designer" ? "bg-electric-50 text-electric-600 border border-electric-200 dark:bg-electric-600/20 dark:text-electric-400 dark:border-electric-500/30" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/5"}`}
               >
                 ID Card Designer
               </button>
-              <button 
+              <button
                 onClick={() => setFilter("Architecture Intelligence")}
                 className={`text-left px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${filter === "Architecture Intelligence" ? "bg-electric-50 text-electric-600 border border-electric-200 dark:bg-electric-600/20 dark:text-electric-400 dark:border-electric-500/30" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/5"}`}
               >
@@ -273,7 +286,7 @@ export default function ChangelogPage() {
             <div key={idx} className="relative group">
               {/* Timeline node */}
               <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white dark:bg-obsidian-950 border-2 border-electric-500 flex items-center justify-center text-xs font-bold text-white shadow-sm dark:shadow-glow-blue group-hover:scale-125 transition-transform" />
-              
+
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
                 <div className="flex items-center space-x-3">
                   <div className="p-3 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-glass shadow-sm dark:shadow-md">
@@ -304,7 +317,7 @@ export default function ChangelogPage() {
               </div>
             </div>
           ))}
-          
+
           {filteredData.length === 0 && (
             <div className="text-gray-400 italic">No updates found for this product.</div>
           )}

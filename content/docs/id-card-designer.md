@@ -1,31 +1,29 @@
 ---
 title: "ID Card Designer Documentation"
-date: "2026-08-13"
-description: "Documentation for the Stratametriq ID Card Designer package, including quick start, features, and API reference."
+date: "2026-08-16"
+description: "Documentation for the Stratametriq ID Card Designer package and SaaS Platform, including quick start, features, security, and API reference."
 ---
 
 # 📦 @stratametriq/id-card-designer
 
-A universal, dynamic, and highly customizable **ID Card Designer & Batch Print Dashboard** for React, Vue, Angular, and Vanilla JS.
+A universal, dynamic, and highly customizable **ID Card Designer & Batch Print Dashboard**. Available as both a cloud-based SaaS platform and an embeddable open-source engine for React, Vue, Angular, and Vanilla JS.
 
-> **Current release:** 1.8.0
+> **Current release:** 1.8.1
 
 ---
 
 ## 📑 Table of Contents
 
 - [Overview](#overview)
-- [Live Demo](#live-demo)
-- [Features](#features)
+- [Live Demo & SaaS](#live-demo--saas)
+- [Core Features](#core-features)
 - [How It Works](#how-it-works)
-- [Import Data](#import-data)
-- [Design Cards](#design-cards)
-- [Batch Printing](#batch-printing)
-- [Offline Mode](#offline-mode)
-- [Architecture & Compatibility](#architecture--compatibility)
-- [Privacy](#privacy)
-- [Developer Docs](#developer-docs)
-- [NPM](#npm)
+- [Importing Data](#importing-data)
+- [Designing Cards](#designing-cards)
+- [Batch Printing & Export](#batch-printing--export)
+- [Cloud & Offline Modes](#cloud--offline-modes)
+- [Architecture & Security](#architecture--security)
+- [Developer Docs (NPM)](#developer-docs-npm)
 - [Pricing / License](#pricing--license)
 - [FAQ](#faq)
 
@@ -33,9 +31,9 @@ A universal, dynamic, and highly customizable **ID Card Designer & Batch Print D
 
 ## Overview
 
-`@stratametriq/id-card-designer` is a developer-focused ID-card design and generation package.
+`@stratametriq/id-card-designer` is a developer-focused ID-card design and generation engine.
 
-It is designed for applications such as:
+It is designed to solve the batch-generation problem for:
 - Student Information Systems
 - School and College ERP systems
 - HR and Employee Management systems
@@ -43,67 +41,65 @@ It is designed for applications such as:
 - Membership systems
 - Internal identity-card workflows
 
-The package combines **visual card design** with **structured data and batch generation** so developers do not need to build an ID-card production workflow from scratch.
+The package combines **visual Canva-style card design** with **structured data and batch generation** so developers do not need to build an ID-card production workflow from scratch.
 
 ---
 
-## Live Demo
+## Live Demo & SaaS
 
-You can launch a complete ID card design studio and batch print dashboard with just **two lines of code**. It comes with pre-built dummy data so you can test it immediately!
+You do not need to be a developer to use Stratametriq ID Card Studio! We host a fully managed, secure SaaS version for schools and businesses.
 
-### 🚀 [Try the Live Interactive Demo on StackBlitz](https://stackblitz.com/edit/vitejs-vite-jtyvdj5g?file=src%2FApp.tsx)
+### 🌍 [Launch Stratametriq Studio (Free SaaS)](https://studio.stratametriq.com)
+Log in securely with your Google account or email to instantly start designing and saving your templates to the cloud.
+
+### 🚀 [Try the Developer Code Demo (StackBlitz)](https://stackblitz.com/edit/vitejs-vite-jtyvdj5g?file=src%2FApp.tsx)
+If you are a developer looking to embed the engine, test it live in your browser with just two lines of code.
 
 ---
 
-## Features
+## Core Features
 
-- **🎨 Visual ID Card Designer:** A complete workspace for designing ID cards with a visual canvas, configurable elements, templates, and preview capabilities.
-- **📥 CSV & Excel Import:** Import structured card data from `.csv`, `.xlsx`, and `.xls`. Imported columns can be used as dynamic fields inside templates.
-- **🖼️ Bulk ZIP Photo Import:** Upload a ZIP archive containing your spreadsheet/CSV and images. The importer can fuzzy-match image filenames with records, making it possible to prepare large batches of cards without manually attaching every photo.
-- **🖨️ Professional Print Calibration:** Define Bleed margins, X/Y hardware cutting offsets, and double-sided interleaved layouts.
-- **🔳 QR Codes & Barcodes:** Generate dynamic QR codes and 1D barcodes and bind them to record values such as admission numbers, employee IDs, URLs, or other unique identifiers.
-- **🏷️ Dynamic Field Placeholders:** Bind template elements to imported data (e.g., `ID: {{admissionNo}}`).
-- **🧠 Conditional Rendering:** Text elements can use JavaScript expressions for conditional output (e.g., `{{ department === 'HR' ? 'Red' : 'Blue' }}`).
-- **📐 Printer Calibration:** X/Y offsets can be applied to compensate for mechanical print alignment differences when producing physical PVC cards.
-- **🔲 Smart Alignment Guides:** Snap elements to the center of the card or align them with other elements using visual color-coded guides (Purple for center, Red for edges).
+- **🎨 Visual Canva-style Designer:** A complete workspace for designing ID cards with a visual canvas, configurable elements, templates, and live preview capabilities.
+- **📥 Excel & CSV Import:** Import structured card data directly from `.csv`, `.xlsx`, and `.xls`. Imported columns can be used as dynamic fields inside templates.
+- **🖼️ Bulk ZIP Photo Import:** Upload a `.zip` archive containing your Excel spreadsheet and a folder of employee/student images. The importer will automatically fuzzy-match image filenames to your records, preparing thousands of cards instantly.
+- **🔳 Dynamic QR & Barcodes:** Generate dynamic QR codes and 1D barcodes and bind them to record values such as admission numbers, employee IDs, or verification URLs.
+- **🏷️ Dynamic Field Placeholders:** Bind template elements to imported data (e.g., `Name: {{studentName}}`).
+- **🧠 Conditional Logic Rendering:** Text elements can use JavaScript expressions for conditional output (e.g., `{{ department === 'HR' ? 'Red' : 'Blue' }}`).
+- **🔲 Smart Alignment Guides:** Magnetically snap elements to the center of the card or align them perfectly with other elements using color-coded visual guides (Purple for center, Red for edges).
+- **🖨️ Professional Print Calibration:** Export perfectly dimensioned CR80 cards for thermal PVC printers (Zebra, Fargo, Magicard), or generate A4/A3 batch PDFs with hardware cutting marks.
 - **⌨️ Keyboard Shortcuts:** Navigate the editor faster using Undo/Redo (`Ctrl+Z`, `Ctrl+Y`), Duplicate (`Ctrl+C`, `Ctrl+V`), Delete, and Arrow Key nudging.
+- **🖼️ Image Fallbacks:** Beautifully generated initial-based avatars with consistent gradient backgrounds are automatically inserted if a profile photo is missing.
 
 ---
 
 ## How It Works
 
-The package is designed around a client-side card-generation workflow.
+The entire architecture is designed around a lightning-fast, client-side generation workflow.
 
 ```text
-CSV / Excel / JSON
+Excel / CSV / ZIP
         ↓
-Import Records
+Import Records & Match Photos
         ↓
-Match Photos
+Design Template (Drag & Drop)
         ↓
-Design Template
+Bind Dynamic Fields & QR Codes
         ↓
-Bind Dynamic Fields
-        ↓
-Add QR / Barcode
-        ↓
-Preview
+Live Live Preview
         ↓
 Batch Generate
         ↓
-PDF / PNG
+Multi-page PDF / High-Res ZIP
 ```
-
-The package can be embedded into an existing web application. Your application remains responsible for its own backend, authentication, database, and business logic.
 
 ---
 
-## Import Data
+## Importing Data
 
 ### CSV / Excel
 Select **Import Data** and upload `.csv`, `.xlsx`, or `.xls` files. The importer automatically maps spreadsheet columns into dynamic fields.
 
-### ZIP + Photos
+### ZIP + Bulk Photos
 Prepare a ZIP containing the spreadsheet/CSV and image files.
 ```text
 id-cards.zip
@@ -112,127 +108,90 @@ id-cards.zip
     ├── aarav_sharma.jpg
     └── diya_patel.jpg
 ```
-The importer attempts to fuzzy-match image filenames to the corresponding records.
+The intelligent importer automatically matches the photo filenames to the correct student/employee record.
 
 ---
 
-## Design Cards
+## Designing Cards
 
-Open **Launch Studio Canvas**.
+Click the vibrant **Launch Studio Canvas** button to open the editor.
 
 ### Dynamic Text
-Use a field placeholder:
+Type a field placeholder wrapped in double braces:
 ```text
 {{studentName}}
 ```
 
 ### Conditional Text
-Use Javascript expressions:
+Use Javascript expressions to change output based on data:
 ```text
 {{ department === 'HR' ? 'Red' : 'Blue' }}
 ```
 
-### QR / Barcode
-Add a QR or barcode element and bind it to a unique field.
-
-### Background
-Upload a high-resolution card background from your computer or URL, and position other elements above it.
+### Backgrounds & Layout
+Upload a high-resolution card background from your computer. Use the Smart Alignment Guides to perfectly center your text, barcodes, and profile pictures over your background.
 
 ---
 
-## Batch Printing
+## Batch Printing & Export
 
-Select **Batch Export A4 PDF** or the applicable export workflow.
+Once your design is ready, select your export format:
 
-The engine processes the records and places cards into printable sheets. The documented workflow includes:
-- CR80 card dimensions
-- A3, A4, A5, and Letter sheet sizes
-- Multiple cards per sheet
-- Hardware cutting marks
-- X/Y print calibration offsets
+1. **Batch A4/A3 PDF:** The engine mathematically calculates the perfect grid spacing, applies hardware cutting marks, and generates a multi-page PDF ready for standard office printers.
+2. **Thermal PVC Export:** Generates a perfectly dimensioned CR80 layout (1 card per page) optimized for Zebra, Fargo, and Magicard thermal printers.
+3. **High-Res ZIP Export:** Batch export individual ID cards as high-resolution (300 DPI) PNG files neatly packaged in a single ZIP archive.
 
 ---
 
-## Offline Mode
+## Cloud & Offline Modes
 
-The package is designed to support workflows where ID-card data should remain on the user's machine.
+### SaaS Cloud Sync (studio.stratametriq.com)
+If you are logged into our SaaS platform, your custom ID card templates are automatically synced to our secure cloud. You can log in from any computer and your designs will be waiting for you.
 
-### Offline Workspace Persistence
-The dashboard stores workspace state in the browser's IndexedDB, including imported data, templates, and active workspace information. Refreshing or reopening the browser does not automatically discard the saved workspace.
-
-### `.stmq` Project Backup
-Export a complete project workspace as a `.stmq` JSON project file. This provides a portable way to move a workspace between machines, including offline/air-gapped workflows.
+### Offline Workspace (.stmq)
+If you are using the open-source engine in an air-gapped or highly secure offline environment, you can click **Backup Project** to download your entire workspace (data, photos, and templates) as a local `.stmq` JSON file. You can load this file later to resume work without ever touching the internet.
 
 ---
 
+## Architecture & Security
 
-## Architecture & Compatibility
+### Is it safe to upload my Excel data?
+**YES. It is 100% secure.** 
+When you upload an Excel or CSV file containing sensitive student or employee data, **none of that data is ever sent to a server**. 
 
-This package is designed as a **purely client-side UI library**. It does NOT require or include any built-in backend APIs or server dependencies for generating cards.
+The entire ID Card Designer is a purely client-side architecture. It runs natively in your local web browser using the HTML5 File API. Your sensitive spreadsheet data and employee photos remain strictly on your computer and are stored temporarily in your browser's local IndexedDB. 
 
-**Where is it supportable?**
-- **React Apps (Vite, CRA, Next.js):** Fully compatible.
-- **Data Integrations:** Because this is a UI component, it expects you to pass your live server data down as a prop (e.g. `<IdCardManager sampleRecords={myLiveApiData} />`). It is completely agnostic to where your data comes from (REST API, GraphQL, Firebase, etc.).
-- **Browsers:** Compatible with all modern browsers (Chrome, Edge, Firefox, Safari). PDF generation relies on HTML5 Canvas and `html2canvas` so modern ES6 support is required.
-
----
-
-
-## Privacy
-
-ID-card applications commonly process personal information such as Names, Student IDs, Employee IDs, Photos, and Admission numbers.
-
-The documented generation workflow is entirely **client-side**.
-- Local browser processing
-- IndexedDB workspace persistence
-- Local `.stmq` project backup
-- Local PDF/image generation
-- No backend server required for the core generation workflow
-
-Your application remains responsible for compliance with applicable privacy and data-protection requirements.
+Our servers only store your *blank template designs* (so you don't lose your work), but we never touch, see, or process your actual spreadsheet data.
 
 ---
 
-## Developer Docs
+## Developer Docs (NPM)
+
+Building an ERP or HR system? Embed the designer directly into your application!
+
+### Installation
+```bash
+npm install @stratametriq/id-card-designer
+```
+
+### Basic Usage
+```jsx
+import { IdCardManager } from '@stratametriq/id-card-designer';
+import '@stratametriq/id-card-designer/dist/index.css';
+
+function App() {
+  return (
+    <div style={{ height: '100vh', backgroundColor: '#060913' }}>
+      <IdCardManager showFooter={false} />
+    </div>
+  );
+}
+```
 
 ### Components
 - `<IdCardManager />`: Complete dashboard experience. Use this when you want the complete import → design → preview → batch-export workflow.
 - `<IdCardDesigner />`: Standalone visual designer.
 - `<IdCardPreview />`: Embed a live ID-card preview inside another application screen.
-- `<IdCardDesignerModal />`: Open the designer inside your application's modal/dialog workflow.
-
-### Props (IdCardManager)
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `sampleRecords` | `object` | Default data | Records used to populate the dashboard |
-| `categories` | `object` | Default config | Custom ID-card categories |
-| `onBatchExportComplete` | `function` | `undefined` | Callback after batch PDF generation |
-
-### Templates
-Designs are represented as JSON-compatible template structures.
-```json
-{
-  "id": "tpl_school_vertical",
-  "orientation": "vertical",
-  "width": 54,
-  "height": 86,
-  "elements": []
-}
-```
-
----
-
-## NPM
-
-Install using NPM:
-```bash
-npm install @stratametriq/id-card-designer
-```
-
-Or Yarn:
-```bash
-yarn add @stratametriq/id-card-designer
-```
 
 ---
 
@@ -253,29 +212,15 @@ Required for any commercial use, including:
 
 👉 **[Purchase a Commercial Enterprise License Here](https://waniabid.gumroad.com/l/id-card-designer-pro)**
 
-*For full legal terms, please review the `LICENSE` file included in this repository.*
-
 ---
 
 ## FAQ
 
 **How is this different from Canva?**
-Canva is designed primarily for visual design. `@stratametriq/id-card-designer` focuses on an automated data-driven ID-card workflow: One Template + Many Records = Batch Printable ID Cards.
+Canva is designed primarily for single visual designs. Stratametriq focuses on an automated, data-driven workflow: *One Template + Many Spreadsheet Records = Batch Printable ID Cards in seconds.*
+
+**Do I need to install any software? Will it give me a virus?**
+**No installation is required.** ID Card Studio is a web-based application. You do not need to download or install any `.exe` or `.dmg` files, meaning there is **zero risk of viruses or malware**. Simply open your browser and start designing.
 
 **Does the core workflow require a StrataMetriq server?**
-No backend server from StrataMetriq is required for the documented client-side card-generation workflow.
-
-**Can it be used for offline workflows?**
-Yes. The package includes IndexedDB workspace persistence and `.stmq` project backup capabilities intended to support local and offline-capable workflows.
-
----
-
-## Changelog
-
-### [1.7.1] - 2026-08-13
-- **Licensing & Metadata:** Updated package metadata (homepage, engines) and finalized the internal licensing documentation for the StrataMetriq release.
-
-### [1.7.0] - 2026-08-11
-- **Excel & ZIP Bulk Import:** Users can now upload `.xlsx` and `.xls` files directly, without needing to convert them to CSV. Additionally, users can upload `.zip` archives containing an Excel/CSV file and a folder of images. The importer automatically binds the high-resolution images to the data records using fuzzy matching.
-- **Full Workspace Persistence (IndexedDB):** The dashboard now automatically saves the entire workspace state—including imported data, custom templates, and active tabs—to the browser's local IndexedDB. Refreshing the page or closing the browser no longer results in data loss.
-- **Offline Project Backup (.stmq):** Added a "Backup Project" button that serializes the entire offline workspace (records, configurations, and templates) into a `.stmq` JSON file. This allows users to export their work from one machine and import it into another, maintaining full offline portability without any backend servers.
+No. The core generation engine runs entirely in your browser using standard HTML5 Canvas technologies.
