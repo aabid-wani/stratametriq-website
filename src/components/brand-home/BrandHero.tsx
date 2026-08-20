@@ -30,7 +30,7 @@ export default function BrandHero() {
           {/* Top Pill Badge */}
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/80 dark:bg-obsidian-800/80 border border-slate-200 dark:border-glass shadow-sm dark:shadow-glass text-xs font-semibold text-slate-700 dark:text-gray-300 backdrop-blur-md animate-float">
             <span className="flex h-2 w-2 rounded-full bg-electric-600 dark:bg-neon-cyan animate-ping" />
-            <span className="text-slate-900 dark:text-white font-bold">StrataMetriq Ecosystem v1.4.8</span>
+            <span className="text-slate-900 dark:text-white font-bold">StrataMetriq Ecosystem v1.5.0</span>
             <span className="text-slate-300 dark:text-gray-500">|</span>
             <span className="text-electric-600 dark:text-electric-400 font-mono">Polyglot DevSecOps & A4 UI Engines</span>
           </div>
@@ -103,7 +103,7 @@ export default function BrandHero() {
                 <Download className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-sm font-bold text-slate-900 dark:text-white block">4,500+ Downloads</span>
+                <span className="text-sm font-bold text-slate-900 dark:text-white block">3,000+ Downloads</span>
                 <span className="text-xs text-slate-500 dark:text-gray-400">Trusted across DevOps</span>
               </div>
             </div>

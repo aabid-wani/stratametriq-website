@@ -310,7 +310,7 @@ func ExecuteFinancialOrder(ctx context.Context, orderID string) error {
         </div>
         <div className="flex items-center space-x-3">
           <span>UTF-8</span>
-          <span>VSIX v1.4.4</span>
+          <span>VSIX v1.5.0</span>
         </div>
       </div>
     </div>

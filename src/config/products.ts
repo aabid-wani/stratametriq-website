@@ -27,17 +27,17 @@ export const STRATAMETRIQ_PRODUCTS: StratametriqProduct[] = [
     description: "Transforms technical debt into visual graphs across 11 languages (JS/TS, Python, Java, Go, C#, C++, Rust) with SARIF 2.1.0 export and zero cloud exfiltration.",
     category: "DevSecOps & IDE",
     status: "Live",
-    badge: "v1.4.4",
-    downloadsCount: "2,500+",
-    href: "/products/architecture-intelligence",
+    badge: "v1.5.0",
+    downloadsCount: "500+",
+    href: "https://marketplace.visualstudio.com/items?itemName=StrataMetriq.stratametriq-extension",
     iconName: "ShieldCheck",
     isFeatured: true,
     hasLiveDemo: true,
     installCommand: "npx @stratametriq/cli scan . --fail-on-high",
-    pricingSummary: { 
-      community: "Free VS Code VSIX", 
-      pro: "$1,499 / Year", 
-      enterprise: "$3,499 / Year" 
+    pricingSummary: {
+      community: "Free VS Code VSIX",
+      pro: "$499 / Year",
+      enterprise: "$1,499 / Year"
     }
   },
   {
@@ -47,17 +47,17 @@ export const STRATAMETRIQ_PRODUCTS: StratametriqProduct[] = [
     description: "Equipped with multi-department tabs, live sheet matrix math (3×3 = 9 cards/page), handlebars variable binding (`{{name}}`), and CSV import across React, Vue, Angular & Vanilla JS.",
     category: "Turnkey UI & PDF",
     status: "Live",
-    badge: "v1.5.0",
+    badge: "v1.8.8",
     downloadsCount: "2,000+",
-    href: "/products/id-card-designer",
+    href: "https://studio.stratametriq.com",
     iconName: "Layout",
     isFeatured: true,
     hasLiveDemo: true,
     installCommand: "npm install @stratametriq/id-card-designer",
-    pricingSummary: { 
-      community: "Free Community License", 
-      pro: "$49 - $149 / Perpetual", 
-      enterprise: "$499 / Perpetual" 
+    pricingSummary: {
+      community: "Free Community License",
+      pro: "$49 - $149 / Perpetual",
+      enterprise: "$499 / Perpetual"
     }
   },
   {
@@ -73,10 +73,10 @@ export const STRATAMETRIQ_PRODUCTS: StratametriqProduct[] = [
     isFeatured: false,
     hasLiveDemo: false,
     installCommand: "npm install @stratametriq/runtime",
-    pricingSummary: { 
-      community: "Free Community License", 
-      pro: "Coming Soon", 
-      enterprise: "Contact Us" 
+    pricingSummary: {
+      community: "Free Community License",
+      pro: "Coming Soon",
+      enterprise: "Contact Us"
     }
   }
 ];

@@ -1,12 +1,43 @@
 "use client";
 
 import React, { useState } from "react";
-import { History, Box, Send, FileCode2, ShieldCheck, Terminal } from "lucide-react";
+import { History, Box, Send, FileCode2, ShieldCheck, Terminal, Webcam } from "lucide-react";
 
 export default function ChangelogPage() {
   const [filter, setFilter] = useState("All");
 
   const changelogData = [
+
+    {
+      "version": "v1.8.8",
+      "date": "August 19, 2026",
+      "product": "ID Card Designer",
+      "icon": <Webcam className="w-6 h-6 text-neon-emerald" />,
+      "features": [
+        {
+          "type": "Fixed",
+          "text": "Fixed an infinite re-render loop in the Webcam Capture Modal that caused the video feed to get stuck on a black screen."
+        },
+        {
+          "type": "Fixed",
+          "text": "Enhanced camera error handling to provide specific, actionable feedback when the camera is blocked, missing, or in use by another application."
+        }
+      ]
+    },
+
+    {
+      "version": "v1.8.2",
+      "date": "August 16, 2026",
+      "product": "ID Card Designer",
+      "icon": <Box className="w-6 h-6 text-neon-emerald" />,
+      "features": [
+        {
+          "type": "Added",
+          "text": "Core Management & Export Utilities: Initialized core ID card management functions and PDF export utilities for improved rendering and data handling."
+        }
+      ]
+    },
+
     {
       "version": "v1.8.1",
       "date": "August 16, 2026",

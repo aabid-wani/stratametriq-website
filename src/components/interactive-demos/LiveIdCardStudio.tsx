@@ -84,7 +84,7 @@ export default function LiveIdCardStudio() {
               &lt;IdCardManager /&gt; Live Turnkey Studio
             </span>
             <span className="text-xs text-slate-500 dark:text-gray-400 font-mono">
-              @stratametriq/id-card-designer v1.5.0 • Multi-Page A4 Engine
+              @stratametriq/id-card-designer v1.8.8 • Multi-Page A4 Engine
             </span>
           </div>
         </div>

@@ -27,7 +27,7 @@ export default function AboutPage() {
           </p>
           <ul>
             <li><strong>Architecture Intelligence:</strong> Polyglot DevSecOps AST analysis and CI/CD governance.</li>
-            <li><strong>ID Card Designer Studio:</strong> Turnkey A4/Letter cut-sheet PDF rendering engines running entirely in the browser (Zero Server Exfiltration).</li>
+            <li><strong>ID Card Designer Studio:</strong> Turnkey A4/Letter cut-sheet PDF rendering engines running entirely in the browser.</li>
             <li><strong>Runtime Engine:</strong> OpenTelemetry-based API rate-limiting proxies and execution engines.</li>
           </ul>
 
