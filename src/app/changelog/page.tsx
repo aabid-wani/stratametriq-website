@@ -9,6 +9,40 @@ export default function ChangelogPage() {
   const changelogData = [
 
     {
+      "version": "v1.9.1",
+      "date": "August 24, 2026",
+      "product": "ID Card Designer",
+      "icon": <Webcam className="w-6 h-6 text-neon-emerald" />,
+      "features": [
+        {
+          "type": "Fixed",
+          "text": "AI Background Removal Bundler Interop: Fixed a dynamic import resolution bug that caused the AI module to fail (`removeBackground is not a function`) when the library was used inside Webpack/Next.js environments."
+        },
+        {
+          "type": "Fixed",
+          "text": "WASM CDN Loading Error: Removed a manual proxy CDN configuration that was causing `Failed to fetch` errors on some adblocked networks. The library now natively uses its built-in globally distributed edge servers to download the AI models."
+        },
+        {
+          "type": "Fixed",
+          "text": "Improved Security Logging: Added an intuitive frontend popup alert to specifically notify the user if their browser's strict CORS policy blocks the AI from reading a random external internet image link."
+        }
+      ]
+    },
+
+    {
+      "version": "v1.9.0",
+      "date": "August 21, 2026",
+      "product": "ID Card Designer",
+      "icon": <Webcam className="w-6 h-6 text-neon-emerald" />,
+      "features": [
+        {
+          "type": "Added",
+          "text": "AI Background Removal: Integrated an advanced, fully client-side WebAssembly machine learning model (`@imgly/background-removal`) directly into the Live Roster Data Table. Users can now perfectly remove the background from uploaded profile photos or webcam captures with a single click, completely offline, without any backend processing or API keys."
+        }
+      ]
+    },
+
+    {
       "version": "v1.8.8",
       "date": "August 19, 2026",
       "product": "ID Card Designer",
