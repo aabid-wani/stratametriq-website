@@ -1,13 +1,68 @@
 "use client";
 
-import React, { useState } from "react";
-import { History, Box, Send, FileCode2, ShieldCheck, Terminal, Webcam } from "lucide-react";
+import React, { use, useState } from "react";
+import { History, Box, Send, FileCode2, ShieldCheck, Terminal, Webcam, Code } from "lucide-react";
 
 export default function ChangelogPage() {
   const [filter, setFilter] = useState("All");
 
   const changelogData = [
-
+    {
+      version: "v1.9.4",
+      date: "August 27, 2026",
+      product: "ID Card Designer",
+      icon: <Webcam className="w-6 h-6 text-neon-emerald" />,
+      features: [
+          {
+            type: "Added",
+            text: "Full Roster CRUD & IndexedDB Sync: Added a dedicated **"+ Add Record"** modal with integrated photo upload, an **"Edit Record"** modal for inline detail fixes, row-level **"Delete"** with confirmation, and bulk **"Delete Selected"** actions—all synchronized in real-time with browser IndexedDB (`localforage`)."
+          },
+          {
+            type: "Added",
+            text: "Interactive Multi-Column Sorting: Enabled 1-click column header sorting (Ascending / Descending) across Name & Avatar, Class/Designation, ID Number, Guardian/Department, and Contact Phone."
+          },
+          {
+            type: "Added",
+            text: "Smart Roster Pagination: Integrated a high-performance pagination and rows-per-page toolbar (`10`, `25`, `50`, `100`, `All`) with responsive page navigation controls, preventing DOM lag on large imported rosters (1,000+ cards)."
+          },
+          {
+            type: "Added",
+            text: "Accurate Selection Counters: Fixed selection counters to dynamically reflect active category record counts and prevent negative selection indexes."
+          }
+        ]
+    }
+    ,{
+      version: "v1.9.3",
+      date: "August 26, 2026",
+      product: "ID Card Designer",
+      icon: <Webcam className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        {
+          type: "Added",
+          text: "Production-Ready Scannable QR Codes: Upgraded the QR code generator to use the industry-standard `qrcode` engine. Generated QR codes are mathematically accurate and fully scannable with mobile camera scanners and physical optical scanners."
+        },
+        {
+          type: "Added",
+          text: "Production-Ready Code 128 1D Barcodes: Upgraded 1D barcode generation with `jsbarcode` for native Code 128 barcode rendering in both the canvas preview and high-resolution PDF print exports."
+        },
+        {
+          type: "Added",
+          text: "Smart Data Field Filtering for QR/Barcode Elements: When selecting a QR Code or Barcode element in the designer, the Data Field Key dropdown automatically filters to display only relevant ID, code, number, and contact fields, eliminating clutter from irrelevant fields (like photo URLs, blood groups, or long addresses) for a clean user experience."
+        }
+      ]
+    },
+    {
+      version: "v1.9.2",
+      date: "August 25, 2026",
+      product: "ID Card Designer",
+      icon: <Webcam className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        {
+          type: "Added",
+          text: "Multi-CSV Import Append: Enhanced the CSV importer to append new data instead of overriding previous uploads. When importing multiple CSV, Excel, or ZIP files sequentially, the new records and any new dynamic fields are now merged seamlessly into the existing active workspace and automatically saved to IndexedDB."
+        }
+      ]
+    },
     {
       "version": "v1.9.1",
       "date": "August 24, 2026",
@@ -28,7 +83,6 @@ export default function ChangelogPage() {
         }
       ]
     },
-
     {
       "version": "v1.9.0",
       "date": "August 21, 2026",
