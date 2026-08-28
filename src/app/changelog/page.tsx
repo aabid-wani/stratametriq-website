@@ -1,6 +1,6 @@
 "use client";
 
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { History, Box, Send, FileCode2, ShieldCheck, Terminal, Webcam, Code } from "lucide-react";
 
 export default function ChangelogPage() {
@@ -15,7 +15,7 @@ export default function ChangelogPage() {
       features: [
           {
             type: "Added",
-            text: "Full Roster CRUD & IndexedDB Sync: Added a dedicated **"+ Add Record"** modal with integrated photo upload, an **"Edit Record"** modal for inline detail fixes, row-level **"Delete"** with confirmation, and bulk **"Delete Selected"** actions—all synchronized in real-time with browser IndexedDB (`localforage`)."
+            text: "Full Roster CRUD & IndexedDB Sync: Added a dedicated '+ Add Record' modal with integrated photo upload, an 'Edit Record' modal for inline detail fixes, row-level 'Delete' with confirmation, and bulk 'Delete Selected' actions—all synchronized in real-time with browser IndexedDB (localforage)."
           },
           {
             type: "Added",
