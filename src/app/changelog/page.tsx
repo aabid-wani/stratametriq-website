@@ -1,12 +1,56 @@
 "use client";
 
 import React, { useState } from "react";
-import { History, Box, Send, FileCode2, ShieldCheck, Terminal, Webcam, Code } from "lucide-react";
+import { History, Box, Send, FileCode2, ShieldCheck, Terminal, Webcam, Code, Download } from "lucide-react";
 
 export default function ChangelogPage() {
   const [filter, setFilter] = useState("All");
 
   const changelogData = [
+    {
+      version: "v1.9.5",
+      date: "August 30, 2026",
+      product: "ID Card Designer",
+      icon: <Webcam className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        {
+          type: "Added",
+          text: "Multi-Mode Scannable QR Codes: Added support for three QR modes: Dynamic Field Mode (Binds QR codes dynamically to any roster field with custom URL prefix and suffix parameters), Static URL / Text Mode (Encodes fixed web URLs or static verification strings), and vCard 3.0 Digital Contact Mode (Automatically formats and encodes Full Name, Designation, Phone, Email, and Organization from active records into a smartphone-scannable digital contact card)."
+        },
+        {
+          type: "Added",
+          text: "Custom QR Styling & Color Pickers: Added foreground module color and background color pickers directly to the Property Inspector, allowing QR codes to match organizational branding."
+        },
+        {
+          type: "Added",
+          text: "Selectable Error Correction Level (ECC): Added an ECC dropdown (`L - 7%`, `M - 15%`, `Q - 25%`, `H - 30%`) to optimize scannability on small print cards or with logo overlays."
+        },
+        {
+          type: "Added",
+          text: "1-Click Blank Excel Template Generator: Added a <Download /> button to Step 1 that generates and downloads a clean, pre-formatted `.xlsx` file tailored to the active department."
+        },
+        {
+          type: "Added",
+          text: "Prominent Studio Scannables Toolbar: Restructured the left palette in the designer studio with dedicated one-click buttons for Dynamic QR Codes and 1D Barcodes."
+        },
+        {
+          type: "Fixed",
+          text: "CR80 Thermal PVC Print Matrix Calculation: Fixed the Live Sheet Matrix calculation for CR80 card formats to accurately reflect single-card capacity (`1 Col × 1 Row`, `54×86 mm`) rather than falling back to multi-card A4 sheet dimensions."
+        },
+        {
+          type: "Fixed",
+          text: "Roster ID Number Badge Wrapping: Added `whiteSpace: nowrap` to table ID badges in the Live Roster Directory to prevent hyphens from splitting codes across multiple lines."
+        },
+        {
+          type: "Fixed",
+          text: "Auto-Shrink & Multi-Line Text Wrapping: Fixed text rendering so elements without auto-shrink enabled wrap cleanly across multiple lines with `word-break: break-word` instead of overflowing horizontally."
+        },
+        {
+          type: "Fixed",
+          text: "Classic Preset Vertical Spacing: Adjusted element coordinates in `v_classic_traditional` to eliminate clipping between the address field and Principal signature line."
+        }
+      ]
+    },
     {
       version: "v1.9.4",
       date: "August 27, 2026",
