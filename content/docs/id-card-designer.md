@@ -8,7 +8,7 @@ description: "Documentation for the Stratametriq ID Card Designer package and Sa
 
 A universal, dynamic, and highly customizable **ID Card Designer & Batch Print Dashboard**. Available as both a cloud-based SaaS platform and an embeddable open-source engine for React, Vue, Angular, and Vanilla JS.
 
-> **Current release:** 1.8.1
+> **Current release:** 1.11.0
 
 ---
 
@@ -17,6 +17,7 @@ A universal, dynamic, and highly customizable **ID Card Designer & Batch Print D
 - [Overview](#overview)
 - [Live Demo & SaaS](#live-demo--saas)
 - [Core Features](#core-features)
+- [ID Card Verification & Card Lifecycle](#id-card-verification--card-lifecycle)
 - [How It Works](#how-it-works)
 - [Importing Data](#importing-data)
 - [Designing Cards](#designing-cards)
@@ -41,7 +42,8 @@ It is designed to solve the batch-generation problem for:
 - Membership systems
 - Internal identity-card workflows
 
-The package combines **visual Canva-style card design** with **structured data and batch generation** so developers do not need to build an ID-card production workflow from scratch.
+The package combines **visual card design** with **structured data, batch generation, card lifecycle management, and live digital verification** so developers do not need to build an ID-card production workflow from scratch.
+
 
 ---
 
@@ -59,18 +61,110 @@ If you are a developer looking to embed the engine, test it live in your browser
 
 ## Core Features
 
-- **🎨 Visual Canva-style Designer:** A complete workspace for designing ID cards with a visual canvas, configurable elements, templates, and live preview capabilities.
-- **📥 Excel & CSV Import:** Import structured card data directly from `.csv`, `.xlsx`, and `.xls`. Imported columns can be used as dynamic fields inside templates.
-- **🖼️ Bulk ZIP Photo Import:** Upload a `.zip` archive containing your Excel spreadsheet and a folder of employee/student images. The importer will automatically fuzzy-match image filenames to your records, preparing thousands of cards instantly.
-- **🔳 Dynamic QR & Barcodes:** Generate dynamic QR codes and 1D barcodes and bind them to record values such as admission numbers, employee IDs, or verification URLs.
-- **🏷️ Dynamic Field Placeholders:** Bind template elements to imported data (e.g., `Name: {{studentName}}`).
-- **🧠 Conditional Logic Rendering:** Text elements can use JavaScript expressions for conditional output (e.g., `{{ department === 'HR' ? 'Red' : 'Blue' }}`).
-- **🔲 Smart Alignment Guides:** Magnetically snap elements to the center of the card or align them perfectly with other elements using color-coded visual guides (Purple for center, Red for edges).
-- **🖨️ Professional Print Calibration:** Export perfectly dimensioned CR80 cards for thermal PVC printers (Zebra, Fargo, Magicard), or generate A4/A3 batch PDFs with hardware cutting marks.
+- **🎨 Visual ID Card Designer:** A complete workspace for designing ID cards with a visual canvas, configurable elements, templates, and preview capabilities.
+- **➕ Live Roster CRUD & Management:** Full inline editing ("Edit Record"), manual creation ("+ Add Record" with photo upload), individual deletion, and bulk selection deletion directly from the dashboard.
+- **🔀 Multi-Column Sorting & Smart Pagination:** 1-click column header sorting (Ascending / Descending) and customizable pagination (`10`, `25`, `50`, `100`, `All`) for smooth performance on large datasets.
+- **📥 CSV & Excel Import:** Import structured card data from `.csv`, `.xlsx`, and `.xls`. Imported columns can be used as dynamic fields inside templates.
+- **🖼️ Bulk ZIP Photo Import:** Upload a ZIP archive containing your spreadsheet/CSV and images. The importer can fuzzy-match image filenames with records, making it possible to prepare large batches of cards without manually attaching every photo.
+- **🖨️ Professional Print Calibration:** Define Bleed margins, X/Y hardware cutting offsets, and double-sided interleaved layouts.
+- **🔳 QR Codes & Barcodes:** Generate dynamic, scannable QR codes (`qrcode`) and 1D Code 128 barcodes (`jsbarcode`) and bind them to record values such as admission numbers, employee IDs, URLs, or other unique identifiers.
+- **🏷️ Dynamic Field Placeholders:** Bind template elements to imported data (e.g., `ID: {{admissionNo}}`).
+- **🧠 Conditional Rendering:** Text elements can use JavaScript expressions for conditional output (e.g., `{{ department === 'HR' ? 'Red' : 'Blue' }}`).
+- **🛡️ Digital ID Card Verification:** Built-in `<IdCardVerificationModal />` with real-time status banners, anti-tampering photo match, HTML5 camera scanner, and public verification URLs.
+- **🔄 Full Card Lifecycle Management:** Complete state machine tracking (`Active`, `Issued`, `Draft`, `Suspended`, `Revoked`, `Lost`), interactive table status pills, batch status transitions, and automatic issuance logging on print.
+- **🛡️ Brand & Security Watermark Suite:** Add customizable text watermarks (`STRATAMETRIQ`, `CONFIDENTIAL`, `SAMPLE`), uploaded brand seal logos, and repeating security tile patterns with live opacity, rotation, and layer controls.
+- **🔲 Smart Alignment Guides:** Snap elements to the center of the card or align them with other elements using visual color-coded guides (Purple for center, Red for edges).
 - **⌨️ Keyboard Shortcuts:** Navigate the editor faster using Undo/Redo (`Ctrl+Z`, `Ctrl+Y`), Duplicate (`Ctrl+C`, `Ctrl+V`), Delete, and Arrow Key nudging.
-- **🖼️ Image Fallbacks:** Beautifully generated initial-based avatars with consistent gradient backgrounds are automatically inserted if a profile photo is missing.
+---
+
 
 ---
+
+## ID Card Verification & Card Lifecycle
+
+### 1. Card Lifecycle State Machine
+
+Physical and digital ID credentials transition through an operational lifecycle:
+
+```text
+[Import / Add] ──► DRAFT
+                     │
+                     ▼
+                 APPROVED
+                     │
+                     ▼ (Batch Print / Export)
+                  ISSUED ──► ACTIVE ◄──► SUSPENDED (Temporary Freeze)
+                               │
+            ┌──────────────────┼──────────────────┐
+            ▼                  ▼                  ▼
+         EXPIRED            REVOKED         LOST / STOLEN
+      (Term Ended)       (Resigned/Exit)    (Blacklisted)
+```
+
+| Lifecycle State | Badge Indicator | Meaning & Access Rule |
+| :--- | :--- | :--- |
+| **Draft** | ⚪ `Gray` | Newly created record; pending administrative review before printing. |
+| **Approved** | 🔵 `Blue` | Validated and approved for inclusion in batch print runs. |
+| **Issued** | 🟣 `Purple` | High-DPI physical card printed; logs issuance timestamp (`issuedAt`). |
+| **Active** | 🟢 `Green` | Currently valid credential; full campus / facility entry authorized. |
+| **Suspended** | 🟠 `Amber` | Temporary administrative hold (fees, disciplinary, leave). Gate entry denied. |
+| **Revoked** | 🔴 `Red` | Credential invalidated permanently (student graduated, employee resigned). |
+| **Lost / Stolen** | 🚨 `Rose` | Badge blacklisted to prevent unauthorized impersonator entry. Confiscate on sight. |
+| **Expired** | 🟡 `Yellow` | Credential validity date passed; renewal required. |
+
+### 2. Live Anti-Counterfeiting Verification
+
+Every badge template can include a **Dynamic Verification QR Code** that points to an authentic verification certificate:
+```text
+https://verify.stratametriq.com/badge/{{id}}
+```
+
+When scanned by any smartphone camera or optical scanner:
+1. **Live Credential Status**: Instantly displays whether the badge is 🟢 `ACTIVE`, 🟠 `SUSPENDED`, or 🔴 `REVOKED`.
+2. **Official Database Photo Match**: Displays the high-resolution photo stored in the database to immediately expose photo-swapping tampering on physical PVC cards.
+3. **Audit Information**: Card serial number, emergency phone numbers, admission/employee code, and tamper-proof verification checksum.
+
+### 3. Verification Component Code Example
+
+```jsx
+import React, { useState } from 'react';
+import { IdCardVerificationModal } from '@stratametriq/id-card-designer';
+
+function SecurityGateApp() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeRecord, setActiveRecord] = useState(null);
+
+  const rosterRecords = [
+    {
+      id: 'ADM-2026-104',
+      studentName: 'Rahul Sharma',
+      classSec: 'Class X [A]',
+      status: 'active',
+      profilePhoto: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300'
+    }
+  ];
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(true)}>
+        🛡️ Verify ID Badge
+      </button>
+
+      <IdCardVerificationModal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        records={rosterRecords}
+        activeRecord={activeRecord}
+        onUpdateRecordStatus={(recordId, newStatus) => {
+          console.log(`Updated record ${recordId} to ${newStatus}`);
+        }}
+        theme="dark"
+        categoryLabel="Student Credential"
+      />
+    </div>
+  );
+}
+```
 
 ## How It Works
 

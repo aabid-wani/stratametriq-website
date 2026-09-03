@@ -1,12 +1,96 @@
 "use client";
 
 import React, { useState } from "react";
-import { History, Box, Send, FileCode2, ShieldCheck, Terminal, Webcam, Code, Download } from "lucide-react";
+import { History, Box, Send, FileCode2, ShieldCheck, Terminal, Webcam, Code, Download, Wrench } from "lucide-react";
 
 export default function ChangelogPage() {
   const [filter, setFilter] = useState("All");
 
   const changelogData = [
+    {
+      version: "v1.11.0",
+      date: "September 02, 2026",
+      product: "ID Card Designer",
+      icon: <ShieldCheck className="w-6 h-6 text-neon-emerald" />,
+      features: [
+        {
+          type: "Added",
+          text: "ID Card Digital Verification & Card Lifecycle Suite: Upgraded the package from a badge design studio into an end-to-end Enterprise Credential Management and Anti-Counterfeiting Platform."
+        },
+        {
+          type: "Added",
+          text: "Standalone Digital Verification Modal (<IdCardVerificationModal />): Real-time verification certificate modal displaying dynamic color-coded validity banners: Active, Issued & Valid, Draft / Unverified, Suspended, Revoked, Lost / Stolen, and Expired."
+        },
+        {
+          type: "Added",
+          text: "Anti-Tampering Photo Match: Displays official high-resolution database photos alongside credential metadata to instantly expose physical photo-substitution tampering on printed cards."
+        },
+        {
+          type: "Added",
+          text: "Built-in HTML5 Camera Scanner & Barcode Reader: Integrated direct webcam and smartphone camera scanning using getUserMedia with a real-time targeting reticle overlay for instant badge lookups at gates and reception desks."
+        },
+        {
+          type: "Added",
+          text: "Instant Roll / ID Lookup & 1-Click Admin Status Controls: Direct search with live suggestion filtering, plus 1-click administrative action buttons (Activate, Mark Issued, Suspend Access, Revoke Credential, Report Lost) with instant state synchronization."
+        },
+        {
+          type: "Added",
+          text: "Card Lifecycle State Machine in <IdCardManager />: Added a dedicated Lifecycle Status column with interactive status pills, row-level 'Verify' action buttons, smart lifecycle filter tabs (All, Active, Issued, Draft, Suspended, Revoked), and batch actions for bulk status transitions."
+        },
+        {
+          type: "Added",
+          text: "Automatic Print Issuance Tracking: When exporting cards via Batch PDF or ZIP, selected records automatically transition to 'Issued' status and record their issuance timestamp (issuedAt)."
+        },
+        {
+          type: "Added",
+          text: "Dynamic Verification QR Code Preset: Added a dedicated 'Verification QR' preset button in the Studio sidebar supporting customizable verification base endpoints and dynamic cardholder ID binding."
+        },
+        {
+          type: "Added",
+          text: "Public Verification Link Generator: Generates copyable secure verification URLs (e.g. https://verify.stratametriq.com/badge/{{id}}) with tamper-proof digital checksum indicators."
+        },
+        {
+          type: "Added",
+          text: "Exported IdCardVerificationModal Component: Exported <IdCardVerificationModal /> from package root for embedding in custom security gate portals, kiosks, and mobile applications."
+        }
+      ]
+    },
+    {
+      version: "v1.10.0",
+      date: "September 01, 2026",
+      product: "ID Card Designer",
+      icon: <Wrench className="w-6 h-6 text-neon-cyan" />,
+      features: [
+        {
+          type: "Added",
+          text: "Brand & Security Watermark Suite: Integrated complete watermarking support for templates, live canvas editing, card previews, and batch print exports."
+        },
+        {
+          type: "Added",
+          text: "Multi-Type Watermarking: Supports custom Brand / Security text (defaulting to STRATAMETRIQ with dynamic placeholder interpolation such as {{companyName}} or {{employeeId}}), custom uploaded Seal / Logo images, and repeating SVG security pattern tiles."
+        },
+        {
+          type: "Added",
+          text: "Interactive Watermark Inspector: Added dedicated controls in the right Property Inspector with quick preset buttons (STRATAMETRIQ, OFFICIAL, CONFIDENTIAL, SAMPLE, DRAFT), fine-tuned opacity slider (3%–40%), rotation angle presets (-45°, -30°, 0°, 30°, 45°), color picker, and font size selector."
+        },
+        {
+          type: "Added",
+          text: "Layer Placement Control: Configure watermarks to sit in the Background layer (behind text, photos, and barcodes for crisp readability) or the Overlay layer (top security/draft layer across the entire badge)."
+        },
+        {
+          type: "Added",
+          text: "Target Side Selection: Apply watermarks to Both Sides (Front & Back), Front Side Only, or Back Side Only."
+        },
+        {
+          type: "Added",
+          text: "High-DPI PDF & Batch Export Pipeline: Watermarks are rendered in high resolution (300 DPI) across single-card PNG downloads, thermal PVC CR80 prints, and multi-page batch PDF print sheets while maintaining 100% optical scannability for barcodes and QR codes."
+        },
+        {
+          type: "Added",
+          text: "Exported WatermarkLayer Component: Exported <WatermarkLayer /> in package entry point for standalone custom ID card previews and embedded applications."
+        }
+      ]
+    },
     {
       version: "v1.9.5",
       date: "August 30, 2026",
@@ -467,16 +551,27 @@ export default function ChangelogPage() {
               </div>
 
               <div className="space-y-3 mt-4">
-                {item.features.map((feature, fIdx) => (
-                  <div key={fIdx} className="flex items-start gap-3">
-                    <span className={`mt-0.5 px-2 py-0.5 text-[10px] font-black uppercase rounded ${feature.type === 'Added' ? 'bg-emerald-50 text-emerald-600 border border-emerald-200 dark:bg-neon-emerald/20 dark:text-neon-emerald dark:border-neon-emerald/20' : 'bg-purple-50 text-purple-600 border border-purple-200 dark:bg-neon-purple/20 dark:text-neon-purple dark:border-neon-purple/20'}`}>
-                      {feature.type}
-                    </span>
-                    <p className="text-sm text-slate-600 dark:text-gray-300 leading-relaxed flex-1">
-                      {feature.text}
-                    </p>
-                  </div>
-                ))}
+                {item.features.map((feature, fIdx) => {
+                  const badgeClass =
+                    feature.type === "Added"
+                      ? "bg-emerald-50 text-emerald-600 border border-emerald-200 dark:bg-neon-emerald/20 dark:text-neon-emerald dark:border-neon-emerald/20"
+                      : feature.type === "Fixed"
+                      ? "bg-amber-50 text-amber-600 border border-amber-200 dark:bg-amber-500/20 dark:text-amber-400 dark:border-amber-500/30"
+                      : feature.type === "Changed"
+                      ? "bg-blue-50 text-blue-600 border border-blue-200 dark:bg-blue-500/20 dark:text-blue-400 dark:border-blue-500/30"
+                      : "bg-purple-50 text-purple-600 border border-purple-200 dark:bg-neon-purple/20 dark:text-neon-purple dark:border-neon-purple/20";
+
+                  return (
+                    <div key={fIdx} className="flex items-start gap-3">
+                      <span className={`mt-0.5 px-2 py-0.5 text-[10px] font-black uppercase rounded ${badgeClass}`}>
+                        {feature.type}
+                      </span>
+                      <p className="text-sm text-slate-600 dark:text-gray-300 leading-relaxed flex-1">
+                        {feature.text}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           ))}
